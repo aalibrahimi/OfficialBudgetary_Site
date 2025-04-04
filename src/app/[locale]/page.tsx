@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { 
   ChevronRight, 
   BarChart3, 
@@ -669,7 +669,7 @@ export default function BudgetaryLandingPage() {
 }
 
 // Feature Card Component
-function FeatureCard({ icon, title, description, isDarkMode }) {
+function FeatureCard({ icon, title, description, isDarkMode } : { icon: ReactNode, title : string, description : string, isDarkMode : boolean } ) {
   return (
     <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
       <CardHeader>
@@ -690,7 +690,7 @@ function FeatureCard({ icon, title, description, isDarkMode }) {
 }
 
 // Testimonial Card Component
-function TestimonialCard({ quote, author, avatar, rating, isDarkMode }) {
+function TestimonialCard({ quote, author, avatar, rating, isDarkMode } : { quote: string, author: string, avatar: string, rating: number, isDarkMode: boolean }) {
   return (
     <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
       <CardHeader>
@@ -715,7 +715,7 @@ function TestimonialCard({ quote, author, avatar, rating, isDarkMode }) {
 }
 
 // Pricing Card Component
-function PricingCard({ tier, price, period, description, features, recommended, isDarkMode }) {
+function PricingCard({ tier, price, period, description, features, recommended, isDarkMode } : { tier: string, price: string, period?: string, description: string, features: string[], recommended: boolean, isDarkMode: boolean }) {
   return (
     <Card className={`relative ${
       recommended 
