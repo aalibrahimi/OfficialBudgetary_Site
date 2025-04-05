@@ -14,13 +14,17 @@ import {
   Sun, 
   Menu, 
   X,
-  Sparkles
+  Sparkles,
+  Github
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
+import GradientText from '@/MyComponents/GradientText';
 
 // Demo dashboard data
 const demoExpenseData = [
@@ -663,6 +667,45 @@ export default function BudgetaryLandingPage() {
         </div>
       </section>
 
+      <div className="mt-10 border-t border-gray-200 dark:border-gray-800 pt-6">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:justify-center">
+            <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+              © {new Date().getFullYear()} CodeWithAli. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-4">
+              <Link href="https://github.com/CodeWithAli-Co" draggable={false} target="_blank" className={`w-8 h-8 rounded-full flex items-center justify-center ${isDarkMode ? 'bg-teal-950/30 hover:bg-teal-400/50' : 'bg-teal-500/30 hover:bg-teal-800/50'} hover:border border-teal-950/30 `}>
+                <Github />
+              </Link>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-row items-center justify-center gap-2">
+            {/* CodeWithAli Branding - Same Line */}
+            {/* <div className="mt-10 flex flex-col items-center justify-center"> */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <Link href="https://codewithali.com/" draggable={false} target="_blank">
+              <Image
+                src="/codewithali.png"
+                className="w-auto h-8 isolate"
+                alt="CodeWithAli Logo"
+                draggable={false}
+                width={30}
+                height={30}
+                quality={100}
+              />
+            </Link>
+
+            <p className="text-slate-400 text-md">
+              <Link
+                href="https://codewithali.com/"
+                draggable={false}
+                target="_blank"
+                className={`font-semiboldm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}
+              >
+                Designed by <GradientText>CodeWithAli</GradientText>
+              </Link>
+            </p>
+          </div>
+        </div>
     
     </div>
   );

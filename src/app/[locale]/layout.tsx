@@ -39,9 +39,7 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <div className="flex min-h-screen flex-col">
-              <Navbar />
               <main className="flex-1 w-full bg-black/10">{children}</main>
-              <Footer />
             </div>
           </ThemeProvider>
         </NextIntlClientProvider>
