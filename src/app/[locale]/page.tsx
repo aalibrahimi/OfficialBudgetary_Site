@@ -108,8 +108,8 @@ export default function BudgetaryLandingPage() {
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className={`absolute top-0 -right-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-teal-900/20' : 'bg-teal-200/30'} blur-[100px]`}></div>
-          <div className={`absolute bottom-0 -left-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-cyan-900/10' : 'bg-cyan-100/30'} blur-[100px]`}></div>
+          <div className={`absolute top-0 -right-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-teal-900/20' : 'bg-teal-300/30'} blur-[100px]`}></div>
+          <div className={`absolute bottom-0 -left-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-cyan-900/10' : 'bg-cyan-300/30'} blur-[100px]`}></div>
           
           {isDarkMode && (
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
@@ -145,7 +145,7 @@ export default function BudgetaryLandingPage() {
               
               <Button variant="outline" size="lg" className={`gap-2 ${isDarkMode 
                 ? 'border-gray-700 hover:bg-gray-800' 
-                : 'border-gray-300 hover:bg-gray-100'}`}>
+                : 'border-gray-300 text-white hover:bg-blue-950'}`}>
                 Learn More
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -331,13 +331,13 @@ export default function BudgetaryLandingPage() {
           <div className="max-w-4xl mx-auto">
             <Tabs defaultValue="track" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-8">
-                <TabsTrigger value="track" className={`${isDarkMode ? 'data-[state=active]:bg-gray-800' : 'data-[state=active]:bg-white'}`}>
+                <TabsTrigger value="track" className={`${isDarkMode ? 'data-[state=active]:bg-gray-600 data-[state=active]:text-white' : 'data-[state=active]:bg-white data-[state=active]:text-black'}`}>
                   1. Track Expenses
                 </TabsTrigger>
-                <TabsTrigger value="analyze" className={`${isDarkMode ? 'data-[state=active]:bg-gray-800' : 'data-[state=active]:bg-white'}`}>
+                <TabsTrigger value="analyze" className={`${isDarkMode ? 'data-[state=active]:bg-gray-600' : 'data-[state=active]:bg-white data-[state=active]:text-black'}`}>
                   2. Analyze Spending
                 </TabsTrigger>
-                <TabsTrigger value="plan" className={`${isDarkMode ? 'data-[state=active]:bg-gray-800' : 'data-[state=active]:bg-white'}`}>
+                <TabsTrigger value="plan" className={`${isDarkMode ? 'data-[state=active]:bg-gray-600' : 'data-[state=active]:bg-white data-[state=active]:text-black'}`}>
                   3. Plan & Save
                 </TabsTrigger>
               </TabsList>
@@ -367,7 +367,7 @@ export default function BudgetaryLandingPage() {
                       </li>
                     </ul>
                   </div>
-                  <div className={`p-6 rounded-lg ${isDarkMode ? 'bg-gray-900' : 'bg-teal-50'}`}>
+                  <div className={`p-6 rounded-lg ${isDarkMode ? 'bg-gray-900' : 'bg-teal-100'}`}>
                     <div className={`p-4 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-sm`}>
                       <h4 className="text-sm font-medium mb-3">Quick Expense Entry</h4>
                       <div className="space-y-3">
@@ -671,7 +671,7 @@ export default function BudgetaryLandingPage() {
 // Feature Card Component
 function FeatureCard({ icon, title, description, isDarkMode } : { icon: ReactNode, title : string, description : string, isDarkMode : boolean } ) {
   return (
-    <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white text-black border-gray-200'}`}>
       <CardHeader>
         <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
           isDarkMode ? 'bg-teal-900/50 text-teal-400' : 'bg-teal-100 text-teal-600'
@@ -692,7 +692,7 @@ function FeatureCard({ icon, title, description, isDarkMode } : { icon: ReactNod
 // Testimonial Card Component
 function TestimonialCard({ quote, author, avatar, rating, isDarkMode } : { quote: string, author: string, avatar: string, rating: number, isDarkMode: boolean }) {
   return (
-    <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <Card className={`${isDarkMode ? 'bg-gray-800 text-teal-400 border-gray-700' : 'bg-gray-100 text-teal-600 border-gray-200'}`}>
       <CardHeader>
         <div className="flex items-center space-x-1 mb-2">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -719,8 +719,8 @@ function PricingCard({ tier, price, period, description, features, recommended, 
   return (
     <Card className={`relative ${
       recommended 
-        ? isDarkMode ? 'border-teal-500 bg-teal-900/20' : 'border-teal-500 bg-teal-50' 
-        : isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+        ? isDarkMode ? 'border-teal-500 text-teal-400 bg-teal-900/20' : 'border-teal-500 text-teal-600 bg-teal-50' 
+        : isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white text-black border-gray-200'
     }`}>
       {recommended && (
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
