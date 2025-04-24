@@ -498,7 +498,7 @@ export default function BudgetaryLandingPage() {
                       </li>
                       <li className="flex items-start">
                         <div className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full ${isDarkMode ? 'bg-teal-900 text-teal-400' : 'bg-teal-100 text-teal-600'} flex items-center justify-center text-xs`}>3</div>
-                        <p>Get alerted when you're approaching budget limits</p>
+                        <p>Get alerted when you&apos;re approaching budget limits</p>
                       </li>
                       <li className="flex items-start">
                         <div className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full ${isDarkMode ? 'bg-teal-900 text-teal-400' : 'bg-teal-100 text-teal-600'} flex items-center justify-center text-xs`}>4</div>
@@ -589,8 +589,8 @@ export default function BudgetaryLandingPage() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-bold mb-6">Affordable plans for everyone</h2>
             <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Whether you're just starting your financial journey or looking for advanced features, 
-              we have a plan that's right for you.
+              Whether you&apos;re just starting your financial journey or looking for advanced features, 
+              we have a plan that&apos;s right for you.
             </p>
           </div>
           
@@ -744,11 +744,17 @@ function TestimonialCard({ quote, author, avatar, rating, isDarkMode } : { quote
         </div>
       </CardHeader>
       <CardContent>
-        <p className={`text-lg italic mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>"{quote}"</p>
+        <p className={`text-lg italic mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>&quot;{quote}&quot;</p>
         
         <div className="flex items-center">
           <div className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} flex items-center justify-center mr-3`}>
-            {author.charAt(0)}
+            {avatar ? (
+              <Image src={avatar} alt='Avatar' width={500} height={500} className='w-5 h-auto object-cover' />
+            ) : (
+              <>
+                {author.charAt(0)}
+              </>
+            )}
           </div>
           <span className="font-medium">{author}</span>
         </div>

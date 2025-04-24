@@ -24,22 +24,22 @@ interface EmailContactProps {
   projectDetails: string;
 }
 
-const ar_email = {
-  preview: "طلب مشروع جديد من",
-  PR: "طلب مشروع",
-  title: "طلب مشروع جديد",
-  desc: "يبحث عن خبرة في البناء.",
-  clientDetails: {
-    heading: "معلومات العميل",
-    name: "الاسم",
-    email: "البريد الإلكتروني",
-  },
-  footer: {
-    rights: "©كنوز | أوريون. جميع الحقوق محفوظة.",
-    noReply:
-      "هذا البريد الإلكتروني تم إنشاؤه تلقائيًا. يرجى عدم الرد عليه مباشرة.",
-  },
-};
+// const ar_email = {
+//   preview: "طلب مشروع جديد من",
+//   PR: "طلب مشروع",
+//   title: "طلب مشروع جديد",
+//   desc: "يبحث عن خبرة في البناء.",
+//   clientDetails: {
+//     heading: "معلومات العميل",
+//     name: "الاسم",
+//     email: "البريد الإلكتروني",
+//   },
+//   footer: {
+//     rights: "©كنوز | أوريون. جميع الحقوق محفوظة.",
+//     noReply:
+//       "هذا البريد الإلكتروني تم إنشاؤه تلقائيًا. يرجى عدم الرد عليه مباشرة.",
+//   },
+// };
 
 const en_email = {
   preview: "New project request from",

@@ -1,7 +1,5 @@
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { Navbar } from "@/MyComponents/navbar";
-import { Footer } from "@/MyComponents/Footer";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
