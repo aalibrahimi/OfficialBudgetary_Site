@@ -14,13 +14,17 @@ import {
   Sun, 
   Menu, 
   X,
-  Sparkles
+  Sparkles,
+  Github
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
+import GradientText from '@/MyComponents/GradientText';
 
 // Demo dashboard data
 const demoExpenseData = [
@@ -108,8 +112,8 @@ export default function BudgetaryLandingPage() {
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className={`absolute top-0 -right-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-teal-900/20' : 'bg-teal-200/30'} blur-[100px]`}></div>
-          <div className={`absolute bottom-0 -left-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-cyan-900/10' : 'bg-cyan-100/30'} blur-[100px]`}></div>
+          <div className={`absolute top-0 -right-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-teal-900/20' : 'bg-teal-300/30'} blur-[100px]`}></div>
+          <div className={`absolute bottom-0 -left-32 w-96 h-96 rounded-full ${isDarkMode ? 'bg-cyan-900/10' : 'bg-cyan-300/30'} blur-[100px]`}></div>
           
           {isDarkMode && (
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
@@ -145,7 +149,7 @@ export default function BudgetaryLandingPage() {
               
               <Button variant="outline" size="lg" className={`gap-2 ${isDarkMode 
                 ? 'border-gray-700 hover:bg-gray-800' 
-                : 'border-gray-300 hover:bg-gray-100'}`}>
+                : 'border-gray-300 text-white hover:bg-blue-950'}`}>
                 Learn More
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -331,13 +335,13 @@ export default function BudgetaryLandingPage() {
           <div className="max-w-4xl mx-auto">
             <Tabs defaultValue="track" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-8">
-                <TabsTrigger value="track" className={`${isDarkMode ? 'data-[state=active]:bg-gray-800' : 'data-[state=active]:bg-white'}`}>
+                <TabsTrigger value="track" className={`${isDarkMode ? 'data-[state=active]:bg-gray-600 data-[state=active]:text-white' : 'data-[state=active]:bg-white data-[state=active]:text-black'}`}>
                   1. Track Expenses
                 </TabsTrigger>
-                <TabsTrigger value="analyze" className={`${isDarkMode ? 'data-[state=active]:bg-gray-800' : 'data-[state=active]:bg-white'}`}>
+                <TabsTrigger value="analyze" className={`${isDarkMode ? 'data-[state=active]:bg-gray-600' : 'data-[state=active]:bg-white data-[state=active]:text-black'}`}>
                   2. Analyze Spending
                 </TabsTrigger>
-                <TabsTrigger value="plan" className={`${isDarkMode ? 'data-[state=active]:bg-gray-800' : 'data-[state=active]:bg-white'}`}>
+                <TabsTrigger value="plan" className={`${isDarkMode ? 'data-[state=active]:bg-gray-600' : 'data-[state=active]:bg-white data-[state=active]:text-black'}`}>
                   3. Plan & Save
                 </TabsTrigger>
               </TabsList>
@@ -367,7 +371,7 @@ export default function BudgetaryLandingPage() {
                       </li>
                     </ul>
                   </div>
-                  <div className={`p-6 rounded-lg ${isDarkMode ? 'bg-gray-900' : 'bg-teal-50'}`}>
+                  <div className={`p-6 rounded-lg ${isDarkMode ? 'bg-gray-900' : 'bg-teal-100'}`}>
                     <div className={`p-4 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-sm`}>
                       <h4 className="text-sm font-medium mb-3">Quick Expense Entry</h4>
                       <div className="space-y-3">
@@ -494,7 +498,7 @@ export default function BudgetaryLandingPage() {
                       </li>
                       <li className="flex items-start">
                         <div className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full ${isDarkMode ? 'bg-teal-900 text-teal-400' : 'bg-teal-100 text-teal-600'} flex items-center justify-center text-xs`}>3</div>
-                        <p>Get alerted when you're approaching budget limits</p>
+                        <p>Get alerted when you&apos;re approaching budget limits</p>
                       </li>
                       <li className="flex items-start">
                         <div className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full ${isDarkMode ? 'bg-teal-900 text-teal-400' : 'bg-teal-100 text-teal-600'} flex items-center justify-center text-xs`}>4</div>
@@ -585,8 +589,8 @@ export default function BudgetaryLandingPage() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-bold mb-6">Affordable plans for everyone</h2>
             <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Whether you're just starting your financial journey or looking for advanced features, 
-              we have a plan that's right for you.
+              Whether you&apos;re just starting your financial journey or looking for advanced features, 
+              we have a plan that&apos;s right for you.
             </p>
           </div>
           
@@ -663,6 +667,45 @@ export default function BudgetaryLandingPage() {
         </div>
       </section>
 
+      <div className="mt-10 border-t border-gray-200 dark:border-gray-800 pt-6">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:justify-center">
+            <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+              © {new Date().getFullYear()} CodeWithAli. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-4">
+              <Link href="https://github.com/CodeWithAli-Co" draggable={false} target="_blank" className={`w-8 h-8 rounded-full flex items-center justify-center ${isDarkMode ? 'bg-teal-950/30 hover:bg-teal-400/50' : 'bg-teal-500/30 hover:bg-teal-800/50'} hover:border border-teal-950/30 `}>
+                <Github />
+              </Link>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-row items-center justify-center gap-2">
+            {/* CodeWithAli Branding - Same Line */}
+            {/* <div className="mt-10 flex flex-col items-center justify-center"> */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <Link href="https://codewithali.com/" draggable={false} target="_blank">
+              <Image
+                src="/codewithali.png"
+                className="w-auto h-8 isolate"
+                alt="CodeWithAli Logo"
+                draggable={false}
+                width={30}
+                height={30}
+                quality={100}
+              />
+            </Link>
+
+            <p className="text-slate-400 text-md">
+              <Link
+                href="https://codewithali.com/"
+                draggable={false}
+                target="_blank"
+                className={`font-semiboldm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}
+              >
+                Designed by <GradientText>CodeWithAli</GradientText>
+              </Link>
+            </p>
+          </div>
+        </div>
     
     </div>
   );
@@ -671,7 +714,7 @@ export default function BudgetaryLandingPage() {
 // Feature Card Component
 function FeatureCard({ icon, title, description, isDarkMode } : { icon: ReactNode, title : string, description : string, isDarkMode : boolean } ) {
   return (
-    <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white text-black border-gray-200'}`}>
       <CardHeader>
         <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
           isDarkMode ? 'bg-teal-900/50 text-teal-400' : 'bg-teal-100 text-teal-600'
@@ -692,7 +735,7 @@ function FeatureCard({ icon, title, description, isDarkMode } : { icon: ReactNod
 // Testimonial Card Component
 function TestimonialCard({ quote, author, avatar, rating, isDarkMode } : { quote: string, author: string, avatar: string, rating: number, isDarkMode: boolean }) {
   return (
-    <Card className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <Card className={`${isDarkMode ? 'bg-gray-800 text-teal-400 border-gray-700' : 'bg-gray-100 text-teal-600 border-gray-200'}`}>
       <CardHeader>
         <div className="flex items-center space-x-1 mb-2">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -701,11 +744,17 @@ function TestimonialCard({ quote, author, avatar, rating, isDarkMode } : { quote
         </div>
       </CardHeader>
       <CardContent>
-        <p className={`text-lg italic mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>"{quote}"</p>
+        <p className={`text-lg italic mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>&quot;{quote}&quot;</p>
         
         <div className="flex items-center">
           <div className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} flex items-center justify-center mr-3`}>
-            {author.charAt(0)}
+            {avatar ? (
+              <Image src={avatar} alt='Avatar' width={500} height={500} className='w-5 h-auto object-cover' />
+            ) : (
+              <>
+                {author.charAt(0)}
+              </>
+            )}
           </div>
           <span className="font-medium">{author}</span>
         </div>
@@ -719,8 +768,8 @@ function PricingCard({ tier, price, period, description, features, recommended, 
   return (
     <Card className={`relative ${
       recommended 
-        ? isDarkMode ? 'border-teal-500 bg-teal-900/20' : 'border-teal-500 bg-teal-50' 
-        : isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+        ? isDarkMode ? 'border-teal-500 text-teal-400 bg-teal-900/20' : 'border-teal-500 text-teal-600 bg-teal-50' 
+        : isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white text-black border-gray-200'
     }`}>
       {recommended && (
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

@@ -1,7 +1,5 @@
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { Navbar } from "@/MyComponents/navbar";
-import { Footer } from "@/MyComponents/Footer";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -9,8 +7,8 @@ import { getLangDir } from "rtl-detect";
 
 // This will show up when you paste the website link as preview
 export const metadata = {
-  title: "Website Template",
-  description: "CodeWithAli's Website Template",
+  title: "Budgetary",
+  description: "Discover CodeWithAli's Budgeting & Expense Tracker App.",
 };
 
 export default async function LocaleLayout({
@@ -39,9 +37,7 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <div className="flex min-h-screen flex-col">
-              <Navbar />
               <main className="flex-1 w-full bg-black/10">{children}</main>
-              <Footer />
             </div>
           </ThemeProvider>
         </NextIntlClientProvider>
