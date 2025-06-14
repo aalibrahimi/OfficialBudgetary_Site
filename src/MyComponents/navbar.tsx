@@ -126,7 +126,7 @@ export function Navbar(): React.ReactElement {
           
           {/* Mobile menu toggle button */}
           <button 
-            className="md:hidden p-2 rounded-md hover:bg-amber-600 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-white dark:hover:bg-gray-800 transition-colors"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -146,10 +146,10 @@ export function Navbar(): React.ReactElement {
                 if (route.content) {
                   return (
                     <NavigationMenuItem key={index}>
-                      <NavigationMenuTrigger className="bg-amber-100 text-black dark:bg-[#000000] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 ease-in-out">
+                      <NavigationMenuTrigger className="bg-white text-black dark:bg-[#000000] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 ease-in-out">
                         {route.title}
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="bg-amber-50 text-black dark:bg-[#000000] dark:text-white transition-transform duration-300">
+                      <NavigationMenuContent className="bg-white text-black dark:bg-[#000000] dark:text-white transition-transform duration-300">
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] text-center">
                           {route.content.map((item, i) => (
                             <ListItem
