@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
               <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <FileText className="h-5 w-5 text-amber-600 dark:text-teal-400" />
+                    <FileText className="h-5 w-5 text-teal-600 dark:text-teal-400" />
                     Legal Documents
                   </CardTitle>
                 </CardHeader>
@@ -201,10 +201,10 @@ export default function PrivacyPolicyPage() {
               
               {/* Overview Section */}
               <section id="overview" className="mb-12">
-                <Card className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-gray-900 dark:to-teal-900/20 border-amber-200 dark:border-gray-700">
+                <Card className="bg-gradient white dark:from-gray-900 dark:to-teal-900/20 border-gray-200 dark:border-gray-700">
                   <CardHeader>
                     <CardTitle className="text-2xl flex items-center gap-2">
-                      <Eye className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                      {/* <Eye className="h-6 w-6 text-teal-600 dark:text-teal-400" /> */}
                       About This Privacy Policy
                     </CardTitle>
                   </CardHeader>
@@ -215,8 +215,8 @@ export default function PrivacyPolicyPage() {
                       We are committed to providing you with powerful budgeting tools while maintaining the highest 
                       standards of data security and privacy protection.
                     </p>
-                    <div className="bg-white dark:bg-teal-950/30 p-4 rounded-lg border-l-4 border-amber-500 dark:border-teal-400">
-                      <p className="font-medium text-amber-800 dark:text-teal-200">
+                    <div className="bg-white dark:bg-teal-950/30 p-4 rounded-lg border-l-4 border-teal-500 dark:border-teal-400">
+                      <p className="font-medium text-teal-700 dark:text-teal-200">
                         <strong>Our Mission:</strong> To help you take control of your finances through innovative 
                         technology, backed by enterprise-grade security and complete transparency about how we handle your data.
                       </p>
@@ -228,14 +228,14 @@ export default function PrivacyPolicyPage() {
               {/* Data Collection Section */}
               <section id="data-collection" className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Database className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                  <Database className="h-6 w-6 text-teal-600 dark:text-teal-400" />
                   What Data We Access and Why
                 </h2>
                 
                 <div className="grid gap-6">
                   <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
-                      <CardTitle className="text-lg text-blue-600 dark:text-blue-400">
+                      <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Financial Data via Plaid
                       </CardTitle>
                       <CardDescription>
@@ -245,7 +245,7 @@ export default function PrivacyPolicyPage() {
                     <CardContent>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-amber-600 dark:text-teal-400 mb-2">Account Information:</h4>
+                          <h4 className="font-semibold text-teal-600 dark:text-teal-400 mb-2">Account Information:</h4>
                           <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Account names, types, and balances</li>
                             <li>Account numbers (encrypted and never stored in readable format)</li>
@@ -255,7 +255,7 @@ export default function PrivacyPolicyPage() {
                         </div>
                         
                         <div>
-                          <h4 className="font-semibold text-amber-600 dark:text-teal-400 mb-2">Transaction Data:</h4>
+                          <h4 className="font-semibold text-teal-600 dark:text-teal-400 mb-2">Transaction Data:</h4>
                           <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Transaction amounts, dates, and descriptions</li>
                             <li>Merchant information and categories</li>
@@ -264,7 +264,7 @@ export default function PrivacyPolicyPage() {
                         </div>
                         
                         <div>
-                          <h4 className="font-semibold text-amber-600 dark:text-teal-400 mb-2">Authentication Data:</h4>
+                          <h4 className="font-semibold text-teal-600 dark:text-teal-400 mb-2">Authentication Data:</h4>
                           <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                             <li>Account verification tokens (not your banking passwords)</li>
                             <li>Connection status and last sync timestamps</li>
@@ -292,12 +292,12 @@ export default function PrivacyPolicyPage() {
 
                   <Card className="bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
                     <CardHeader>
-                      <CardTitle className="text-lg text-red-600 dark:text-red-400">
+                      <CardTitle className="text-lg text-red-800 dark:text-red-400">
                         We Will NOT Have Access To:
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ul className="list-disc list-inside space-y-2 text-red-700 dark:text-red-300">
+                      <ul className="list-disc list-inside space-y-2 text-black dark:text-red-300">
                         <li>Your online banking credentials</li>
                         <li>Your Social Security Number</li>
                         <li>Credit scores or credit reports</li>
@@ -312,7 +312,7 @@ export default function PrivacyPolicyPage() {
               {/* Data Usage Section */}
               <section id="data-usage" className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Users className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                  <Users className="h-6 w-6 text-teal-600 dark:text-teal-400" />
                   How We Use Your Data
                 </h2>
                 
@@ -335,7 +335,7 @@ export default function PrivacyPolicyPage() {
 
                   <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
-                      <CardTitle className="text-lg text-blue-600 dark:text-blue-400">
+                      <CardTitle className="text-lg text-teal-600 dark:text-blue-400">
                         Secondary Uses
                       </CardTitle>
                     </CardHeader>
@@ -349,9 +349,9 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-white/20 border-amber-200 dark:border-amber-800">
+                  <Card className="bg-white dark:bg-white/20 border-teal-200 dark:border-teal-800">
                     <CardHeader>
-                      <CardTitle className="text-lg text-amber-600 dark:text-amber-400">
+                      <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Data Minimization Principle
                       </CardTitle>
                     </CardHeader>
@@ -376,7 +376,7 @@ export default function PrivacyPolicyPage() {
               {/* Data Security Section */}
               <section id="data-security" className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Lock className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                  <Lock className="h-6 w-6 text-teal-600 dark:text-teal-400" />
                   How We Secure Your Data
                 </h2>
                 
@@ -436,7 +436,7 @@ export default function PrivacyPolicyPage() {
               {/* Third-Party Services Section */}
               <section id="third-party" className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Globe className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                  <Globe className="h-6 w-6 text-teal-600 dark:text-teal-400" />
                   Third-Party Integrations
                 </h2>
                 
@@ -517,7 +517,7 @@ export default function PrivacyPolicyPage() {
               {/* User Rights Section */}
               <section id="user-rights" className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Shield className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                  <Shield className="h-6 w-6 text-teal-600 dark:text-teal-400" />
                   Your Rights and Data Control
                 </h2>
                 
@@ -554,9 +554,9 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-white/20 border-amber-200 dark:border-amber-800">
+                  <Card className="bg-white dark:bg-white/20 border-teal-200 dark:border-teal-800">
                     <CardHeader>
-                      <CardTitle className="text-lg text-amber-600 dark:text-amber-400">
+                      <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Data Deletion Process
                       </CardTitle>
                     </CardHeader>
@@ -590,7 +590,7 @@ export default function PrivacyPolicyPage() {
               {/* Contact Section */}
               <section id="contact" className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Mail className="h-6 w-6 text-amber-600 dark:text-teal-400" />
+                  <Mail className="h-6 w-6 text-teal-600 dark:text-teal-400" />
                   Contact Information
                 </h2>
                 
@@ -647,9 +647,9 @@ export default function PrivacyPolicyPage() {
                   </Card>
                 </div>
 
-                <Card className="mt-6 bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-gray-900 dark:to-teal-900/20 border-amber-200 dark:border-gray-700">
+                <Card className="mt-6 bg-gradient-to-r from-teal-50 to-teal-50 dark:from-gray-900 dark:to-teal-900/20 border-teal-200 dark:border-gray-700">
                   <CardHeader>
-                    <CardTitle className="text-lg text-amber-600 dark:text-teal-400">
+                    <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                       Our Commitment to You
                     </CardTitle>
                   </CardHeader>
@@ -681,13 +681,13 @@ export default function PrivacyPolicyPage() {
                   <div className="flex gap-4">
                     <Link
                       href="/terms"
-                      className="text-amber-600 dark:text-teal-400 hover:underline flex items-center gap-1"
+                      className="text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1"
                     >
                       Terms of Use <ExternalLink className="h-3 w-3" />
                     </Link>
                     <Link
                       href="/security"
-                      className="text-amber-600 dark:text-teal-400 hover:underline flex items-center gap-1"
+                      className="text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1"
                     >
                       Security Policy <ExternalLink className="h-3 w-3" />
                     </Link>
