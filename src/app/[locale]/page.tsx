@@ -605,8 +605,8 @@ export default function BudgetaryLandingPage() {
               isDarkMode={isDarkMode}
             />
             <PricingCard
-              tier="Premium"
-              price="$4.99"
+              tier="Basic"
+              price="$6.99"
               period="per month"
               description="Advanced features for personal financial management"
               features={[
@@ -621,8 +621,8 @@ export default function BudgetaryLandingPage() {
               isDarkMode={isDarkMode}
             />
             <PricingCard
-              tier="Family"
-              price="$9.99"
+              tier="Premium"
+              price="$12.99"
               period="per month"
               description="Share your budget with family members or partners"
               features={[
