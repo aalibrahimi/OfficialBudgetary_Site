@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
                         {item.external ? (
                           <Link
                             href={item.route!}
-                            className="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                            className="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-teal-500 hover:text-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                           >
                             <div className="flex items-center gap-2">
                               {item.icon}
@@ -174,13 +174,13 @@ export default function PrivacyPolicyPage() {
                         ) : (
                           <button
                             onClick={() => scrollToSection(item.id)}
-                            className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors ${
+                            className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-teal-500 hover:text-white ${
                               activeSection === item.id
-                                ? 'bg-white text-white dark:bg-teal-500 dark:text-black'
-                                : 'hover:bg-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                                ? 'bg-teal-500 text-white dark:bg-teal-500 dark:text-black'
+                                : 'hover:bg-teal-500 hover:text-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                             }`}
                           >
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 ">
                               {item.icon}
                               {item.title}
                             </div>
@@ -349,7 +349,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-white/20 border-teal-200 dark:border-teal-800">
+                  <Card className="bg-white dark:bg-black border-teal-200 dark:border-teal-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Data Minimization Principle
@@ -359,7 +359,7 @@ export default function PrivacyPolicyPage() {
                       <p className="text-gray-700 dark:text-gray-300 mb-4">
                         We only collect and process data that is directly necessary for providing our budgeting services.
                       </p>
-                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                      <div className="bg-white dark:bg-black p-4 rounded-lg">
                         <h4 className="font-semibold mb-2">We do NOT engage in:</h4>
                         <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                           <li>Behavioral advertising or user profiling</li>
@@ -554,7 +554,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-white/20 border-teal-200 dark:border-teal-800">
+                  <Card className="bg-white dark:bg-black border-teal-200 dark:border-teal-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Data Deletion Process

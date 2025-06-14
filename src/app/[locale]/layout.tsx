@@ -4,6 +4,8 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getLangDir } from "rtl-detect";
+import { Footer } from "@/MyComponents/Footer";
+import { Navbar } from "@/MyComponents/navbar";
 
 // This will show up when you paste the website link as preview
 export const metadata = {
@@ -36,9 +38,11 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Navbar />
             <div className="flex min-h-screen flex-col">
               <main className="flex-1 w-full bg-black/10">{children}</main>
             </div>
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
