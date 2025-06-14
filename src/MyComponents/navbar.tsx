@@ -120,8 +120,8 @@ export function Navbar(): React.ReactElement {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Left section: Logo and mobile menu toggle */}
         <div className="flex items-center gap-4">
-          <Link href="/" draggable={false} className="flex items-center space-x-2">
-            <Image src="/logoPlaceholder.png" alt="Logo" draggable={false} height={45} width={45} />
+          <Link href="/" draggable={false} className="flex items-center space-x-2 ">
+            <Image src="/budgetLogo.png" alt="Logo" draggable={false} height={45} width={45} className="rounded-md"/>
           </Link>
           
           {/* Mobile menu toggle button */}

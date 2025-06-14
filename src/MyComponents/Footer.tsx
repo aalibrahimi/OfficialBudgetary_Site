@@ -45,16 +45,15 @@ export function Footer(): React.ReactElement {
   ];
 
   return (
-    <footer className="border-t border-black/80 dark:border-gray-800 bg-white text-black dark:!bg-black dark:text-white mt-auto">
+    <footer className="border-t border-black/80 dark:border-gray-800 !bg-white text-black dark:!bg-black dark:text-white mt-auto">
       <div className="container mx-auto py-10 text-center px-4 dark:!bg-blaack">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 text-center">
           <div className="flex flex-col items-center">
-            <Link href="/" draggable={false} className="flex items-center space-x-2 justify-center">
-              <Image src="/logoPlaceholder.png" alt="Logo" draggable={false} height={45} width={45} />
+            <Link href="/" draggable={false} className="flex items-center space-x-2 justify-center ">
+              <Image src="/budgetLogo.png" alt="Logo" draggable={false} height={60} width={60} className="rounded-xl" />
             </Link>
-            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-              {t('compDesc')}
-            </p>
+            <p className="mt-4 text-sm font-medium text-gray-600 dark:text-gray-400">
+Budgetary is a personal finance app that tracks your spending, analyzes your financial habits, and helps you manage your budget with personalized insights and bill reminders.            </p>
           </div>
 
           {footerLinks.map((group, i) => (

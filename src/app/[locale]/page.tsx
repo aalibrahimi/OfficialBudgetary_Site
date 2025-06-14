@@ -49,7 +49,8 @@ export default function BudgetaryLandingPage() {
       <nav className={`fixed top-0 w-full ${isDarkMode ? 'bg-gray-900/90' : 'bg-white/90'} backdrop-blur-sm z-50 border-b ${isDarkMode ? 'border-gray-800' : 'border-gray-200'}`}>
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <DollarSign className={`h-8 w-8 ${isDarkMode ? 'text-teal-400' : 'text-teal-500'}`} />
+            <DollarSign className={`h-6 w-6 ${isDarkMode ? 'text-teal-400' : 'text-teal-500'}`} />
+            {/* <Image src="/budgetLogo.png" height={30} width={30} alt="Budgetary Logo" className="rounded-md" /> */}
             <span className="text-xl font-bold">Budgetary</span>
           </div>
           
@@ -667,45 +668,6 @@ export default function BudgetaryLandingPage() {
         </div>
       </section>
 
-      <div className="mt-10 border-t border-gray-200 dark:border-gray-800 pt-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:justify-center">
-            <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} CodeWithAli. All rights reserved.
-            </p>
-            <div className="flex items-center space-x-4">
-              <Link href="https://github.com/CodeWithAli-Co" draggable={false} target="_blank" className={`w-8 h-8 rounded-full flex items-center justify-center ${isDarkMode ? 'bg-teal-950/30 hover:bg-teal-400/50' : 'bg-teal-500/30 hover:bg-teal-800/50'} hover:border border-teal-950/30 `}>
-                <Github />
-              </Link>
-            </div>
-          </div>
-          <div className="mt-4 flex flex-row items-center justify-center gap-2">
-            {/* CodeWithAli Branding - Same Line */}
-            {/* <div className="mt-10 flex flex-col items-center justify-center"> */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <Link href="https://codewithali.com/" draggable={false} target="_blank">
-              <Image
-                src="/codewithali.png"
-                className="w-auto h-8 isolate"
-                alt="CodeWithAli Logo"
-                draggable={false}
-                width={30}
-                height={30}
-                quality={100}
-              />
-            </Link>
-
-            <p className="text-slate-400 text-md">
-              <Link
-                href="https://codewithali.com/"
-                draggable={false}
-                target="_blank"
-                className={`font-semiboldm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}
-              >
-                Designed by <GradientText>CodeWithAli</GradientText>
-              </Link>
-            </p>
-          </div>
-        </div>
     
     </div>
   );
