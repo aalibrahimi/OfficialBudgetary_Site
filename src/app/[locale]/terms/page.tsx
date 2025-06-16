@@ -402,13 +402,13 @@ export default function TermsOfUsePage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <p className="flex items-start gap-2">
+                <p className="flex items-center gap-2">
                   <span className="text-green-500 mt-1">✅</span>
                   <span className="text-sm">
                     You have read and understood these Terms of Use
                   </span>
                 </p>
-                <p className="flex items-start gap-2">
+                <p className="flex items-center gap-2">
                   <span className="text-green-500 mt-1">✅</span>
                   <span className="text-sm">
                     You agree to be legally bound by these Terms
@@ -416,13 +416,13 @@ export default function TermsOfUsePage() {
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="flex items-start gap-2">
+                <p className="flex items-center gap-2">
                   <span className="text-green-500 mt-1">✅</span>
                   <span className="text-sm">
                     You meet the eligibility requirements to use the Service
                   </span>
                 </p>
-                <p className="flex items-start gap-2">
+                <p className="flex items-center gap-2">
                   <span className="text-green-500 mt-1">✅</span>
                   <span className="text-sm">
                     You will use the Service in accordance with these Terms

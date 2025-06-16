@@ -800,15 +800,6 @@ export default function PrivacyPolicyPage() {
                             unfold@codewithali.com
                           </a>
                         </p>
-                        <p className="flex items-center gap-2">
-                          <Mail className="h-4 w-4" />
-                          <a
-                            href="mailto:privacy@codewithali.com"
-                            className="text-green-600 dark:text-green-400 hover:underline"
-                          >
-                            privacy@codewithali.com
-                          </a>
-                        </p>
                       </div>
 
                       <div className="space-y-3">
@@ -816,15 +807,6 @@ export default function PrivacyPolicyPage() {
                           <strong>Hanif Palm</strong>
                           <br />
                           COO & Co-Founder
-                        </p>
-                        <p className="flex items-center gap-2">
-                          <Mail className="h-4 w-4" />
-                          <a
-                            href="mailto:unfold@codewithali.com"
-                            className="text-green-600 dark:text-green-400 hover:underline"
-                          >
-                            unfold@codewithali.com
-                          </a>
                         </p>
                         <p className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
