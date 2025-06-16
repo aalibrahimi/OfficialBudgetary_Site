@@ -109,12 +109,12 @@ export default function LegalPageTemplate({
   return (
     <div className="min-h-screen bg-teal-100 text-black dark:bg-[#000000] dark:text-white">
       {/* Header */}
-      <div className="border-b border-gray-200 dark:border-gray-800 bg-teal-50 dark:bg-gray-900/50">
+      <div>
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">
-                <GradientText>{title}</GradientText>
+                <GradientText gradient='from-black to-neutral-700 dark:from-white/90 dark:to-neutral-300'>{title}</GradientText>
               </h1>
               <p className="text-gray-600 dark:text-gray-400">
                 Last updated: {lastUpdated}
