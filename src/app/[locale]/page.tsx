@@ -138,20 +138,20 @@ export default function BudgetaryLandingPage() {
                   <div
                     className={`rounded-lg p-4 dark:bg-gray-800 bg-white shadow-sm`}
                   >
-                    <h5 className="text-xs text-gray-500">Monthly Income</h5>
-                    <p className="text-xl font-bold">$3,500.00</p>
+                    <h5 className="text-[10px] sm:text-xs text-gray-500">Monthly Income</h5>
+                    <p className="text-sm sm:text-xl font-semibold sm:font-bold">$3,500.00</p>
                   </div>
                   <div
                     className={`rounded-lg p-4 dark:bg-gray-800 bg-white shadow-sm`}
                   >
-                    <h5 className="text-xs text-gray-500">Spent This Month</h5>
-                    <p className="text-xl font-bold">$2,250.00</p>
+                    <h5 className="text-[10px] sm:text-xs text-gray-500">Spent This Month</h5>
+                    <p className="text-sm sm:text-xl font-semibold sm:font-bold">$2,250.00</p>
                   </div>
                   <div
                     className={`rounded-lg p-4 dark:bg-gray-800 bg-white shadow-sm`}
                   >
-                    <h5 className="text-xs text-gray-500">Remaining</h5>
-                    <p className="text-xl font-bold">$1,250.00</p>
+                    <h5 className="text-[10px] sm:text-xs text-gray-500">Remaining</h5>
+                    <p className="text-sm sm:text-xl font-semibold sm:font-bold">$1,250.00</p>
                   </div>
                 </div>
 
@@ -307,22 +307,22 @@ export default function BudgetaryLandingPage() {
 
           <div className="max-w-4xl mx-auto">
             <Tabs defaultValue="track" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8">
+              <TabsList className="grid w-full grid-cols-3 gap-1 mb-8 content-center">
                 <TabsTrigger
                   value="track"
-                  className={`dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
+                  className={`text-[11px] sm:text-[14px] py-1.5 sm:py-1 dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
                 >
                   1. Track Expenses
                 </TabsTrigger>
                 <TabsTrigger
                   value="analyze"
-                  className={`dark:data-[state=active]:bg-gray-600 data-[state=active]:bg-white data-[state=active]:text-black`}
+                  className={`text-[11px] sm:text-[14px] py-1.5 sm:py-1 dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
                 >
                   2. Analyze Spending
                 </TabsTrigger>
                 <TabsTrigger
                   value="plan"
-                  className={`dark:data-[state=active]:bg-gray-600 data-[state=active]:bg-white data-[state=active]:text-black`}
+                  className={`text-[11px] sm:text-[14px] py-1.5 sm:py-1 dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
                 >
                   3. Plan & Save
                 </TabsTrigger>
