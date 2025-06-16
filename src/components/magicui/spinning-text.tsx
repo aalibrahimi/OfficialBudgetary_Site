@@ -82,6 +82,7 @@ export function SpinningText({
       initial="hidden"
       animate="visible"
       variants={containerVariants}
+      // @ts-expect-error ( expect string to be passed )
       transition={finalTransition}
     >
       {letters.map((letter, index) => (

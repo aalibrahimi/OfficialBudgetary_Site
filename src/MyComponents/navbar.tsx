@@ -1,100 +1,82 @@
 // src/components/Navbar.tsx
 "use client";
 import React, { useEffect, useState } from "react";
-import { Link, usePathname } from "@/i18n/navigation";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Link } from "@/i18n/navigation";
+import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Menu, X, Globe, DollarSign, Sun, Moon } from "lucide-react"; // Import icons for menu toggle and language
-import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
-import { Switch } from "@/components/ui/switch";
+import { Menu, X, DollarSign } from "lucide-react"; // Import icons for menu toggle and language
+import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
 import ModeToggle from "./modeToggle";
 
-interface RouteItem {
-  title: string;
-  href?: string;
-  content?: {
-    title: string;
-    href: string;
-    description: string;
-  }[];
-}
+// interface RouteItem {
+//   title: string;
+//   href?: string;
+//   content?: {
+//     title: string;
+//     href: string;
+//     description: string;
+//   }[];
+// }
 
 export function Navbar(): React.ReactElement {
-  const defaultRoute = { href: "/" };
-  const t = useTranslations("NavBar");
+  // const defaultRoute = { href: "/" };
+  // const t = useTranslations("NavBar");
 
-  const routes: RouteItem[] = [
-    {
-      title: t("routes.home"),
-      href: "/",
-    },
-    {
-      title: t("routes.about"),
-      href: "/about",
-    },
-    {
-      title: t("routes.features.title"),
-      content: [
-        {
-          title: t("routes.features.content.1.title"),
-          href: "/features/1",
-          description: t("routes.features.content.1.desc"),
-        },
-        {
-          title: t("routes.features.content.2.title"),
-          href: "/features/2",
-          description: t("routes.features.content.2.desc"),
-        },
-        {
-          title: t("routes.features.content.3.title"),
-          href: "/features/3",
-          description: t("routes.features.content.3.desc"),
-        },
-      ],
-    },
-    {
-      title: t("routes.resources.title"),
-      content: [
-        {
-          title: t("routes.resources.content.1.title"),
-          href: "/docs",
-          description: t("routes.resources.content.1.desc"),
-        },
-        {
-          title: t("routes.resources.content.2.title"),
-          href: "/blog",
-          description: t("routes.resources.content.2.desc"),
-        },
-        {
-          title: t("routes.resources.content.3.title"),
-          href: "/help",
-          description: t("routes.resources.content.3.desc"),
-        },
-      ],
-    },
-    {
-      title: t("routes.contact"),
-      href: "/contact",
-    },
-  ];
+  // const routes: RouteItem[] = [
+  //   {
+  //     title: t("routes.home"),
+  //     href: "/",
+  //   },
+  //   {
+  //     title: t("routes.about"),
+  //     href: "/about",
+  //   },
+  //   {
+  //     title: t("routes.features.title"),
+  //     content: [
+  //       {
+  //         title: t("routes.features.content.1.title"),
+  //         href: "/features/1",
+  //         description: t("routes.features.content.1.desc"),
+  //       },
+  //       {
+  //         title: t("routes.features.content.2.title"),
+  //         href: "/features/2",
+  //         description: t("routes.features.content.2.desc"),
+  //       },
+  //       {
+  //         title: t("routes.features.content.3.title"),
+  //         href: "/features/3",
+  //         description: t("routes.features.content.3.desc"),
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: t("routes.resources.title"),
+  //     content: [
+  //       {
+  //         title: t("routes.resources.content.1.title"),
+  //         href: "/docs",
+  //         description: t("routes.resources.content.1.desc"),
+  //       },
+  //       {
+  //         title: t("routes.resources.content.2.title"),
+  //         href: "/blog",
+  //         description: t("routes.resources.content.2.desc"),
+  //       },
+  //       {
+  //         title: t("routes.resources.content.3.title"),
+  //         href: "/help",
+  //         description: t("routes.resources.content.3.desc"),
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: t("routes.contact"),
+  //     href: "/contact",
+  //   },
+  // ];
 
   interface Language {
     code: string;
@@ -110,22 +92,24 @@ export function Navbar(): React.ReactElement {
   ];
 
   const locale = useLocale();
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  /* eslint-disable */
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
     languages[0]
   );
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
+  // const toggleMobileMenu = () => {
+  //   setIsMobileMenuOpen((prev) => !prev);
+  // };
 
-  const changeLanguage = (language: Language) => {
-    if (language.code === locale) return;
+  // const changeLanguage = (language: Language) => {
+  //   if (language.code === locale) return;
 
-    window.location.href = `/${language.code}${pathname === "/" ? "" : pathname} `;
-  };
+  //   window.location.href = `/${language.code}${pathname === "/" ? "" : pathname} `;
+  // };
 
   useEffect(() => {
     const matchedLanguage =
@@ -147,24 +131,30 @@ export function Navbar(): React.ReactElement {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="/#features" className="hover:text-teal-500 transition-colors">
+          <Link
+            href="/#features"
+            className="hover:text-teal-500 transition-colors"
+          >
             Features
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#how-it-works"
             className="hover:text-teal-500 transition-colors"
           >
             How It Works
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#testimonials"
             className="hover:text-teal-500 transition-colors"
           >
             Testimonials
-          </a>
-          <a href="/#pricing" className="hover:text-teal-500 transition-colors">
+          </Link>
+          <Link
+            href="/#pricing"
+            className="hover:text-teal-500 transition-colors"
+          >
             Pricing
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-4">
@@ -192,18 +182,24 @@ export function Navbar(): React.ReactElement {
         <div
           className={`md:hidden dark:bg-gray-900 dark:text-white bg-white text-gray-900 p-4 space-y-4 border-t dark:border-gray-800 border-gray-200`}
         >
-          <a href="/#features" className="block py-2 hover:text-teal-500">
+          <Link href="/#features" className="block py-2 hover:text-teal-500">
             Features
-          </a>
-          <a href="/#how-it-works" className="block py-2 hover:text-teal-500">
+          </Link>
+          <Link
+            href="/#how-it-works"
+            className="block py-2 hover:text-teal-500"
+          >
             How It Works
-          </a>
-          <a href="/#testimonials" className="block py-2 hover:text-teal-500">
+          </Link>
+          <Link
+            href="/#testimonials"
+            className="block py-2 hover:text-teal-500"
+          >
             Testimonials
-          </a>
-          <a href="/#pricing" className="block py-2 hover:text-teal-500">
+          </Link>
+          <Link href="/#pricing" className="block py-2 hover:text-teal-500">
             Pricing
-          </a>
+          </Link>
           <Button
             className={`w-full mt-4
                 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black

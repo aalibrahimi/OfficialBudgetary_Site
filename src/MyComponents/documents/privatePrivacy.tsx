@@ -7,10 +7,8 @@ import {
   Eye,
   Database,
   Users,
-  Bell,
   FileText,
   Mail,
-  Phone,
   Globe,
   ChevronRight,
   Menu,
@@ -547,15 +545,15 @@ export default function PrivacyPolicyPage() {
                           cannot move money or make transactions
                         </p>
                         <div className="mt-4">
-                          <a
+                          <Link
                             href="https://plaid.com/safety/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
                           >
-                            View Plaid's Safety Page{" "}
+                            View Plaid&quot;s Safety Page{" "}
                             <ExternalLink className="h-3 w-3" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </CardContent>
@@ -587,15 +585,15 @@ export default function PrivacyPolicyPage() {
                           and digital security measures
                         </p>
                         <div className="mt-4">
-                          <a
+                          <Link
                             href="https://supabase.com/security"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-green-600 dark:text-green-400 hover:underline flex items-center gap-1"
                           >
-                            View Supabase's Security Page{" "}
+                            View Supabase&quot;s Security Page{" "}
                             <ExternalLink className="h-3 w-3" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </CardContent>
@@ -758,12 +756,12 @@ export default function PrivacyPolicyPage() {
                       <div className="space-y-3">
                         <p className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
-                          <a
+                          <Link
                             href="mailto:budgetary@codewithali.com"
                             className="text-blue-600 dark:text-blue-400 hover:underline"
                           >
                             budgetary@codewithali.com
-                          </a>
+                          </Link>
                         </p>
                         <p className="text-gray-600 dark:text-gray-400">
                           <strong>Response Time:</strong> Within 24 hours for
@@ -793,12 +791,12 @@ export default function PrivacyPolicyPage() {
                         </p>
                         <p className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
-                          <a
+                          <Link
                             href="mailto:unfold@codewithali.com"
                             className="text-green-600 dark:text-green-400 hover:underline"
                           >
                             unfold@codewithali.com
-                          </a>
+                          </Link>
                         </p>
                       </div>
 
@@ -810,12 +808,12 @@ export default function PrivacyPolicyPage() {
                         </p>
                         <p className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
-                          <a
+                          <Link
                             href="mailto:privacy@codewithali.com"
                             className="text-green-600 dark:text-green-400 hover:underline"
                           >
                             privacy@codewithali.com
-                          </a>
+                          </Link>
                         </p>
                       </div>
                     </CardContent>

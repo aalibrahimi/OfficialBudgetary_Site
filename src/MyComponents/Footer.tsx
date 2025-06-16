@@ -1,51 +1,50 @@
 "use client";
 
-import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+import React from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import GradientText from "./GradientText";
 import { Github } from "lucide-react";
 
-interface FooterLink {
-  name: string;
-  href: string;
-}
+// interface FooterLink {
+//   name: string;
+//   href: string;
+// }
 
-interface FooterGroup {
-  title: string;
-  links: FooterLink[];
-}
+// interface FooterGroup {
+//   title: string;
+//   links: FooterLink[];
+// }
 
 export function Footer(): React.ReactElement {
-  const t = useTranslations("Footer");
+  // const t = useTranslations("Footer");
 
-  const footerLinks: FooterGroup[] = [
-    {
-      title: t("nav.company.title"),
-      links: [
-        { name: t("nav.company.links.1"), href: "/about" },
-        { name: t("nav.company.links.2"), href: "/careers" },
-        { name: t("nav.company.links.3"), href: "/contact" },
-      ],
-    },
-    {
-      title: t("nav.resources.title"),
-      links: [
-        { name: t("nav.resources.links.1"), href: "/blog" },
-        { name: t("nav.resources.links.2"), href: "/docs" },
-        { name: t("nav.resources.links.3"), href: "/help" },
-      ],
-    },
-    {
-      title: t("nav.legal.title"),
-      links: [
-        { name: t("nav.legal.links.1"), href: "/privacy" },
-        { name: t("nav.legal.links.2"), href: "/terms" },
-        { name: t("nav.legal.links.3"), href: "/cookies" },
-      ],
-    },
-  ];
+  // const footerLinks: FooterGroup[] = [
+  //   {
+  //     title: t("nav.company.title"),
+  //     links: [
+  //       { name: t("nav.company.links.1"), href: "/about" },
+  //       { name: t("nav.company.links.2"), href: "/careers" },
+  //       { name: t("nav.company.links.3"), href: "/contact" },
+  //     ],
+  //   },
+  //   {
+  //     title: t("nav.resources.title"),
+  //     links: [
+  //       { name: t("nav.resources.links.1"), href: "/blog" },
+  //       { name: t("nav.resources.links.2"), href: "/docs" },
+  //       { name: t("nav.resources.links.3"), href: "/help" },
+  //     ],
+  //   },
+  //   {
+  //     title: t("nav.legal.title"),
+  //     links: [
+  //       { name: t("nav.legal.links.1"), href: "/privacy" },
+  //       { name: t("nav.legal.links.2"), href: "/terms" },
+  //       { name: t("nav.legal.links.3"), href: "/cookies" },
+  //     ],
+  //   },
+  // ];
 
   return (
     <div

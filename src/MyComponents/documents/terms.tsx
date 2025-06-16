@@ -3,29 +3,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
 import {
-  Shield,
   Lock,
   Eye,
-  Database,
-  Users,
-  Bell,
   FileText,
   Mail,
-  Phone,
-  Globe,
   ChevronRight,
   Menu,
   X,
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import GradientText from "@/MyComponents/GradientText";
 
 interface LegalPageSection {
@@ -106,18 +94,18 @@ export default function LegalPageTemplate({
     setSidebarOpen(false);
   };
 
-  const getPageIcon = (page: string) => {
-    switch (page) {
-      case "privacy":
-        return <Eye className="h-5 w-5" />;
-      case "terms":
-        return <FileText className="h-5 w-5" />;
-      case "security":
-        return <Lock className="h-5 w-5" />;
-      default:
-        return <FileText className="h-5 w-5" />;
-    }
-  };
+  // const getPageIcon = (page: string) => {
+  //   switch (page) {
+  //     case "privacy":
+  //       return <Eye className="h-5 w-5" />;
+  //     case "terms":
+  //       return <FileText className="h-5 w-5" />;
+  //     case "security":
+  //       return <Lock className="h-5 w-5" />;
+  //     default:
+  //       return <FileText className="h-5 w-5" />;
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#000000] dark:text-white">
@@ -233,12 +221,12 @@ export default function LegalPageTemplate({
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
                     Contact our support team:
                   </p>
-                  <a
+                  <Link
                     href="mailto:budgetary@codewithali.com"
                     className="text-sm text-teal-600 dark:text-teal-400 hover:underline"
                   >
                     budgetary@codewithali.com
-                  </a>
+                  </Link>
                 </CardContent>
               </Card>
             </div>

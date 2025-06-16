@@ -14,6 +14,7 @@ import LegalPageTemplate, {
   LegalSection,
   LegalCard,
 } from "@/MyComponents/documents/terms";
+import Link from "next/link";
 
 const sections = [
   {
@@ -65,10 +66,10 @@ export default function TermsOfUsePage() {
       >
         <LegalCard variant="info">
           <p className="text-gray-700 dark:text-gray-300 mb-4">
-            These Terms of Use ("Terms") constitute a legally binding agreement
-            between you ("User" or "you") and CodeWithAli ("Company," "we,"
-            "us," or "our") regarding your use of the Budgetary personal finance
-            application ("App," "Service," or "Budgetary").
+            These Terms of Use (&quot;Terms&quot;) constitute a legally binding agreement
+            between you (&quot;User&quot; or &quot;you&quot;) and CodeWithAli (&quot;Company,&quot; &quot;we,&quot;
+            &quot;us,&quot; or &quot;our&quot;) regarding your use of the Budgetary personal finance
+            application (&quot;App,&quot; &quot;Service,&quot; or &quot;Budgetary&quot;).
           </p>
           <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-lg border-l-4 border-teal-500 dark:border-teal-400">
             <p className="font-medium text-teal-800 dark:text-teal-200">
@@ -217,7 +218,7 @@ export default function TermsOfUsePage() {
                 Reverse engineer, decompile, or attempt to extract our source
                 code
               </li>
-              <li>Interfere with or disrupt the Service's functionality</li>
+              <li>Interfere with or disrupt the Service&quot;s functionality</li>
               <li>
                 Violate any applicable laws, regulations, or third-party rights
               </li>
@@ -236,7 +237,7 @@ export default function TermsOfUsePage() {
           <LegalCard title="Service Disclaimers" variant="warning">
             <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-lg">
               <p className="font-semibold text-teal-800 dark:text-teal-200 mb-2">
-                BUDGETARY IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT
+                BUDGETARY IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT
                 WARRANTIES OF ANY KIND.
               </p>
               <p className="text-teal-700 dark:text-teal-300 text-sm">
@@ -346,12 +347,12 @@ export default function TermsOfUsePage() {
             <div className="space-y-3">
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a
+                <Link
                   href="mailto:budgetary@codewithali.com"
                   className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   budgetary@codewithali.com
-                </a>
+                </Link>
               </p>
               <p className="text-gray-600 dark:text-gray-400">
                 <strong>Response Time:</strong> Within 24 hours for general
@@ -359,12 +360,12 @@ export default function TermsOfUsePage() {
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a
+                <Link
                   href="mailto:privacy@codewithali.com"
                   className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   privacy@codewithali.com
-                </a>
+                </Link>
               </p>
             </div>
           </LegalCard>
@@ -380,12 +381,12 @@ export default function TermsOfUsePage() {
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a
+                <Link
                   href="mailto:unfold@codewithali.com"
                   className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   unfold@codewithali.com
-                </a>
+                </Link>
               </p>
               <p className="text-gray-600 dark:text-gray-400">
                 <strong>Website:</strong> budgetary.com/terms

@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import {
   ChevronRight,
   BarChart3,
@@ -10,12 +10,7 @@ import {
   PiggyBank,
   Bell,
   ArrowRight,
-  Moon,
-  Sun,
-  Menu,
-  X,
   Sparkles,
-  Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,11 +22,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import GradientText from "@/MyComponents/GradientText";
 
 // Demo dashboard data
 const demoExpenseData = [
@@ -43,7 +35,7 @@ const demoExpenseData = [
 ];
 
 export default function BudgetaryLandingPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div
