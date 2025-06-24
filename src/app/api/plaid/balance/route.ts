@@ -9,9 +9,9 @@ import { ACCESS_TOKEN } from "../set_access_token/route";
 // persistent data store
 // let ACCESS_TOKEN: string = "";
 
-const PLAID_CLIENT_ID = "684441007a4f700021fef14c";
-const PLAID_SECRET = "3ceb63838ba21c671bf77ac6ee4c68";
-const PLAID_ENV = "sandbox";
+const PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID;
+const PLAID_SECRET = process.env.PLAID_SECRET;
+const PLAID_ENV = process.env.PLAID_ENV;
 
 const app = new Hono().basePath("/api/plaid");
 
