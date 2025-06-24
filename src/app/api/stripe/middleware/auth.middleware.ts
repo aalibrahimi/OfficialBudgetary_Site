@@ -46,6 +46,7 @@ export const supabaseMiddleware = (): MiddlewareHandler => {
             }
 
             // Create a new object with only the properties Hono expects
+            /* eslint-disable */
             const honoOptions: any = {};
 
             // Copy over the common properties

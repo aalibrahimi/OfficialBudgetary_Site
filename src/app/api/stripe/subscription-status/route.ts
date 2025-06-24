@@ -8,26 +8,9 @@ import { logger } from "hono/logger";
 import { handle } from "hono/vercel";
 // Import CORS middleware to handle cross-origin requests from your Tauri app
 import { cors } from "hono/cors";
-// Import Stripe SDK - handles all payment processing
-import { Stripe } from "stripe";
 // Import Supabase client to save data to your database
 import { getSupabase, supabaseMiddleware } from "../middleware/auth.middleware";
 
-// Env variables
-// stripe secret key from stripe
-const secret_key = process.env.STRIPE_SECRET_KEY;
-// initialize strip and supbase clients
-let stripe: Stripe;
-
-// only creat the stripe client if wwe have the secret client
-if (secret_key) {
-  stripe = new Stripe(secret_key, {
-    // need to figoure our the correct date
-    //  -- ali
-    // @ts-expect-error ( this is correct version )
-    apiVersion: "2025-03-31.basil",
-  });
-}
 
 const functionName = "api/stripe";
 const app = new Hono().basePath(`/${functionName}`);
