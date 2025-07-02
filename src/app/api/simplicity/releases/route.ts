@@ -31,6 +31,7 @@ app.use(
 // Fixed /info endpoint
 app.get("/releases/:platform/:version", async (c) => {
   const { platform, version } = c.req.param();
+  // As of July 1, 2025 ( did, 0.0.2 same day )
   const currentVersion = "0.0.1"
 
   console.log({ platform, version })

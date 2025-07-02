@@ -87,7 +87,7 @@ export default function BudgetaryLandingPage() {
                 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
                 bg-teal-600 hover:bg-teal-500 text-white`}
               >
-                <a href="/downloads/Simplicity_0.0.1_x64-setup.exe" download>Download Now</a>
+                <a href="/downloads/Simplicity_0.0.2_x64-setup.exe" download>Download Now</a>
                 <ArrowRight className="h-4 w-4" />
               </Button>
 
@@ -752,7 +752,7 @@ export default function BudgetaryLandingPage() {
                 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
                 bg-teal-600 hover:bg-teal-500 text-white`}
               >
-                <a href="/downloads/Simplicity_0.0.1_x64-setup.exe" download>Download Now</a>
+                <a href="/downloads/Simplicity_0.0.2_x64-setup.exe" download>Download Now</a>
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
