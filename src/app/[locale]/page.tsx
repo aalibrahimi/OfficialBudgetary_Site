@@ -24,6 +24,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
+import GradientText from "@/MyComponents/GradientText";
 
 // Demo dashboard data
 const demoExpenseData = [
@@ -79,14 +80,14 @@ export default function BudgetaryLandingPage() {
               application.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-5">
               <Button
                 size="lg"
                 className={`gap-2
                 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
                 bg-teal-600 hover:bg-teal-500 text-white`}
               >
-                Download Now
+                <a href="/downloads/Simplicity_0.0.1_x64-setup.exe" download>Download Now</a>
                 <ArrowRight className="h-4 w-4" />
               </Button>
 
@@ -100,7 +101,10 @@ export default function BudgetaryLandingPage() {
                 Learn More
                 <ChevronRight className="h-4 w-4" />
               </Button>
+
             </div>
+
+            <span className="text-gray-600 dark:text-gray-300">Available for <GradientText gradient="from-teal-700 to-teal-600 dark:to-teal-500">Windows ( x64 )</GradientText> Only</span>
           </div>
 
           {/* App Screenshot Preview */}
@@ -748,12 +752,12 @@ export default function BudgetaryLandingPage() {
                 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
                 bg-teal-600 hover:bg-teal-500 text-white`}
               >
-                Download Now
+                <a href="/downloads/Simplicity_0.0.1_x64-setup.exe" download>Download Now</a>
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
             <p className={`mt-6 text-sm dark:text-gray-500 text-gray-400`}>
-              Available for Windows, macOS, and Linux
+              Available for Windows ( x64 ) Only
             </p>
           </div>
         </div>
