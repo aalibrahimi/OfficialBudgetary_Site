@@ -31,21 +31,22 @@ app.use(
 // Fixed /info endpoint
 app.get("/releases/:platform/:version", async (c) => {
   const { platform, version } = c.req.param();
-  // As of July 1, 2025 ( did, 0.0.2 same day )
-  const currentVersion = "0.0.1"
+  // As of July 1, 2025
+  const latestVersion = "0.0.2"
 
   console.log({ platform, version })
 
-  if (currentVersion === version) {
+  if (latestVersion === version) {
     console.log('No Update Available')
     // No Update available
     return c.status(204)
   }
 
-  if (platform === 'windows') {
+  // Doing not-strict check
+  if (platform == 'windows') {
     return c.json({
-    version: version,
-    url: `https://budgetary.codewithali.com/downloads/Simplicity_${version}_x64-setup.exe`,
+    version: latestVersion,
+    url: `https://budgetary.codewithali.com/downloads/Simplicity_${latestVersion}_x64-setup.exe`,
     signature: UPDATE_SIG,
     notes: UPDATE_NOTES,
   }, 200)
