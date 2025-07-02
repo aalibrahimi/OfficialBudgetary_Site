@@ -164,7 +164,7 @@ export function Navbar(): React.ReactElement {
             <Button
               className={`dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black bg-teal-600 hover:bg-teal-500 text-white hover:cursor-pointer`}
             >
-              <a href="/downloads/Simplicity_0.0.2_x64-setup.exe" download>Download App</a>
+              <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>Download App</a>
             </Button>
           </div>
 
