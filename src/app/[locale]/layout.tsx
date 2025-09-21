@@ -9,7 +9,7 @@ import { Navbar } from "@/MyComponents/navbar";
 
 // This will show up when you paste the website link as preview
 export const metadata = {
-  title: "Budgetary",
+  title: "Simplicity",
   description: "Discover CodeWithAli's Budgeting & Expense Tracker App.",
 };
 

@@ -224,7 +224,7 @@ export default function PrivacyPolicyPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      Budgetary is a personal finance application developed and
+                      Simplicity is a personal finance application developed and
                       operated by <strong>CodeWithAli</strong>, a technology
                       company founded by Ali Alibrahimi (CEO & Owner) and Hanif
                       Palm (Co-Founder & COO). We are committed to providing you

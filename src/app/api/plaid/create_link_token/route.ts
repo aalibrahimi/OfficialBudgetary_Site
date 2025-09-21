@@ -63,7 +63,7 @@ app.get("/create_link_token", async (c) => {
       user: {
         client_user_id: "test-user-" + Date.now(),
       },
-      client_name: "My Budgetary App",
+      client_name: "My Simplicity App",
       // products: [Products.Auth, Products.Transactions, Products.PaymentInitiation, Products.Transfer],
       products: [Products.Auth, Products.Transactions],
       country_codes: [CountryCode.Us],

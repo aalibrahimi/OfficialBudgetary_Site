@@ -99,7 +99,7 @@ app.get("/create_link_token_for_payment", async (c) => {
 
     // Create link token for payment
     const response = await plaid.linkTokenCreate({
-      client_name: "My Budgetary App",
+      client_name: "My Simplicity App",
       user: {
         client_user_id: "user-" + Date.now(),
       },

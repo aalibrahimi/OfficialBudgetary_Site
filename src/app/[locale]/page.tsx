@@ -74,7 +74,7 @@ export default function BudgetaryLandingPage() {
             <p
               className={`text-lg md:text-xl dark:text-gray-300 text-gray-600'} mb-8`}
             >
-              Budgetary helps you track expenses, manage subscriptions, and
+              Simplicity helps you track expenses, manage subscriptions, and
               visualize your spending habits — all in one beautiful, easy-to-use
               application.
             </p>
@@ -120,7 +120,7 @@ export default function BudgetaryLandingPage() {
                   <DollarSign
                     className={`h-5 w-5 dark:text-teal-400 text-teal-500`}
                   />
-                  <span className="font-medium">Budgetary Dashboard</span>
+                  <span className="font-medium">Simplicity Dashboard</span>
                 </div>
                 <div className="flex gap-2">
                   <div className="h-3 w-3 rounded-full bg-red-500"></div>
@@ -251,7 +251,7 @@ export default function BudgetaryLandingPage() {
               Everything you need to manage your finances
             </h2>
             <p className={`dark:text-gray-400 text-gray-600'}`}>
-              Budgetary combines powerful features with a beautiful, intuitive
+              Simplicity combines powerful features with a beautiful, intuitive
               interface to give you complete control over your financial life.
             </p>
           </div>
@@ -298,7 +298,7 @@ export default function BudgetaryLandingPage() {
       >
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-6">How Budgetary works</h2>
+            <h2 className="text-3xl font-bold mb-6">How Simplicity works</h2>
             <p className={`dark:text-gray-400 text-gray-600`}>
               Getting started is easy. Follow these simple steps to take control
               of your finances.
@@ -641,14 +641,14 @@ export default function BudgetaryLandingPage() {
               What our users are saying
             </h2>
             <p className={`dark:text-gray-400 text-gray-600`}>
-              Thousands of users rely on Budgetary to manage their finances and
+              Thousands of users rely on Simplicity to manage their finances and
               reach their financial goals.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <TestimonialCard
-              quote="Budgetary has completely changed my approach to money. I finally feel in control of my finances!"
+              quote="Simplicity has completely changed my approach to money. I finally feel in control of my finances!"
               author="Sarah T."
               avatar="/avatar1.jpg"
               rating={5}
@@ -660,7 +660,7 @@ export default function BudgetaryLandingPage() {
               rating={5}
             />
             <TestimonialCard
-              quote="I was always stressed about money before using Budgetary. Now I know exactly where my money is going."
+              quote="I was always stressed about money before using Simplicity. Now I know exactly where my money is going."
               author="Emily R."
               avatar="/avatar3.jpg"
               rating={4}
@@ -739,7 +739,7 @@ export default function BudgetaryLandingPage() {
             </h2>
             <p className={`text-lg mb-8 dark:text-gray-400 text-gray-600`}>
               Start your journey toward financial freedom today. Download
-              Budgetary now.
+              Simplicity now.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button

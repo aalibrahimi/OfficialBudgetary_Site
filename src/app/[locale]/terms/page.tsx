@@ -68,13 +68,13 @@ export default function TermsOfUsePage() {
           <p className="text-gray-700 dark:text-gray-300 mb-4">
             These Terms of Use (&quot;Terms&quot;) constitute a legally binding agreement
             between you (&quot;User&quot; or &quot;you&quot;) and CodeWithAli (&quot;Company,&quot; &quot;we,&quot;
-            &quot;us,&quot; or &quot;our&quot;) regarding your use of the Budgetary personal finance
-            application (&quot;App,&quot; &quot;Service,&quot; or &quot;Budgetary&quot;).
+            &quot;us,&quot; or &quot;our&quot;) regarding your use of the Simplicity personal finance
+            application (&quot;App,&quot; &quot;Service,&quot; or &quot;Simplicity&quot;).
           </p>
           <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-lg border-l-4 border-teal-500 dark:border-teal-400">
             <p className="font-medium text-teal-800 dark:text-teal-200">
               <strong>Important:</strong> By creating an account, downloading,
-              accessing, or using Budgetary, you acknowledge that you have read,
+              accessing, or using Simplicity, you acknowledge that you have read,
               understood, and agree to be bound by these Terms and our Privacy &
               Security Policy.
             </p>
@@ -89,9 +89,9 @@ export default function TermsOfUsePage() {
         icon={<CreditCard className="h-6 w-6" />}
       >
         <div className="grid gap-6">
-          <LegalCard title="What Budgetary Does">
+          <LegalCard title="What Simplicity Does">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Budgetary is a personal finance management application that helps
+              Simplicity is a personal finance management application that helps
               you:
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
@@ -153,7 +153,7 @@ export default function TermsOfUsePage() {
                   {" "}
                   legal working age
                 </b>{" "}
-                to use Budgetary.
+                to use Simplicity.
               </strong>{" "}
               By using our Service, you represent and warrant that you meet this
               age requirement.
@@ -162,7 +162,7 @@ export default function TermsOfUsePage() {
 
           <LegalCard title="Account Registration">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              To use Budgetary, you must:
+              To use Simplicity, you must:
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
               <li>
@@ -190,7 +190,7 @@ export default function TermsOfUsePage() {
         <div className="grid gap-6">
           <LegalCard title="Permitted Uses" variant="success">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              You may use Budgetary solely for:
+              You may use Simplicity solely for:
             </p>
             <ul className="list-disc list-inside space-y-2 text-green-700 dark:text-green-300">
               <li>Personal financial management and budgeting</li>
@@ -237,7 +237,7 @@ export default function TermsOfUsePage() {
           <LegalCard title="Service Disclaimers" variant="warning">
             <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-lg">
               <p className="font-semibold text-teal-800 dark:text-teal-200 mb-2">
-                BUDGETARY IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT
+                Simplicity IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT
                 WARRANTIES OF ANY KIND.
               </p>
               <p className="text-teal-700 dark:text-teal-300 text-sm">
@@ -252,7 +252,7 @@ export default function TermsOfUsePage() {
           <LegalCard title="Financial Advice Disclaimer" variant="info">
             <ul className="list-disc list-inside space-y-2 text-blue-700 dark:text-blue-300">
               <li>
-                Budgetary provides informational tools only, not financial
+                Simplicity provides informational tools only, not financial
                 advice
               </li>
               <li>
@@ -398,7 +398,7 @@ export default function TermsOfUsePage() {
         <div className="grid mt-10 gap-6">
           <LegalCard variant="success" title="Your Acknowledgment">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              By creating a Budgetary account and using our Service, you
+              By creating a Simplicity account and using our Service, you
               acknowledge that:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
