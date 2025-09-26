@@ -3,25 +3,16 @@ import React, { useState, useMemo } from "react";
 import {
   TrendingUp,
   TrendingDown,
-  DollarSign,
   CreditCard,
   Target,
-  PieChart,
-  BarChart3,
   ArrowUpRight,
-  ArrowDownRight,
-  Calendar,
-  Filter,
   Download,
-  RefreshCw,
   Eye,
   EyeOff,
-  AlertTriangle,
-  CheckCircle,
-  Minus,
-  CheckCircleIcon,
+  // AlertTriangle,
+  // Minus,
+  // CheckCircleIcon,
 } from "lucide-react";
-import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -52,7 +43,6 @@ import {
   CartesianGrid,
   XAxis,
   Area,
-  YAxis,
   BarChart,
   Bar,
   PieChart as RechartsPieChart,
@@ -60,7 +50,6 @@ import {
   Cell,
   ResponsiveContainer,
 } from "recharts";
-import { progressPercentage } from "motion/react";
 
 const AnalyticsDashboard = () => {
   const [timeRange, setTimeRange] = useState("90d");
@@ -117,7 +106,7 @@ const AnalyticsDashboard = () => {
     [chartData]
   );
 
-  const formatCurrency = (amount: any) => {
+  const formatCurrency = (amount : number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -135,38 +124,34 @@ const AnalyticsDashboard = () => {
     },
   };
 
-  const getBudgetStatus = (percentage) => {
-    if (percentage > 100)
-      return { status: "over", color: "destructive", icon: AlertTriangle };
-    if (percentage > 80)
-      return { status: "warning", color: "secondary", icon: Minus };
-    return { status: "good", color: "default", icon: CheckCircleIcon };
-  };
+  // const getBudgetStatus = (percentage) => {
+  //   if (percentage > 100)
+  //     return { status: "over", color: "destructive", icon: AlertTriangle };
+  //   if (percentage > 80)
+  //     return { status: "warning", color: "secondary", icon: Minus };
+  //   return { status: "good", color: "default", icon: CheckCircleIcon };
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
       {/* Navigation */}
-      <nav className=" bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 pt-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">
-                  <Image
-                    src="/budgetLogo.png"
-                    alt="Simplicty Logo"
-                    width={300}
-                    height={300}
-                    className=""
-                  ></Image>
-                </span>
-              </div>
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
-                Dashboard Analytics
-              </span>
-            </div>
 
-            <div className="flex items-center space-x-4">
+
+      <div className="max-7xl mx-auto  px-4 sm:px-6 lg:px-8 py-8 mt-15">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+                
+                Financial Analytics
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
+                Comprehensive insights into your financial health and spending
+                patterns
+              </p>
+            </div>
+         <div className="flex items-center space-x-4">
               <Button
                 variant={"outline"}
                 size={"sm"}
@@ -196,25 +181,8 @@ const AnalyticsDashboard = () => {
                 <Download className="w-4 h-4 mr-2" />
               </Button>
             </div>
-          </div>
-        </div>
-      </nav>
 
-      <div className="max-7xl mx-auto  px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Financial Analytics
-              </h1>
-              <p className="text-gray-600 dark:text-gray-300 mt-2">
-                Comprehensive insights into your financial health and spending
-                patterns
-              </p>
-            </div>
-
-            <div className="flex items-center space-x-2">
+            {/*     <div className="flex items-center space-x-2">
               <Button variant={"outline"} size={"sm"}>
                 {" "}
                 <RefreshCw className="w-4 h-4 mr-2" /> Refresh{" "}
@@ -223,13 +191,15 @@ const AnalyticsDashboard = () => {
                 {" "}
                 <Filter className="w-4 h-4 mr-2" /> Filters{" "}
               </Button>
-            </div>
+            </div> */}
+        
           </div>
         </div>
 
         {/* Key Metrics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {/* Total Expense */}
+          
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
@@ -326,7 +296,6 @@ const AnalyticsDashboard = () => {
           <TabsList className="grid-full grid-cols-4 gap-6 rounded-xs">
             <TabsTrigger value="overview">OverView</TabsTrigger>
             <TabsTrigger value="trends">Trends</TabsTrigger>
-            <TabsTrigger value="categories">Categories</TabsTrigger>
             <TabsTrigger value="budget">Budget</TabsTrigger>
           </TabsList>
 
@@ -486,7 +455,7 @@ const AnalyticsDashboard = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    {categoryData.slice(0, 3).map((category, index) => (
+                    {categoryData.slice(0, 3).map((category) => (
                       <div
                         key={category.name}
                         className="flex items-center justify-between"
@@ -588,11 +557,7 @@ const AnalyticsDashboard = () => {
                 </CardContent>
               </Card>
             </div>
-          </TabsContent>
-
-            {/* Categories Tab */}
-          <TabsContent value="categories" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Expense Distribution</CardTitle>
@@ -622,6 +587,8 @@ const AnalyticsDashboard = () => {
                 </CardContent>
               </Card>
 
+   {/* Categories Tab */}
+              
               <Card>
                 <CardHeader>
                   <CardTitle>Category Details</CardTitle>
@@ -654,6 +621,8 @@ const AnalyticsDashboard = () => {
             </div>
           </TabsContent>
 
+         
+
           {/* Budget Tab */}
           <TabsContent value="budget" className="space-y-6">
             <Card>
@@ -664,8 +633,8 @@ const AnalyticsDashboard = () => {
               <CardContent>
                 <div className="space-y-6">
                   {budgetData.map((item) => {
-                    const status = getBudgetStatus(item.percentage);
-                    const StatusIcon = status.icon;
+                    // const status = getBudgetStatus(item.percentage);
+                    // const StatusIcon = status.icon;
                     
                     return (
                       <div key={item.category} className="space-y-2">
