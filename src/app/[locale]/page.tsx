@@ -137,22 +137,22 @@ export default function BudgetaryLandingPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
                 {/* Stats cards */}
                 <div
-                  className={`md:col-span-3 grid grid-cols-3 gap-4 p-2 rounded-lg dark:bg-gray-800/50 bg-teal-50/50`}
+                  className={`md:col-span-3 grid grid-cols-3 gap-4 p-2 rounded-xs dark:bg-gray-800/50 bg-teal-50/50`}
                 >
                   <div
-                    className={`rounded-lg p-4 dark:bg-gray-800 bg-white shadow-sm`}
+                    className={`rounded-xs p-4 dark:bg-gray-800 bg-white shadow-sm`}
                   >
                     <h5 className="text-[10px] sm:text-xs text-gray-500">Monthly Income</h5>
                     <p className="text-sm sm:text-xl font-semibold sm:font-bold">$3,500.00</p>
                   </div>
                   <div
-                    className={`rounded-lg p-4 dark:bg-gray-800 bg-white shadow-sm`}
+                    className={`rounded-xs p-4 dark:bg-gray-800 bg-white shadow-sm`}
                   >
                     <h5 className="text-[10px] sm:text-xs text-gray-500">Spent This Month</h5>
                     <p className="text-sm sm:text-xl font-semibold sm:font-bold">$2,250.00</p>
                   </div>
                   <div
-                    className={`rounded-lg p-4 dark:bg-gray-800 bg-white shadow-sm`}
+                    className={`rounded-xs p-4 dark:bg-gray-800 bg-white shadow-sm`}
                   >
                     <h5 className="text-[10px] sm:text-xs text-gray-500">Remaining</h5>
                     <p className="text-sm sm:text-xl font-semibold sm:font-bold">$1,250.00</p>
@@ -161,7 +161,7 @@ export default function BudgetaryLandingPage() {
 
                 {/* Left column */}
                 <div
-                  className={`rounded-lg dark:bg-gray-800 bg-white shadow-sm p-4`}
+                  className={`rounded-xs dark:bg-gray-800 bg-white shadow-sm p-4`}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold flex items-center gap-2">
@@ -181,7 +181,7 @@ export default function BudgetaryLandingPage() {
 
                 {/* Middle column */}
                 <div
-                  className={`rounded-lg dark:bg-gray-800 bg-white shadow-sm p-4`}
+                  className={`rounded-xs dark:bg-gray-800 bg-white shadow-sm p-4`}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold flex items-center gap-2">
@@ -212,7 +212,7 @@ export default function BudgetaryLandingPage() {
 
                 {/* Right column */}
                 <div
-                  className={`rounded-lg dark:bg-gray-800 bg-white shadow-sm p-4`}
+                  className={`rounded-xs dark:bg-gray-800 bg-white shadow-sm p-4`}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold flex items-center gap-2">
@@ -248,7 +248,7 @@ export default function BudgetaryLandingPage() {
       </section>
 
       {/* Features section */}
-      <section id="features" className={`py-20 dark:bg-gray-900 bg-white`}>
+      <section id="features" className={`py-20 dark:bg-gray-950 bg-white`}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-bold mb-6">
@@ -334,7 +334,7 @@ export default function BudgetaryLandingPage() {
 
               <TabsContent
                 value="track"
-                className={`p-6 rounded-lg dark:bg-gray-800 bg-white`}
+                className={`p-6 rounded-xs dark:bg-gray-800 bg-white`}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                   <div>
@@ -379,10 +379,10 @@ export default function BudgetaryLandingPage() {
                     </ul>
                   </div>
                   <div
-                    className={`p-6 rounded-lg dark:bg-gray-900 bg-teal-100'}`}
+                    className={`p-6 rounded-xs dark:bg-gray-900 bg-teal-100'}`}
                   >
                     <div
-                      className={`p-4 rounded-lg dark:bg-gray-800 bg-white'} shadow-sm`}
+                      className={`p-4 rounded-xs dark:bg-gray-800 bg-white'} shadow-sm`}
                     >
                       <h4 className="text-sm font-medium mb-3">
                         Quick Expense Entry
@@ -441,7 +441,7 @@ export default function BudgetaryLandingPage() {
 
               <TabsContent
                 value="analyze"
-                className={`p-6 rounded-lg dark:bg-gray-800 bg-white`}
+                className={`p-6 rounded-xs dark:bg-gray-800 bg-white`}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                   <div>
@@ -490,9 +490,9 @@ export default function BudgetaryLandingPage() {
                       </li>
                     </ul>
                   </div>
-                  <div className={`p-6 rounded-lg dark:bg-gray-900 bg-teal-50`}>
+                  <div className={`p-6 rounded-xs dark:bg-gray-900 bg-teal-50`}>
                     <div
-                      className={`p-4 rounded-lg dark:bg-gray-800 bg-white shadow-sm`}
+                      className={`p-4 rounded-xs dark:bg-gray-800 bg-white shadow-sm`}
                     >
                       <h4 className="text-sm font-medium mb-3">
                         Monthly Spending Breakdown
@@ -525,7 +525,7 @@ export default function BudgetaryLandingPage() {
 
               <TabsContent
                 value="plan"
-                className={`p-6 rounded-lg dark:bg-gray-800 bg-white`}
+                className={`p-6 rounded-xs dark:bg-gray-800 bg-white`}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                   <div>
@@ -577,9 +577,9 @@ export default function BudgetaryLandingPage() {
                       </li>
                     </ul>
                   </div>
-                  <div className={`p-6 rounded-lg dark:bg-gray-900 bg-teal-50`}>
+                  <div className={`p-6 rounded-xs dark:bg-gray-900 bg-teal-50`}>
                     <div
-                      className={`p-4 rounded-lg dark:bg-gray-800 bg-white shadow-sm`}
+                      className={`p-4 rounded-xs dark:bg-gray-800 bg-white shadow-sm`}
                     >
                       <h4 className="text-sm font-medium mb-3">
                         Savings Goals
@@ -638,7 +638,7 @@ export default function BudgetaryLandingPage() {
       </section>
 
       {/* Testimonials section */}
-      <section id="testimonials" className={`py-20 dark:bg-gray-900 bg-white`}>
+      <section id="testimonials" className={`py-20 dark:bg-gray-950 bg-white`}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-bold mb-6">
@@ -735,7 +735,7 @@ export default function BudgetaryLandingPage() {
       </section>
 
       {/* CTA section */}
-      <section className={`py-20 dark:bg-gray-900 bg-white`}>
+      <section className={`py-20 dark:bg-gray-950 bg-white`}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -782,7 +782,7 @@ function FeatureCard({
     >
       <CardHeader>
         <div
-          className={`w-12 h-12 rounded-lg flex items-center justify-center
+          className={`w-12 h-12 rounded-xs flex items-center justify-center
           dark:bg-teal-900/50 dark:text-teal-400 bg-teal-100 text-teal-600
         `}
         >

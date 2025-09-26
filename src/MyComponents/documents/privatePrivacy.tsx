@@ -128,7 +128,7 @@ export default function PrivacyPolicyPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div>
-          <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto px-4 py-8 ">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold mb-2">
@@ -164,7 +164,7 @@ export default function PrivacyPolicyPage() {
             className={`md:w-80 md:flex-shrink-0 ${sidebarOpen ? "block" : "hidden md:block"}`}
           >
             <div className="sticky top-24">
-              <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+              <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
                     <FileText className="h-5 w-5 text-teal-600 dark:text-teal-400" />
@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
                         {item.external ? (
                           <Link
                             href={item.route!}
-                            className="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-teal-500 hover:text-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                            className="flex items-center justify-between w-full px-3 py-2 text-sm rounded-xs transition-colors hover:bg-teal-500 hover:text-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                           >
                             <div className="flex items-center gap-2">
                               {item.icon}
@@ -189,7 +189,7 @@ export default function PrivacyPolicyPage() {
                         ) : (
                           <button
                             onClick={() => scrollToSection(item.id)}
-                            className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors hover:bg-teal-500 hover:text-white ${
+                            className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-xs transition-colors hover:bg-teal-500 hover:text-white ${
                               activeSection === item.id
                                 ? "bg-teal-500 text-white dark:bg-teal-500 dark:text-black"
                                 : "hover:bg-teal-500 hover:text-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
@@ -215,7 +215,7 @@ export default function PrivacyPolicyPage() {
             <div className="prose prose-gray dark:prose-invert max-w-none">
               {/* Overview Section */}
               <section id="overview" className="mb-12">
-                <Card className="bg-gradient white dark:from-gray-900 dark:to-teal-900/20 border-gray-200 dark:border-gray-700">
+                <Card className="bg-gradient white dark:from-gray-900 dark:to-teal-900/20 border-gray-200 dark:border-gray-700  rounded-xs">
                   <CardHeader>
                     <CardTitle className="text-2xl flex items-center gap-2">
                       {/* <Eye className="h-6 w-6 text-teal-600 dark:text-teal-400" /> */}
@@ -251,7 +251,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
 
                 <div className="grid gap-6">
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Financial Data via Plaid
@@ -308,7 +308,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-green-600 dark:text-green-400">
                         Data We Create About You
@@ -336,7 +336,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
+                  <Card className="bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800 rounded-xs">
                     <CardHeader>
                       <CardTitle className="text-lg text-red-800 dark:text-red-400">
                         We Will NOT Have Access To:
@@ -365,7 +365,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
 
                 <div className="grid gap-6">
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800 ">
                     <CardHeader>
                       <CardTitle className="text-lg text-green-600 dark:text-green-400">
                         Primary Uses
@@ -385,7 +385,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-teal-600 dark:text-blue-400">
                         Secondary Uses
@@ -401,7 +401,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-black border-teal-200 dark:border-teal-800">
+                  <Card className="bg-white dark:bg-black border-teal-200 dark:border-teal-800  rounded-xs">
                     <CardHeader>
                       <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Data Minimization Principle
@@ -436,7 +436,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
 
                 <div className="grid gap-6">
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-purple-600 dark:text-purple-400">
                         Database Protection
@@ -461,7 +461,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-blue-600 dark:text-blue-400">
                         Application Security
@@ -477,7 +477,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-green-600 dark:text-green-400">
                         Encryption Standards
@@ -519,7 +519,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
 
                 <div className="grid gap-6">
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-blue-600 dark:text-blue-400 flex items-center gap-2">
                         <ExternalLink className="h-4 w-4" />
@@ -559,7 +559,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-green-600 dark:text-green-400 flex items-center gap-2">
                         <Database className="h-4 w-4" />
@@ -599,7 +599,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
+                  <Card className="bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800 rounded-xs">
                     <CardHeader>
                       <CardTitle className="text-lg text-red-600 dark:text-red-400">
                         We Never Share Your Data With:
@@ -629,7 +629,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
 
                 <div className="grid gap-6">
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-blue-600 dark:text-blue-400">
                         Access and Portability
@@ -657,7 +657,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-green-600 dark:text-green-400">
                         Data Control Options
@@ -685,7 +685,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-black border-teal-200 dark:border-teal-800">
+                  <Card className="bg-white dark:bg-black border-teal-200 dark:border-teal-800 rounded-xs">
                     <CardHeader>
                       <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                         Data Deletion Process
@@ -745,7 +745,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-blue-600 dark:text-blue-400 flex items-center gap-2">
                         <Shield className="h-4 w-4" />
@@ -775,7 +775,7 @@ export default function PrivacyPolicyPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+                  <Card className="bg-white rounded-xs dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                     <CardHeader>
                       <CardTitle className="text-lg text-green-600 dark:text-green-400 flex items-center gap-2">
                         <Users className="h-4 w-4" />
@@ -820,7 +820,7 @@ export default function PrivacyPolicyPage() {
                   </Card>
                 </div>
 
-                <Card className="mt-6 bg-gradient-to-r from-teal-50 to-teal-50 dark:from-gray-900 dark:to-teal-900/20 border-teal-200 dark:border-gray-700">
+                <Card className="mt-6 bg-gradient-to-r from-teal-50 to-teal-50 dark:from-gray-900 dark:to-teal-900/20 border-teal-200 dark:border-gray-700  rounded-xs">
                   <CardHeader>
                     <CardTitle className="text-lg text-teal-600 dark:text-teal-400">
                       Our Commitment to You

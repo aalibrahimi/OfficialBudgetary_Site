@@ -147,7 +147,7 @@ export default function LegalPageTemplate({
             className={`md:w-80 md:flex-shrink-0 ${sidebarOpen ? "block" : "hidden md:block"}`}
           >
             <div className="sticky top-24">
-              <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+              <Card className=" rounded-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
                     <FileText className="h-5 w-5 text-teal-600 dark:text-teal-400" />
@@ -210,7 +210,7 @@ export default function LegalPageTemplate({
               </Card>
 
               {/* Quick contact card */}
-              <Card className="mt-6 bg-gradient-to-r from-teal-50 to-teal-50 dark:from-gray-900 dark:to-teal-900/20 border-teal-200 dark:border-gray-700">
+              <Card className=" rounded-xs mt-6 bg-gradient-to-r from-teal-50 to-teal-50 dark:from-gray-900 dark:to-teal-900/20 border-teal-200 dark:border-gray-700">
                 <CardHeader>
                   <CardTitle className="text-sm flex items-center gap-2">
                     <Mail className="h-4 w-4 text-teal-600 dark:text-teal-400" />

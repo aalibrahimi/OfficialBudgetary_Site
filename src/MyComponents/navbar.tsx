@@ -127,7 +127,7 @@ export function Navbar(): React.ReactElement {
         <Link href="/" className="flex items-center gap-2">
           <DollarSign className={`h-6 w-6 dark:text-teal-400 text-teal-500`} />
           {/* <Image src="/budgetLogo.png" height={30} width={30} alt="Simplicity Logo" className="rounded-md" /> */}
-          <span className="text-xl font-bold">Simplicity</span>
+          <span className="text-xl font-bold">SimplicityFunds</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
