@@ -135,13 +135,13 @@ export function Navbar(): React.ReactElement {
             href="/#features"
             className="hover:text-teal-500 transition-colors"
           >
-            Features
+            Home
           </Link>
           <Link
-            href="/#how-it-works"
+            href="/dashboard"
             className="hover:text-teal-500 transition-colors"
           >
-            How It Works
+           Dashboard Demo
           </Link>
           <Link
             href="/#testimonials"
