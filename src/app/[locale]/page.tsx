@@ -284,7 +284,7 @@ export default function BudgetaryLandingPage({
           </div>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 px-20">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="flex items-center justify-center w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xs">
@@ -490,7 +490,7 @@ export default function BudgetaryLandingPage({
                                 onChange={(e) =>
                                   field.handleChange(e.target.value)
                                 }
-                                className={`w-full p-2 text-sm rounded-xs border ${
+                                className={`w-full p-2 text-sm rounded-xs border  dark:bg-white/5 ${
                                   field.state.meta.errors.length > 0
                                     ? "border-red-300 dark:border-red-600"
                                     : "border-teal-200 dark:border-teal-700"
@@ -514,7 +514,7 @@ export default function BudgetaryLandingPage({
                               value={field.state.value}
                               onValueChange={field.handleChange}
                               >
-                                <SelectTrigger className="w-full rounded-xs border border-teal-400 bg-white">
+                                <SelectTrigger className="w-full rounded-xs border border-teal-600 bg-white dark:bg-white/5">
                                   <SelectValue placeholder="Select Category"/>
                                 </SelectTrigger>
                                 <SelectContent>
@@ -570,7 +570,7 @@ export default function BudgetaryLandingPage({
                             <Button
                               type="submit"
                               size="sm"
-                              className="w-full bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                              className="w-full bg-teal-600 rounded-xs hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
                               disabled={!canSubmit}
                             >
                               {isSubmitting ? (
