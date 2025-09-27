@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   ChevronRight,
   BarChart3,
@@ -11,6 +11,16 @@ import {
   Bell,
   ArrowRight,
   Sparkles,
+  Shield,
+  TrendingUp,
+  Target,
+  Download,
+  Play,
+  Check,
+  Star,
+  Users,
+  Zap,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,224 +32,265 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import GradientText from "@/MyComponents/GradientText";
+import CalenderCustsomDesign from "@/MyComponents/CalendarCustom";
 
 // Demo dashboard data
 const demoExpenseData = [
-  { category: "Rent", amount: 1200, color: "#FF6B6B" },
-  { category: "Groceries", amount: 450, color: "#4ECDC4" },
-  { category: "Transportation", amount: 200, color: "#1A535C" },
-  { category: "Entertainment", amount: 150, color: "#FFE66D" },
-  { category: "Other", amount: 250, color: "#FF9E80" },
+  { category: "Housing", amount: 1200, color: "#06b6d4" },
+  { category: "Food", amount: 450, color: "#10b981" },
+  { category: "Transportation", amount: 200, color: "#f59e0b" },
+  { category: "Entertainment", amount: 150, color: "#ef4444" },
+  { category: "Shopping", amount: 250, color: "#8b5cf6" },
+  { category: "Other", amount: 150, color: "#ec4899" },
+];
+
+const stats = [
+  { number: "50K+", label: "Active Users", icon: <Users className="w-5 h-5" /> },
+  { number: "$2M+", label: "Money Tracked", icon: <DollarSign className="w-5 h-5" /> },
+  { number: "99.9%", label: "Uptime", icon: <Shield className="w-5 h-5" /> },
+  { number: "4.9★", label: "User Rating", icon: <Star className="w-5 h-5" /> },
 ];
 
 export default function BudgetaryLandingPage() {
-  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
+
+  const features = [
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Smart Expense Tracking",
+      description: "Automatically categorize and track your expenses with AI-powered insights that help you understand your spending patterns.",
+      image: "/api/placeholder/500/300"
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Predictive Analytics",
+      description: "Get personalized insights and predictions about your financial future based on your spending habits and goals.",
+      image: "/api/placeholder/500/300"
+    },
+    {
+      icon: <Target className="w-6 h-6" />,
+      title: "Goal Achievement",
+      description: "Set and track financial goals with smart recommendations to help you achieve them faster than ever before.",
+      image: "/api/placeholder/500/300"
+    }
+  ];
 
   return (
-    <div
-      className={`min-h-screen dark:bg-gray-950 dark:text-white bg-gray-50 text-gray-900 transition-colors duration-300`}
-    >
-      {/* Hero section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
-        {/* Background elements */}
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      {/* Hero Section */}
+      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        {/* Enhanced Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div
-            className={`absolute top-0 -right-32 w-96 h-96 rounded-full dark:bg-teal-900/20 bg-teal-300/30'} blur-[100px]`}
-          ></div>
-          <div
-            className={`absolute bottom-0 -left-32 w-96 h-96 rounded-full dark:bg-cyan-900/10 bg-cyan-300/30'} blur-[100px]`}
-          ></div>
-
-          <div className="hidden dark:block absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
+          {/* Animated gradient orbs */}
+          <div className="absolute top-0 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/30 blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 -left-32 w-96 h-96 rounded-full bg-gradient-to-tr from-teal-400/30 to-emerald-500/30 blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 blur-2xl animate-pulse delay-500"></div>
+          
+          {/* Grid pattern */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgxNDgsIDMyMiwgMzE4LCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <div
-              className={`inline-flex items-center px-4 py-2.5 rounded-full mb-6 text-sm font-medium dark:bg-gray-800 dark:text-teal-400 bg-teal-50 text-teal-700`}
-            >
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            {/* Announcement Badge */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full mb-8 text-sm font-medium bg-gradient-to-r from-teal-500/10 to-cyan-500/10 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 backdrop-blur-sm">
               <Sparkles className="h-4 w-4 mr-2" />
-              Your personal finance revolution
+              <span>Now with AI-powered insights</span>
+              <Badge className="ml-3 bg-teal-500 text-white">NEW</Badge>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-              Take control of your
-              <span className={`block dark:text-teal-400 text-teal-600'}`}>
-                financial future
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+              <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-white dark:to-gray-100 bg-clip-text text-transparent">
+                Master Your
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                Financial Future
               </span>
             </h1>
 
-            <p
-              className={`text-lg md:text-xl dark:text-gray-300 text-gray-600'} mb-8`}
-            >
-              Simplicity helps you track expenses, manage subscriptions, and
-              visualize your spending habits — all in one beautiful, easy-to-use
-              application.
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Transform your financial life with intelligent budgeting, automated tracking, and personalized insights that actually work.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-5">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
               <Button
                 size="lg"
-                className={`gap-2
-                dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
-                bg-teal-600 hover:bg-teal-500 text-white`}
+                className="group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 text-lg"
               >
-                <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>Download Now</a>
-                <ArrowRight className="h-4 w-4" />
+                <Download className="h-5 w-5 mr-2" />
+                <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>
+                  Download Free
+                </a>
+                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
 
               <Button
                 variant="outline"
                 size="lg"
-                className={`gap-2 
-                dark:border-gray-700 dark:hover:bg-gray-800 dark:text-white
-                border-gray-300 text-black hover:bg-blue-950 hover:text-white`}
+                className="group border-2 border-gray-300 dark:border-gray-600 hover:border-teal-500 dark:hover:border-teal-500 text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-8 py-4 text-lg"
               >
-                Learn More
-                <ChevronRight className="h-4 w-4" />
+                <Play className="h-5 w-5 mr-2" />
+                Watch Demo
+                <ChevronRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-
             </div>
 
-            <span className="text-gray-600 dark:text-gray-300">Available for <GradientText gradient="from-teal-700 to-teal-600 dark:to-teal-500">Windows ( x64 )</GradientText> Only</span>
+            {/* Compatibility Badge */}
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+              <Globe className="w-4 h-4" />
+              <span>Available for</span>
+              <GradientText gradient="from-teal-600 to-cyan-600">Windows (x64)</GradientText>
+              <span>• More platforms coming soon</span>
+            </div>
           </div>
 
-          {/* App Screenshot Preview */}
-          <div className="relative mx-auto rounded-xl overflow-hidden shadow-2xl max-w-5xl border border-teal-500/20">
-            <div
-              className={`absolute inset-0 dark:bg-gradient-to-b dark:from-teal-950/50 dark:to-gray-950/50 bg-gradient-to-b from-teal-50/50 to-white/50 backdrop-blur-sm`}
-            ></div>
-
-            <div
-              className={`dark:bg-gray-900 bg-white'} rounded-xl overflow-hidden relative z-10`}
-            >
-              {/* App mockup header */}
-              <div
-                className={`p-4 dark:bg-gray-800 bg-teal-50'} flex justify-between items-center`}
-              >
-                <div className="flex items-center gap-2">
-                  <DollarSign
-                    className={`h-5 w-5 dark:text-teal-400 text-teal-500`}
-                  />
-                  <span className="font-medium">Simplicity Dashboard</span>
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="flex items-center justify-center w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xs">
+                  <div className="text-teal-600 dark:text-teal-400">
+                    {stat.icon}
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  <div className="h-3 w-3 rounded-full bg-red-500"></div>
-                  <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-                  <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                <div className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-1">
+                  {stat.number}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  {stat.label}
                 </div>
               </div>
+            ))}
+          </div>
 
-              {/* App mockup content */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-                {/* Stats cards */}
-                <div
-                  className={`md:col-span-3 grid grid-cols-3 gap-4 p-2 rounded-xs dark:bg-gray-800/50 bg-teal-50/50`}
-                >
-                  <div
-                    className={`rounded-xs p-4 dark:bg-gray-800 bg-white shadow-sm`}
-                  >
-                    <h5 className="text-[10px] sm:text-xs text-gray-500">Monthly Income</h5>
-                    <p className="text-sm sm:text-xl font-semibold sm:font-bold">$3,500.00</p>
+          {/* Enhanced App Preview */}
+          <div className="relative mx-auto max-w-6xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+              {/* Browser Header */}
+              <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <div
-                    className={`rounded-xs p-4 dark:bg-gray-800 bg-white shadow-sm`}
-                  >
-                    <h5 className="text-[10px] sm:text-xs text-gray-500">Spent This Month</h5>
-                    <p className="text-sm sm:text-xl font-semibold sm:font-bold">$2,250.00</p>
-                  </div>
-                  <div
-                    className={`rounded-xs p-4 dark:bg-gray-800 bg-white shadow-sm`}
-                  >
-                    <h5 className="text-[10px] sm:text-xs text-gray-500">Remaining</h5>
-                    <p className="text-sm sm:text-xl font-semibold sm:font-bold">$1,250.00</p>
+                  <div className="flex items-center gap-2 ml-4">
+                    <DollarSign className="h-5 w-5 text-teal-500" />
+                    <span className="font-medium text-gray-700 dark:text-gray-300">Simplicity Dashboard</span>
                   </div>
                 </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">app.simplicity.com</div>
+              </div>
 
-                {/* Left column */}
-                <div
-                  className={`rounded-xs dark:bg-gray-800 bg-white shadow-sm p-4`}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold flex items-center gap-2">
-                      <CreditCard className="h-4 w-4" />
-                      Recent Expenses
-                    </h3>
-                  </div>
-                  <ul
-                    className={`divide-y dark:divide-gray-700 divide-gray-100`}
-                  >
-                    <li className="py-2">Groceries - $78.45</li>
-                    <li className="py-2">Restaurants - $42.30</li>
-                    <li className="py-2">Transportation - $25.00</li>
-                    <li className="py-2">Entertainment - $35.99</li>
-                  </ul>
-                </div>
-
-                {/* Middle column */}
-                <div
-                  className={`rounded-xs dark:bg-gray-800 bg-white shadow-sm p-4`}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold flex items-center gap-2">
-                      <BarChart3 className="h-4 w-4" />
-                      Expense Breakdown
-                    </h3>
-                  </div>
-                  <div className="space-y-2">
-                    {demoExpenseData.map((item, index) => (
-                      <div key={index}>
-                        <div className="flex justify-between text-sm mb-1">
-                          <span>{item.category}</span>
-                          <span>${item.amount}</span>
-                        </div>
-                        <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                          <div
-                            className="h-full rounded-full"
-                            style={{
-                              width: `${(item.amount / 2250) * 100}%`,
-                              backgroundColor: item.color,
-                            }}
-                          ></div>
-                        </div>
+              {/* Enhanced Dashboard Content */}
+              <div className="p-6 space-y-6">
+                {/* Top Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {[
+                    { label: "Total Balance", value: "$12,847.50", change: "+2.4%", positive: true },
+                    { label: "Monthly Income", value: "$4,200.00", change: "+8.1%", positive: true },
+                    { label: "Expenses", value: "$2,856.20", change: "-3.2%", positive: true },
+                    { label: "Savings Rate", value: "32%", change: "+5.1%", positive: true }
+                  ].map((stat, index) => (
+                    <div key={index} className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 p-4 rounded-xs border border-gray-200 dark:border-gray-600">
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{stat.label}</div>
+                      <div className="text-lg font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                      <div className={`text-xs ${stat.positive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                        {stat.change}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Right column */}
-                <div
-                  className={`rounded-xs dark:bg-gray-800 bg-white shadow-sm p-4`}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold flex items-center gap-2">
-                      <Calendar className="h-4 w-4" />
-                      Upcoming Bills
-                    </h3>
+                {/* Main Content */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Left Column - Spending & Calendar */}
+                  <div className="lg:col-span-2 space-y-4">
+                    {/* Spending Chart */}
+                    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 p-6 rounded-xs border border-gray-200 dark:border-gray-600">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-semibold text-gray-900 dark:text-white">Spending Overview</h3>
+                        <Badge variant="outline">Last 30 days</Badge>
+                      </div>
+                      <div className="space-y-3">
+                        {demoExpenseData.map((item, index) => (
+                          <div key={index} className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <div
+                                className="w-3 h-3 rounded-full"
+                                style={{ backgroundColor: item.color }}
+                              />
+                              <span className="text-sm text-gray-700 dark:text-gray-300">{item.category}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-medium text-gray-900 dark:text-white">${item.amount}</span>
+                              <div className="w-16 h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                                <div
+                                  className="h-full rounded-full"
+                                  style={{
+                                    width: `${(item.amount / 1200) * 100}%`,
+                                    backgroundColor: item.color,
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                 <CalenderCustsomDesign />
                   </div>
-                  <ul
-                    className={`divide-y dark:divide-gray-700 divide-gray-100`}
-                  >
-                    <li className="py-2 flex justify-between">
-                      <span>Netflix</span>
-                      <span className="text-red-500">Today</span>
-                    </li>
-                    <li className="py-2 flex justify-between">
-                      <span>Phone Bill</span>
-                      <span>In 3 days</span>
-                    </li>
-                    <li className="py-2 flex justify-between">
-                      <span>Electric Bill</span>
-                      <span>In 7 days</span>
-                    </li>
-                    <li className="py-2 flex justify-between">
-                      <span>Rent</span>
-                      <span>In 12 days</span>
-                    </li>
-                  </ul>
+
+                  {/* Quick Actions */}
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 p-6 rounded-xs border border-teal-200 dark:border-teal-800">
+                      <h3 className="font-semibold text-teal-900 dark:text-teal-100 mb-3">Quick Add Expense</h3>
+                      <div className="space-y-3">
+                        <input
+                          type="text"
+                          placeholder="$0.00"
+                          className="w-full p-2 text-sm rounded-lg border border-teal-200 dark:border-teal-700 bg-white dark:bg-gray-800"
+                          readOnly
+                        />
+                        <select className="w-full p-2 text-sm rounded-lg border border-teal-200 dark:border-teal-700 bg-white dark:bg-gray-800">
+                          <option>Select category</option>
+                          <option>Food & Dining</option>
+                          <option>Transportation</option>
+                          <option>Shopping</option>
+                        </select>
+                        <Button size="sm" className="w-full bg-teal-600 hover:bg-teal-700">
+                          Add Expense
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 p-6 rounded-xs border border-gray-200 dark:border-gray-600">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Upcoming Bills</h3>
+                      <div className="space-y-2">
+                        {[
+                          { name: "Netflix", amount: "$15.99", due: "Today" },
+                          { name: "Spotify", amount: "$9.99", due: "2 days" },
+                          { name: "Phone Bill", amount: "$89.00", due: "5 days" }
+                        ].map((bill, index) => (
+                          <div key={index} className="flex justify-between items-center text-sm">
+                            <span className="text-gray-700 dark:text-gray-300">{bill.name}</span>
+                            <div className="text-right">
+                              <div className="font-medium text-gray-900 dark:text-white">{bill.amount}</div>
+                              <div className="text-xs text-gray-500 dark:text-gray-400">{bill.due}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -247,274 +298,236 @@ export default function BudgetaryLandingPage() {
         </div>
       </section>
 
-      {/* Features section */}
-      <section id="features" className={`py-20 dark:bg-gray-950 bg-white`}>
+      {/* Enhanced Features Section */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-900/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-6">
-              Everything you need to manage your finances
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
+                Everything you need for
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                financial success
+              </span>
             </h2>
-            <p className={`dark:text-gray-400 text-gray-600'}`}>
-              Simplicity combines powerful features with a beautiful, intuitive
-              interface to give you complete control over your financial life.
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Powerful features designed to simplify your financial life and help you achieve your goals faster.
             </p>
           </div>
 
+          {/* Interactive Feature Showcase */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <div className="space-y-8">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className={`cursor-pointer p-6 rounded-xs transition-all duration-300 ${
+                    activeFeature === index
+                      ? 'bg-white dark:bg-gray-800 shadow-lg border-2 border-teal-500'
+                      : 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md'
+                  }`}
+                  onClick={() => setActiveFeature(index)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`p-3 rounded-lg ${
+                      activeFeature === index
+                        ? 'bg-teal-500 text-white'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                    }`}>
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="relative">
+              <div className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 p-8 rounded-2xl">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xs shadow-lg">
+                  <div className="h-64 bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-lg flex items-center justify-center">
+                    <div className="text-center">
+                      {features[activeFeature].icon}
+                      <h4 className="text-lg font-semibold mt-2 text-gray-900 dark:text-white">
+                        {features[activeFeature].title}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FeatureCard
-              icon={<BarChart3 />}
-              title="Expense Tracking"
-              description="Easily log and categorize your expenses. See where your money goes with beautiful visualizations."
-            />
-            <FeatureCard
-              icon={<Calendar />}
-              title="Cash Flow Forecast"
-              description="Plan ahead with our 30-day cash flow forecast. Never be surprised by upcoming expenses."
-            />
-            <FeatureCard
-              icon={<Bell />}
-              title="Subscription Manager"
-              description="Track all your subscriptions in one place. Get alerts before payments and identify opportunities to save."
-            />
-            <FeatureCard
-              icon={<LineChart />}
-              title="Financial Insights"
-              description="Receive personalized insights about your spending habits and suggestions to improve your finances."
-            />
-            <FeatureCard
-              icon={<PiggyBank />}
-              title="Savings Goals"
-              description="Set and track savings goals for vacations, emergency funds, or major purchases."
-            />
-            <FeatureCard
-              icon={<DollarSign />}
-              title="Budget Planning"
-              description="Create smart budgets based on your income and expense history. Stay on track with real-time updates."
-            />
+            {[
+              {
+                icon: <Calendar className="w-6 h-6" />,
+                title: "Smart Budgeting",
+                description: "AI-powered budget recommendations based on your spending patterns and financial goals."
+              },
+              {
+                icon: <Bell className="w-6 h-6" />,
+                title: "Bill Reminders",
+                description: "Never miss a payment with intelligent notifications and automated bill tracking."
+              },
+              {
+                icon: <LineChart className="w-6 h-6" />,
+                title: "Investment Insights",
+                description: "Track your portfolio performance and get personalized investment recommendations."
+              },
+              {
+                icon: <PiggyBank className="w-6 h-6" />,
+                title: "Savings Goals",
+                description: "Set ambitious goals and watch our smart algorithms help you achieve them faster."
+              },
+              {
+                icon: <Shield className="w-6 h-6" />,
+                title: "Bank-Level Security",
+                description: "Your data is protected with 256-bit encryption and advanced security protocols."
+              },
+              {
+                icon: <Zap className="w-6 h-6" />,
+                title: "Real-time Sync",
+                description: "Instant synchronization across all your devices with offline capabilities."
+              }
+            ].map((feature, index) => (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-xs bg-gradient-to-br from-teal-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-teal-600 dark:text-teal-400">
+                      {feature.icon}
+                    </div>
+                  </div>
+                  <CardTitle className="text-gray-900 dark:text-white">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 dark:text-gray-300">
+                    {feature.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works section */}
-      <section
-        id="how-it-works"
-        className={`py-20 dark:bg-gray-950 bg-gray-50`}
-      >
+   {/* Enhanced How It Works */}
+      <section className="py-24 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-6">How Simplicity works</h2>
-            <p className={`dark:text-gray-400 text-gray-600`}>
-              Getting started is easy. Follow these simple steps to take control
-              of your finances.
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
+                Get started in
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                3 simple steps
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Setting up your financial future has never been easier. Follow these steps to transform your money management.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Tabs defaultValue="track" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 gap-1 mb-8 content-center">
-                <TabsTrigger
-                  value="track"
-                  className={`text-[11px] sm:text-[14px] py-1.5 sm:py-1 dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
-                >
-                  1. Track Expenses
+          <div className="max-w-5xl mx-auto">
+            <Tabs defaultValue="connect" className="w-full">
+              <TabsList className="grid w-full grid-cols-3 mb-12 bg-gray-100 dark:bg-gray-800">
+                <TabsTrigger value="connect" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">
+                  1. Connect
                 </TabsTrigger>
-                <TabsTrigger
-                  value="analyze"
-                  className={`text-[11px] sm:text-[14px] py-1.5 sm:py-1 dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
-                >
-                  2. Analyze Spending
+                <TabsTrigger value="analyze" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">
+                  2. Analyze
                 </TabsTrigger>
-                <TabsTrigger
-                  value="plan"
-                  className={`text-[11px] sm:text-[14px] py-1.5 sm:py-1 dark:data-[state=active]:bg-gray-600 dark:data-[state=active]:text-white data-[state=active]:bg-white data-[state=active]:text-black`}
-                >
-                  3. Plan & Save
+                <TabsTrigger value="optimize" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">
+                  3. Optimize
                 </TabsTrigger>
               </TabsList>
 
-              <TabsContent
-                value="track"
-                className={`p-6 rounded-xs dark:bg-gray-800 bg-white`}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <TabsContent value="connect" className="mt-8">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h3
-                      className={`text-xl font-semibold mb-4 dark:text-teal-400 text-teal-600`}
-                    >
-                      Track your expenses effortlessly
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                      Connect Your Accounts
                     </h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          1
+                    <div className="space-y-4">
+                      {[
+                        "Securely link your bank accounts with Plaid integration",
+                        "Support for 11,000+ financial institutions",
+                        "Read-only access - we never store your credentials",
+                        "Automatic transaction categorization"
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Check className="w-4 h-4 text-white" />
+                          </div>
+                          <p className="text-gray-600 dark:text-gray-300">{item}</p>
                         </div>
-                        <p>Log expenses quickly with our intuitive form</p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          2
-                        </div>
-                        <p>Categorize spending automatically or manually</p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          3
-                        </div>
-                        <p>Take photos of receipts for easy record-keeping</p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          4
-                        </div>
-                        <p>Set up recurring expenses to track automatically</p>
-                      </li>
-                    </ul>
+                      ))}
+                    </div>
                   </div>
-                  <div
-                    className={`p-6 rounded-xs dark:bg-gray-900 bg-teal-100'}`}
-                  >
-                    <div
-                      className={`p-4 rounded-xs dark:bg-gray-800 bg-white'} shadow-sm`}
-                    >
-                      <h4 className="text-sm font-medium mb-3">
-                        Quick Expense Entry
-                      </h4>
+                  <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 p-8 rounded-2xl">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Bank Connection</h4>
                       <div className="space-y-3">
-                        <div>
-                          <Label>Date</Label>
-                          <input
-                            type="date"
-                            value="2025-04-04"
-                            className={`w-full mt-1 p-2 rounded border
-                                dark:bg-gray-700 dark:border-gray-600 
-                                bg-white border-gray-300
-                            `}
-                            readOnly
-                          />
+                        <div className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <Check className="w-5 h-5 text-green-600" />
+                          <span className="text-sm">Chase Bank Connected</span>
                         </div>
-                        <div>
-                          <Label>Category</Label>
-                          <select
-                            className={`w-full mt-1 p-2 rounded border
-                                dark:bg-gray-700 dark:border-gray-600
-                                bg-white border-gray-300
-                            `}
-                          >
-                            <option>Groceries</option>
-                            <option>Dining Out</option>
-                            <option>Transportation</option>
-                            <option>Entertainment</option>
-                          </select>
+                        <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                          <div className="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                          <span className="text-sm text-gray-500">Add Another Account</span>
                         </div>
-                        <div>
-                          <Label>Amount</Label>
-                          <input
-                            type="text"
-                            value="45.99"
-                            className={`w-full mt-1 p-2 rounded border
-                                dark:bg-gray-700 dark:border-gray-600
-                                bg-white border-gray-300
-                            `}
-                            readOnly
-                          />
-                        </div>
-                        <Button
-                          className={`w-full 
-                            dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
-                            bg-teal-600 hover:bg-teal-500 text-white`}
-                        >
-                          Add Expense
-                        </Button>
                       </div>
                     </div>
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent
-                value="analyze"
-                className={`p-6 rounded-xs dark:bg-gray-800 bg-white`}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <TabsContent value="analyze" className="mt-8">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h3
-                      className={`text-xl font-semibold mb-4 dark:text-teal-400 text-teal-600`}
-                    >
-                      Gain insights from your spending data
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                      Analyze Your Spending
                     </h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          1
+                    <div className="space-y-4">
+                      {[
+                        "AI-powered insights identify spending patterns",
+                        "Beautiful charts and visualizations",
+                        "Compare spending across different time periods",
+                        "Identify opportunities to save money"
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Check className="w-4 h-4 text-white" />
+                          </div>
+                          <p className="text-gray-600 dark:text-gray-300">{item}</p>
                         </div>
-                        <p>
-                          View beautiful charts that break down your spending by
-                          category
-                        </p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          2
-                        </div>
-                        <p>
-                          Compare monthly spending trends to identify patterns
-                        </p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          3
-                        </div>
-                        <p>Receive personalized insights about your habits</p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          4
-                        </div>
-                        <p>Discover opportunities to reduce spending</p>
-                      </li>
-                    </ul>
+                      ))}
+                    </div>
                   </div>
-                  <div className={`p-6 rounded-xs dark:bg-gray-900 bg-teal-50`}>
-                    <div
-                      className={`p-4 rounded-xs dark:bg-gray-800 bg-white shadow-sm`}
-                    >
-                      <h4 className="text-sm font-medium mb-3">
-                        Monthly Spending Breakdown
-                      </h4>
+                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-2xl">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Spending Analysis</h4>
                       <div className="space-y-3">
-                        {demoExpenseData.map((item, index) => (
-                          <div key={index}>
-                            <div className="flex justify-between text-sm mb-1">
-                              <span>{item.category}</span>
-                              <span>${item.amount}</span>
-                            </div>
-                            <div
-                              className={`h-2 w-full dark:bg-gray-700 bg-gray-200 rounded-full overflow-hidden`}
-                            >
+                        {demoExpenseData.slice(0, 3).map((item, index) => (
+                          <div key={index} className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
                               <div
-                                className="h-full rounded-full"
-                                style={{
-                                  width: `${(item.amount / 2250) * 100}%`,
-                                  backgroundColor: item.color,
-                                }}
-                              ></div>
+                                className="w-3 h-3 rounded-full"
+                                style={{ backgroundColor: item.color }}
+                              />
+                              <span className="text-sm">{item.category}</span>
                             </div>
+                            <span className="text-sm font-medium">${item.amount}</span>
                           </div>
                         ))}
                       </div>
@@ -523,108 +536,48 @@ export default function BudgetaryLandingPage() {
                 </div>
               </TabsContent>
 
-              <TabsContent
-                value="plan"
-                className={`p-6 rounded-xs dark:bg-gray-800 bg-white`}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <TabsContent value="optimize" className="mt-8">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h3
-                      className={`text-xl font-semibold mb-4 dark:text-teal-400 text-teal-600`}
-                    >
-                      Plan your finances and grow your savings
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                      Optimize Your Finances
                     </h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          1
+                    <div className="space-y-4">
+                      {[
+                        "Personalized budget recommendations",
+                        "Smart savings goal tracking",
+                        "Bill payment reminders and optimization",
+                        "Investment portfolio insights"
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Check className="w-4 h-4 text-white" />
+                          </div>
+                          <p className="text-gray-600 dark:text-gray-300">{item}</p>
                         </div>
-                        <p>
-                          Create custom budgets for different spending
-                          categories
-                        </p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          2
-                        </div>
-                        <p>Set up savings goals and track your progress</p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          3
-                        </div>
-                        <p>
-                          Get alerted when you&apos;re approaching budget limits
-                        </p>
-                      </li>
-                      <li className="flex items-start">
-                        <div
-                          className={`mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full dark:bg-teal-900 dark:text-teal-400 bg-teal-100 text-teal-600 flex items-center justify-center text-xs`}
-                        >
-                          4
-                        </div>
-                        <p>
-                          Use our cash flow forecast to plan for upcoming
-                          expenses
-                        </p>
-                      </li>
-                    </ul>
+                      ))}
+                    </div>
                   </div>
-                  <div className={`p-6 rounded-xs dark:bg-gray-900 bg-teal-50`}>
-                    <div
-                      className={`p-4 rounded-xs dark:bg-gray-800 bg-white shadow-sm`}
-                    >
-                      <h4 className="text-sm font-medium mb-3">
-                        Savings Goals
-                      </h4>
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-2xl">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Financial Goals</h4>
                       <div className="space-y-4">
                         <div>
-                          <div className="flex justify-between mb-1">
-                            <span>Emergency Fund</span>
-                            <span>$6,500 / $10,000</span>
+                          <div className="flex justify-between mb-2">
+                            <span className="text-sm">Emergency Fund</span>
+                            <span className="text-sm font-medium">75%</span>
                           </div>
-                          <div
-                            className={`h-2 w-full dark:bg-gray-700 bg-gray-200 rounded-full overflow-hidden`}
-                          >
-                            <div
-                              className="h-full bg-green-500 rounded-full"
-                              style={{ width: "65%" }}
-                            ></div>
+                          <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div className="bg-green-500 h-2 rounded-full" style={{ width: '75%' }}></div>
                           </div>
                         </div>
                         <div>
-                          <div className="flex justify-between mb-1">
-                            <span>Vacation</span>
-                            <span>$1,200 / $3,000</span>
+                          <div className="flex justify-between mb-2">
+                            <span className="text-sm">Vacation</span>
+                            <span className="text-sm font-medium">40%</span>
                           </div>
-                          <div
-                            className={`h-2 w-full dark:bg-gray-700 bg-gray-200 rounded-full overflow-hidden`}
-                          >
-                            <div
-                              className="h-full bg-blue-500 rounded-full"
-                              style={{ width: "40%" }}
-                            ></div>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="flex justify-between mb-1">
-                            <span>New Car</span>
-                            <span>$4,500 / $15,000</span>
-                          </div>
-                          <div
-                            className={`h-2 w-full dark:bg-gray-700 bg-gray-200 rounded-full overflow-hidden`}
-                          >
-                            <div
-                              className="h-full bg-amber-500 rounded-full"
-                              style={{ width: "30%" }}
-                            ></div>
+                          <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '40%' }}></div>
                           </div>
                         </div>
                       </div>
@@ -637,301 +590,241 @@ export default function BudgetaryLandingPage() {
         </div>
       </section>
 
-      {/* Testimonials section */}
-      <section id="testimonials" className={`py-20 dark:bg-gray-950 bg-white`}>
+      {/* Enhanced Testimonials */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-900/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-6">
-              What our users are saying
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
+                Loved by thousands
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                of happy users
+              </span>
             </h2>
-            <p className={`dark:text-gray-400 text-gray-600`}>
-              Thousands of users rely on Simplicity to manage their finances and
-              reach their financial goals.
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              See how Simplicity has transformed the financial lives of people just like you.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="Simplicity has completely changed my approach to money. I finally feel in control of my finances!"
-              author="Sarah T."
-              avatar="/avatar1.jpg"
-              rating={5}
-            />
-            <TestimonialCard
-              quote="The subscription manager alone saved me over $200 by helping me identify services I wasn't really using."
-              author="James M."
-              avatar="/avatar2.jpg"
-              rating={5}
-            />
-            <TestimonialCard
-              quote="I was always stressed about money before using Simplicity. Now I know exactly where my money is going."
-              author="Emily R."
-              avatar="/avatar3.jpg"
-              rating={4}
-            />
+            {[
+              {
+                quote: "Simplicity completely transformed how I manage money. I've saved over $3,000 in just 6 months by following their insights!",
+                author: "Sarah Chen",
+                role: "Marketing Manager",
+                avatar: "S",
+                rating: 5
+              },
+              {
+                quote: "The automated categorization is incredible. What used to take me hours now happens instantly. This app is a game-changer.",
+                author: "Michael Rodriguez",
+                role: "Software Engineer",
+                avatar: "M",
+                rating: 5
+              },
+              {
+                quote: "I love the goal tracking feature. Seeing my progress visually keeps me motivated to stick to my budget and savings plans.",
+                author: "Emily Johnson",
+                role: "Teacher",
+                avatar: "E",
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center gap-1 mb-4">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                      />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white font-semibold">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white">
+                        {testimonial.author}
+                      </div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">
+                        {testimonial.role}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing section */}
-      <section id="pricing" className={`py-20 dark:bg-gray-950 bg-gray-50`}>
+      {/* Enhanced Pricing */}
+      <section className="py-24 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-6">
-              Affordable plans for everyone
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
+                Simple, transparent
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                pricing for everyone
+              </span>
             </h2>
-            <p className={`dark:text-gray-400 text-gray-600`}>
-              Whether you&apos;re just starting your financial journey or
-              looking for advanced features, we have a plan that&apos;s right
-              for you.
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Start free and upgrade as your needs grow. No hidden fees, cancel anytime.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <PricingCard
-              tier="Free"
-              price="$0"
-              description="Perfect for individuals just getting started with budgeting"
-              features={[
-                "Unlimited expense tracking",
-                "Basic spending reports",
-                "Up to 2 savings goals",
-                "30-day cash flow forecast",
-              ]}
-              recommended={false}
-            />
-            <PricingCard
-              tier="Basic"
-              price="$6.99"
-              period="per month"
-              description="Advanced features for personal financial management"
-              features={[
-                "Everything in Free",
-                "Unlimited savings goals",
-                "Subscription management",
-                "Advanced spending insights",
-                "90-day cash flow forecast",
-                "Data export",
-              ]}
-              recommended={true}
-            />
-            <PricingCard
-              tier="Premium"
-              price="$12.99"
-              period="per month"
-              description="Share your budget with family members or partners"
-              features={[
-                "Everything in Premium",
-                "Up to 5 user accounts",
-                "Shared household expenses",
-                "Bill splitting",
-                "Financial wellness score",
-                "Priority support",
-              ]}
-              recommended={false}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Free",
+                price: "$0",
+                description: "Perfect for getting started",
+                features: [
+                  "Connect 1 bank account",
+                  "Basic expense tracking",
+                  "Simple budgeting tools",
+                  "Mobile app access"
+                ],
+                cta: "Get Started",
+                popular: false
+              },
+              {
+                name: "Pro",
+                price: "$9.99",
+                period: "/month",
+                description: "For serious financial management",
+                features: [
+                  "Connect unlimited accounts",
+                  "AI-powered insights",
+                  "Advanced goal tracking",
+                  "Investment portfolio sync",
+                  "Bill optimization",
+                  "Priority support"
+                ],
+                cta: "Start Free Trial",
+                popular: true
+              },
+              {
+                name: "Premium",
+                price: "$19.99",
+                period: "/month",
+                description: "For families and advanced users",
+                features: [
+                  "Everything in Pro",
+                  "Family account sharing",
+                  "Tax optimization",
+                  "Custom reports",
+                  "Personal finance advisor",
+                  "White-label features"
+                ],
+                cta: "Start Free Trial",
+                popular: false
+              }
+            ].map((plan, index) => (
+              <Card key={index} className={`relative ${plan.popular ? 'border-2 border-teal-500 scale-105' : 'border border-gray-200 dark:border-gray-700'} bg-white dark:bg-gray-800`}>
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-teal-500 text-white">Most Popular</Badge>
+                  </div>
+                )}
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+                    {plan.name}
+                  </CardTitle>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                      {plan.price}
+                    </span>
+                    {plan.period && (
+                      <span className="text-gray-600 dark:text-gray-400 ml-1">
+                        {plan.period}
+                      </span>
+                    )}
+                  </div>
+                  <CardDescription className="text-gray-600 dark:text-gray-300">
+                    {plan.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center gap-3">
+                        <Check className="w-5 h-5 text-teal-500 flex-shrink-0" />
+                        <span className="text-gray-600 dark:text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button
+                    className={`w-full ${
+                      plan.popular
+                        ? 'bg-teal-600 hover:bg-teal-700 text-white'
+                        : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white'
+                    }`}
+                  >
+                    {plan.cta}
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA section */}
-      <section className={`py-20 dark:bg-gray-950 bg-white`}>
-        <div className="container mx-auto px-4">
+      {/* Enhanced CTA */}
+      <section className="py-24 bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to take control of your finances?
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+              Ready to transform your
+              <br />
+              financial future?
             </h2>
-            <p className={`text-lg mb-8 dark:text-gray-400 text-gray-600`}>
-              Start your journey toward financial freedom today. Download
-              Simplicity now.
+            <p className="text-xl text-teal-100 mb-12 max-w-2xl mx-auto">
+              Join thousands of users who've already taken control of their finances. Download Simplicity today and start your journey to financial freedom.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                className={`gap-2 
-                dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
-                bg-teal-600 hover:bg-teal-500 text-white`}
+                className="group bg-white text-teal-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 text-lg"
               >
-                <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>Download Now</a>
-                <ArrowRight className="h-4 w-4" />
+                <Download className="h-5 w-5 mr-2" />
+                <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>
+                  Download Free Now
+                </a>
+                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="group border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg"
+              >
+                <Play className="h-5 w-5 mr-2" />
+                View Demo
+                <ChevronRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
-            <p className={`mt-6 text-sm dark:text-gray-500 text-gray-400`}>
-              Available for Windows ( x64 ) Only
+            <p className="mt-8 text-teal-100">
+              Free forever • No credit card required • Available for Windows (x64)
             </p>
           </div>
         </div>
       </section>
     </div>
-  );
-}
-
-// Feature Card Component
-function FeatureCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <Card
-      className={`dark:bg-gray-800 dark:border-gray-700 bg-neutral-50 text-black border-gray-200`}
-    >
-      <CardHeader>
-        <div
-          className={`w-12 h-12 rounded-xs flex items-center justify-center
-          dark:bg-teal-900/50 dark:text-teal-400 bg-teal-100 text-teal-600
-        `}
-        >
-          {icon}
-        </div>
-        <CardTitle className="mt-4 dark:text-white">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription className={"dark:text-gray-400 text-gray-600"}>
-          {description}
-        </CardDescription>
-      </CardContent>
-    </Card>
-  );
-}
-
-// Testimonial Card Component
-function TestimonialCard({
-  quote,
-  author,
-  avatar,
-  rating,
-}: {
-  quote: string;
-  author: string;
-  avatar: string;
-  rating: number;
-}) {
-  return (
-    <Card
-      className={`dark:bg-gray-800 dark:text-teal-400 dark:border-gray-700 bg-gray-100 text-teal-600 border-gray-200`}
-    >
-      <CardHeader>
-        <div className="flex items-center space-x-1 mb-2">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span
-              key={i}
-              className={`${i < rating ? "text-yellow-400" : "text-gray-300"}`}
-            >
-              ★
-            </span>
-          ))}
-        </div>
-      </CardHeader>
-      <CardContent>
-        <p className={`text-lg italic mb-4 dark:text-gray-300 text-gray-700`}>
-          &quot;{quote}&quot;
-        </p>
-
-        <div className="flex items-center">
-          <div
-            className={`w-10 h-10 rounded-full dark:bg-gray-700 bg-gray-200 flex items-center justify-center mr-3`}
-          >
-            {avatar ? (
-              <Image
-                src={avatar}
-                alt="Avatar"
-                width={500}
-                height={500}
-                className="w-5 h-auto object-cover"
-              />
-            ) : (
-              <>{author.charAt(0)}</>
-            )}
-          </div>
-          <span className="font-medium">{author}</span>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-// Pricing Card Component
-function PricingCard({
-  tier,
-  price,
-  period,
-  description,
-  features,
-  recommended,
-}: {
-  tier: string;
-  price: string;
-  period?: string;
-  description: string;
-  features: string[];
-  recommended: boolean;
-}) {
-  return (
-    <Card
-      className={`relative ${
-        recommended
-          ? "dark:border-teal-500 dark:text-teal-400 dark:bg-teal-900/20 border-teal-500 text-teal-600 bg-teal-50"
-          : "dark:bg-gray-800 dark:border-gray-700 bg-white text-black dark:text-white/90 border-gray-200"
-      }`}
-    >
-      {recommended && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <span
-            className={`inline-block py-1 px-4 rounded-full text-xs font-semibold dark:bg-teal-500 dark:text-black bg-teal-600 text-white`}
-          >
-            Recommended
-          </span>
-        </div>
-      )}
-
-      <CardHeader>
-        <CardTitle>{tier}</CardTitle>
-        <div className="mt-2">
-          <span className="text-3xl font-bold">{price}</span>
-          {period && <span className="text-sm ml-1">{period}</span>}
-        </div>
-        <CardDescription className={"dark:text-gray-400 text-gray-600"}>
-          {description}
-        </CardDescription>
-      </CardHeader>
-
-      <CardContent>
-        <ul className="space-y-3">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <svg
-                className={`h-5 w-5 dark:text-teal-400 text-teal-600 mr-2 flex-shrink-0`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-
-      <CardFooter>
-        <Button
-          className={`w-full ${
-            recommended
-              ? "dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black bg-teal-600 hover:bg-teal-500 text-white"
-              : "dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white bg-gray-100 hover:bg-gray-200 text-gray-800"
-          }`}
-        >
-          {recommended ? "Get Started Choose Plan" : "Choose Plan"}
-        </Button>
-      </CardFooter>
-    </Card>
   );
 }
