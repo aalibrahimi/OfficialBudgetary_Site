@@ -151,7 +151,7 @@ export function Navbar(): React.ReactElement {
             Contact
           </Link>
           <Link
-            href="/#pricing"
+            href="/pricing"
             className="hover:text-teal-500 transition-colors"
           >
             Pricing

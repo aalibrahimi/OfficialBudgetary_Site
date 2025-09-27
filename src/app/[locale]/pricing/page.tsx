@@ -24,7 +24,17 @@ const PricingPage = () => {
   const [billingCycle, setBillingCycle] = useState("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const plans = [
+  const plans: {
+    name: string;
+    price: { monthly: number; yearly: number };
+    description: string;
+    icon: React.ReactNode;
+    color: "gray" | "teal" | "yellow";
+    popular: boolean;
+    features: Array<{ name: string; included: boolean }>;
+    cta: string;
+    limits: string;
+  }[] = [
     {
       name: "Free",
       price: { monthly: 0, yearly: 0 },
@@ -170,7 +180,7 @@ const PricingPage = () => {
     },
   ];
 
-  const getPlanColor = (color, type = "bg") => {
+  const getPlanColor = (color: 'gray' | 'teal' | 'yellow', type: 'bg' | 'bgLight' | 'text' | 'button' | 'border' = "bg") => {
     const colorMap = {
       gray: {
         bg: "bg-gray-500",
@@ -268,12 +278,10 @@ const PricingPage = () => {
                       {" "}
                       {plan.name}{" "}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">
-                      {plan.description}
-                    </p>
+                   
 
                     {/* Price */}
-                    <CardContent>
+                    <CardContent className="mb-5">
                       <div>
                         <span className="text-3xl font-bold text-teal-600 dark:text-white">
                           $
@@ -296,12 +304,11 @@ const PricingPage = () => {
                     </CardContent>
 
                     {/* Cta button */}
-                    <button className={`w-full py-4 my-2 px-6 rounded-lg font-medium transition-colors ${getPlanColor(plan.color, 'button')} text-white`}> {plan.cta} </button>
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-gray-900 dark:text-white  mb-4">
+                  <div className="space-y-4 ">
+                    <h4 className="font-semibold text-gray-900  dark:text-white  mb-4">
                         Whats Included:
                     </h4>
                     {plan.features.slice(0,8).map((feature,  featureIndex)  => (
@@ -324,6 +331,11 @@ const PricingPage = () => {
                             </p>
                         </div>
                     )}
+                     <p className="text-teal-600 dark:text-gray-300 mb-6">
+                      {plan.description}
+                    </p>
+                                        <button className={`w-full py-4 my-2 px-6 rounded-lg font-medium transition-colors ${getPlanColor(plan.color, 'button')} text-white`}> {plan.cta} </button>
+
                   </div>
                 </CardTitle>
               </Card>
@@ -346,8 +358,8 @@ const PricingPage = () => {
             <div className="overflow-x-auto">
                 <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg">
                     <thead>
-                        <tr className="border-b border-gray-200  dark:border-gray-700">
-                            <th className="text-left p-6 text-gray-900 dark:text-white font-semibold">
+                        <tr className="border-b border-gray-200   dark:border-gray-700">
+                            <th className="text-left p-6 text-gray-900  dark:text-white font-semibold">
                                 Features
                             </th>
                             {plans.map((plan, index) => (
@@ -360,7 +372,7 @@ const PricingPage = () => {
                     <tbody>
                         {plans[0].features.map((feature, featureIndex) => (
                             <tr key={featureIndex} className="border-b border-gray-400">
-                                <td className="p-6 text-gray-700 dark:bg-gray-300">
+                                <td className="p-6 text-gray-700 dark:text-white dark:bg-gray-900">
                                     {feature.name}
                                 </td>
                                 {plans.map((plan, planIndex) =>  (
