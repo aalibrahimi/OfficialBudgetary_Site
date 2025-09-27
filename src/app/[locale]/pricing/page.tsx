@@ -17,7 +17,7 @@ import {
   ChevronUp,
   HelpCircle,
 } from "lucide-react";
-import { Card, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
 const PricingPage = () => {
   const [billingCycle, setBillingCycle] = useState("monthly");
@@ -253,7 +253,7 @@ const PricingPage = () => {
                     Most Popular
                   </div>
                 )}
-                <CardTitle className={`p-8 ${plan.popular ? "pt-12" : ""}`}>
+                <CardTitle className={`p-8 `}>
                   {/* Plan Header */}
                   <div className="text-center mb-8">
                     <div
@@ -272,7 +272,57 @@ const PricingPage = () => {
                     </p>
 
                     {/* Price */}
-                    
+                    <CardContent>
+                      <div>
+                        <span className="text-3xl font-bold text-teal-600 dark:text-white">
+                          $
+                          {billingCycle === "monthly"
+                            ? plan.price.monthly
+                            : plan.price.yearly}
+                        </span>
+                        {plan.price.monthly > 0 && (
+                          <span className="text-gray-600 dark:text-graay-300 ml-2">
+                            / {billingCycle === "monthly" ? "month" : "year"}
+                          </span>
+                        )}
+                      </div>
+                      {billingCycle === "yearly" && plan.price.yearly > 0 && (
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                          ${(plan.price.yearly / 12).toFixed(2)}/month billed
+                          anually
+                        </p>
+                      )}
+                    </CardContent>
+
+                    {/* Cta button */}
+                    <button className={`w-full py-4 my-2 px-6 rounded-lg font-medium transition-colors ${getPlanColor(plan.color, 'button')} text-white`}> {plan.cta} </button>
+                  </div>
+
+                  {/* Features */}
+                  <div className="space-y-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white  mb-4">
+                        Whats Included:
+                    </h4>
+                    {plan.features.slice(0,8).map((feature,  featureIndex)  => (
+                        <div key={featureIndex} className="flex  items-center">
+                            {feature.included ? (
+                                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                            ) : (
+                                <X className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                            )}
+                            <span className={`text-sm ${feature.included ? 'text-gray-700 dark:text-gray-300' : "text-gray-400 dark:text-gray-500"}`}>
+                                {feature.name}
+                            </span>
+                        </div>
+                    ))}
+
+                    {plan.features.length  >  0  && (
+                        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <p className="text-sm  text-gray-500 dark:text-gray-400">
+                                + {plan.features.length - 8} more features
+                            </p>
+                        </div>
+                    )}
                   </div>
                 </CardTitle>
               </Card>
@@ -280,6 +330,105 @@ const PricingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Feature Comparison Table */}
+       {/* Testimonials */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              What Our Users Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  "{testimonial.content}"
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="font-semibold text-gray-900 dark:text-white">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {testimonial.plan} Plan
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-white dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    {faq.question}
+                  </span>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-gray-500" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-teal-500 to-blue-600">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Take Control of Your Finances?
+          </h2>
+          <p className="text-xl text-teal-100 mb-8">
+            Join thousands of users who have transformed their financial lives with Simplicity.
+          </p>
+          <button className="bg-white text-teal-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center">
+            Start Your Free Trial
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          
+          <p className="text-gray-400">
+            Smart budgeting for every lifestyle.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
