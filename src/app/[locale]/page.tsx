@@ -101,13 +101,8 @@ interface Expense {
   date: string;
 }
 
-interface BudgetaryLandingPageProps {
-  onExpenseAdded?: (expense: Expense) => void;
-}
-
-export default function BudgetaryLandingPage({
-  onExpenseAdded,
-}: BudgetaryLandingPageProps) {
+interface BudgetaryLandingPageProps {}
+export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
   const [activeFeature, setActiveFeature] = useState(0);
   const [expenseData, setExpenseData] = useState(initialExpenseData);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -171,8 +166,6 @@ export default function BudgetaryLandingPage({
         return updatedData;
       });
 
-      // Call parent callback
-      onExpenseAdded?.(newExpense);
 
       // rest
       form.reset();
