@@ -18,6 +18,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { features } from "process";
 
 const PricingPage = () => {
   const [billingCycle, setBillingCycle] = useState("monthly");
@@ -332,6 +333,54 @@ const PricingPage = () => {
       </section>
 
       {/* Feature Comparison Table */}
+      <section className="py-20 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                    Detailed Feature Comparison
+                </h2>
+                <p className="text-xl text-gray-600 dark:text-gray-300">
+                    See exactly  what's  included in each plan
+                </p>
+            </div>
+            <div className="overflow-x-auto">
+                <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+                    <thead>
+                        <tr className="border-b border-gray-200  dark:border-gray-700">
+                            <th className="text-left p-6 text-gray-900 dark:text-white font-semibold">
+                                Features
+                            </th>
+                            {plans.map((plan, index) => (
+                                <th  key={index} className="text-center p-6 text-gray-900 dark:text-white font-semibold">
+                                    {plan.name}
+                                </th>
+                            ))}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {plans[0].features.map((feature, featureIndex) => (
+                            <tr key={featureIndex} className="border-b border-gray-400">
+                                <td className="p-6 text-gray-700 dark:bg-gray-300">
+                                    {feature.name}
+                                </td>
+                                {plans.map((plan, planIndex) =>  (
+                                    <td key={planIndex} className="text-center  p-6">
+                                        {plan.features[featureIndex]?.included ? (
+                                            <Check className="w-5 h-5 text-green-500 mx-auto" />
+                                        ) : (
+                                            <X className="w-5 h-5 text-gray-400  mx-auto" />
+                                        )}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </section>
+
+
        {/* Testimonials */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
