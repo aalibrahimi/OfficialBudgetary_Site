@@ -68,7 +68,7 @@ const PricingPage = () => {
       price: { monthly: 9.99, yearly: 99 },
       description:
         "Ideal for individuals serious about personal finance management",
-      icon: <TrendingUp className="w-6 h-6" />,
+      icon: <TrendingUp className="w-6 h-6 " />,
       color: "teal",
       popular: true,
       features: [
@@ -184,7 +184,7 @@ const PricingPage = () => {
     const colorMap = {
       gray: {
         bg: "bg-gray-500",
-        bgLight: "bg-gray-100 dark:bg-gray-800",
+        bgLight: "bg-gray-100 dark:bg-slate-950 dark:border dark:border-teal-900",
         text: "text-gray-600",
         button: "bg-gray-600 hover:bg-gray-700",
         border: "border-gray-200",
@@ -209,13 +209,13 @@ const PricingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* hero section */}
       <section className="py-20  px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-4xl  font-bold text-gray-900 dark:text-white mb-6">
             Simple, Transparent
-            <span className="block text-xl text-transparent bg-clip-text bg-gradient-to-r from-teeal-500 to-blue-600">
+            <span className="block text-xl text-transparent bg-clip-text bg-gradient-to-r from-teeal-500 to-blue-600 dark:from-teal-500 dark:to-teal-500">
               Pricing for Everyone
             </span>
           </h1>
@@ -225,7 +225,7 @@ const PricingPage = () => {
           </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex  items-center bg-white dark:bg-gray-800 p-1  rounded-xs  shadow-sm border border-gray-200 dark:border-gray-700 mb-12">
+          <div className="inline-flex  items-center bg-white dark:bg-slate-950 dark:border dark:border-teal-900 p-1  rounded-xs  shadow-sm border border-gray-200 mb-12">
             <button
               onClick={() => setBillingCycle("monthly")}
               className={`px-6 py-2  rounded-xs font-medium  transition-colors  ${billingCycle === "monthly" ? "bg-teal-600 text-white shadow-sm" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover-text-white"}`}
@@ -255,7 +255,7 @@ const PricingPage = () => {
             {plans.map((plan, index) => (
               <Card
                 key={index}
-                className={`relative bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden ${
+                className={`relative bg-white dark:bg-slate-950 dark:border dark:border-teal-900 rounded-lg shadow-xl overflow-hidden ${
                   plan.popular ? "ring-2 ring-teal-500 transform scale-105" : ""
                 }`}
               >
@@ -268,7 +268,7 @@ const PricingPage = () => {
                   {/* Plan Header */}
                   <div className="text-center mb-8">
                     <div
-                      className={`inline-flex p-3 rounded-full ${getPlanColor(plan.color, "bgLight")} mb-4`}
+                      className={`inline-flex p-3 rounded-full ${getPlanColor(plan.color, "bgLight")} mb-4 border `}
                     >
                       <div className={getPlanColor(plan.color, "text")}>
                         {plan.icon}
@@ -331,10 +331,10 @@ const PricingPage = () => {
                             </p>
                         </div>
                     )}
-                     <p className="text-teal-600 dark:text-gray-300 mb-6">
+                     <p className="text-blue-600 dark:text-gray-300 mb-6">
                       {plan.description}
                     </p>
-                                        <button className={`w-full py-4 my-2 px-6 rounded-lg font-medium transition-colors ${getPlanColor(plan.color, 'button')} text-white`}> {plan.cta} </button>
+                    <button className={`w-full py-4 my-2 px-6 rounded-lg font-medium transition-colors ${getPlanColor(plan.color, 'button')} text-white`}> {plan.cta} </button>
 
                   </div>
                 </CardTitle>
@@ -345,7 +345,7 @@ const PricingPage = () => {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-20 bg-white dark:bg-gray-800">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -356,7 +356,7 @@ const PricingPage = () => {
                 </p>
             </div>
             <div className="overflow-x-auto">
-                <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+                <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg border dark:border-teal-700">
                     <thead>
                         <tr className="border-b border-gray-200   dark:border-gray-700">
                             <th className="text-left p-6 text-gray-900  dark:text-white font-semibold">
@@ -394,7 +394,7 @@ const PricingPage = () => {
 
 
        {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -404,7 +404,7 @@ const PricingPage = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+              <div key={index} className="bg-white dark:bg-slate-950 dark:border dark:border-teal-900 p-6 rounded-xs shadow-lg">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
@@ -428,7 +428,7 @@ const PricingPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white dark:bg-gray-800">
+      <section className="py-20 ">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -438,7 +438,7 @@ const PricingPage = () => {
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg">
+              <div key={index} className="border border-gray-200 dark:border-teal-800 rounded-lg">
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -482,11 +482,11 @@ const PricingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className=" text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
-          <p className="text-gray-400">
-            Smart budgeting for every lifestyle.
+          <p className="text-white">
+            Smart Budgeting <strong>For Every Lifestyle </strong> .
           </p>
         </div>
       </footer>

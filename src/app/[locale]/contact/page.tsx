@@ -144,7 +144,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-black dark:to-black">
+    <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* Hero Section  */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -168,7 +168,7 @@ const ContactPage = () => {
             {contactMethod.map((method, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xs dark:bg-gray-800 p-6  shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xs dark:bg-gray-900 p-6  border  dark:border-teal-800 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className={`p-3 rounded-xs  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
@@ -194,7 +194,7 @@ const ContactPage = () => {
           </div>
           {/* Contact Form */}
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xs shadow-lg">
+            <div className="bg-white dark:bg-gray-900 p-8  border dark:border-teal-800  rounded-xs shadow-lg">
               <form.Subscribe
                 selector={(state) => state.isSubmitted}
                 children={(isSubmitted) => {
@@ -344,7 +344,7 @@ const ContactPage = () => {
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-white dark:bg-gray-800 rounded-xs shadow-sm"
+                    className="bg-white dark:bg-gray-900 roun border dark:border-teal-800  ded-xs shadow-sm"
                   >
                     <button
                       onClick={() =>
@@ -380,7 +380,7 @@ const ContactPage = () => {
                 ))}
               </div>
 
-              <div className="mt-8 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-lg">
+              <div className="mt-8 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-600 dark:to-teal-600 p-6 rounded-xs">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   Can't find what you're looking for?
                 </h3>
@@ -388,7 +388,7 @@ const ContactPage = () => {
                   Our comprehensive help center has detailed guides and
                   tutorials.
                 </p>
-                <button className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">
+                <button className="bg-teal-800/90 text-white px-4 py-2 rounded-xs hover:bg-teal-700 transition-colors">
                   Visit Help Center
                 </button>
               </div>
@@ -398,8 +398,8 @@ const ContactPage = () => {
       </section>
 
       {/* Office Info */}
-      <section className="py-20 bg-white dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Our Team
