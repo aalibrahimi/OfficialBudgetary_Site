@@ -170,7 +170,7 @@ const ContactPage = () => {
                 key={index}
                 className="bg-white rounded-xs dark:bg-gray-800 p-6  shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className={`p-3 rounded-lg  w-fit mb-4 flex`}>
+                <div className={`p-3 rounded-xs  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
 
                   <h3 className="text-xl ml-4 font-bold text-gray-900 dark:text-white mb-2">
@@ -279,7 +279,7 @@ const ContactPage = () => {
                                     value={field.state.value}
                                     onValueChange={field.handleChange}
                                   >
-                                    <SelectTrigger className="w-full rounded-xs focus:ring-2 focus:ring-teal-500 mb-2">
+                                    <SelectTrigger className="w-full rounded-xs focus:ring-2 focus:ring-teal-500 mb-2 dark:ring dark:ring-white/35">
                                       <SelectValue placeholder="Select" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -307,7 +307,7 @@ const ContactPage = () => {
                                     required
                                     placeholder="Type your message here."
                                     rows={6}
-                                    className="resize-y h-50 max-h-70 rounded-xs focus:ring-2 focus:ring-teal-500"
+                                    className="resize-y h-50 max-h-70 rounded-xs focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-500 dark:ring dark:ring-white/35"
                                   />
                                 </>
                               );
@@ -321,7 +321,7 @@ const ContactPage = () => {
                               state.isSubmitting,
                             ]}
                             children={([canSubmit, isSubmitting]) => (
-                              <Button type="submit" disabled={!canSubmit}>
+                              <Button type="submit" disabled={!canSubmit} className="bg-teal-500 w-full mt-3">
                                 {isSubmitting ? "..." : "Submit"}
                               </Button>
                             )}
