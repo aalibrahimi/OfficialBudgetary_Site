@@ -6,7 +6,7 @@ import {
   Phone,
   Clock,
   MapPin,
-  Send,
+
   CheckCircle,
   AlertCircle,
   HelpCircle,
@@ -17,13 +17,8 @@ import {
   Star,
   Shield,
 } from "lucide-react";
-import { Field, useForm } from "@tanstack/react-form";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+import { useForm } from "@tanstack/react-form";
+
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 import {
@@ -149,7 +144,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-black dark:to-black">
       {/* Hero Section  */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
