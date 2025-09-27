@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X, DollarSign } from "lucide-react"; // Import icons for menu toggle and language
 import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import ModeToggle from "./modeToggle";
 
 // interface RouteItem {
@@ -125,8 +126,8 @@ export function Navbar(): React.ReactElement {
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <DollarSign className={`h-6 w-6 dark:text-teal-400 text-teal-500`} />
-          {/* <Image src="/budgetLogo.png" height={30} width={30} alt="Simplicity Logo" className="rounded-md" /> */}
+          {/* <DollarSign className={`h-6 w-6 dark:text-teal-400 text-teal-500`} /> */}
+          <Image src="/simplicity_logo.jpg" height={300} width={300} alt="Simplicity Logo" className=" h-10 w-10" />
           <span className="text-xl font-bold">SimplicityFunds</span>
         </Link>
 
