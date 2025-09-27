@@ -34,6 +34,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 const ContactPage = () => {
   const form = useForm({
     defaultValues: {
@@ -49,7 +50,7 @@ const ContactPage = () => {
     },
   });
 
-  const [selectedFaq, setSelectedFaq] = useState(null);
+  const [selectedFaq, setSelectedFaq] = useState<number | null>(null);
 
   const contactMethod = [
     {
@@ -190,12 +191,12 @@ const ContactPage = () => {
 
       {/* Contact Methods */}
       <section className="pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="max-w-7xl mx-auto ">
+          <div className="grid md:grid-cols-3 gap-8 mb-16 ">
             {contactMethod.map((method, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xs dark:bg-gray-800 p-6  shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className={`p-3 rounded-lg  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
@@ -281,7 +282,7 @@ const ContactPage = () => {
                           value={field.state.value}
                           onValueChange={field.handleChange}
                           >
-                            <SelectTrigger className="w-full rounded-xs focus:ring-2 focus:ring-teal-500">
+                            <SelectTrigger className="w-full rounded-xs focus:ring-2 focus:ring-teal-500 mb-2">
                               <SelectValue placeholder="Select" />
                             </SelectTrigger>
                             <SelectContent>
@@ -310,19 +311,144 @@ const ContactPage = () => {
                           required
                           placeholder="Type your message here."
                           rows={6}
-                          className="resize-y max-h-40 rounded-xs focus:ring-2 focus:ring-teal-500"
+                          className="resize-y h-50 max-h-70 rounded-xs focus:ring-2 focus:ring-teal-500"
                         />
                       </>
                     )
                   }}
                   />
+                  {/* Submit */}
+                  <form.Subscribe 
+                    selector={(state) => [state.canSubmit, state.isSubmitting]}
+                    children={([canSubmit, isSubmitting]) => (
+                      <Button type="submit" disabled={!canSubmit} className="bg-teal-600 w-full hover:bg-teal-700 mt-5">
+                        {isSubmitting ? "..." : "Submit"}
+                      </Button>
+                    )}
+                  />
                 </div>
               </form>
+            </div>
+              {/* FAQ Section */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white dark:bg-gray-800 rounded-xs shadow-sm">
+                    <button
+                      onClick={() => setSelectedFaq(selectedFaq === index ? null : index)}
+                      className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-xs"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 px-2 py-1 rounded text-xs font-medium">
+                          {faq.category}
+                        </span>
+                        <span className="font-medium text-gray-900 dark:text-white">
+                          {faq.question}
+                        </span>
+                      </div>
+                      <div className="ml-4">
+                        {selectedFaq === index ? (
+                          <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+                        ) : (
+                          <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                        )}
+                      </div>
+                    </button>
+                    
+                    {selectedFaq === index && (
+                      <div className="px-4 pb-4">
+                        <p className="text-gray-600 dark:text-gray-300 pl-16 ">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  Can't find what you're looking for?
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Our comprehensive help center has detailed guides and tutorials.
+                </p>
+                <button className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">
+                  Visit Help Center
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Office Info */}
+      <section className="py-20 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Our Team
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              We're a remote-first company with team members around the world
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-teal-100 dark:bg-teal-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <MapPin className="w-8 h-8 text-teal-600 dark:text-teal-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                Global Remote Team
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Our distributed team works across multiple time zones to provide better support coverage
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Users className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                Customer-Focused
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Every team member is passionate about helping you achieve your financial goals
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Star className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                Always Improving
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                We continuously iterate based on user feedback to make Simplicity better every day
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+       
+          <p className="text-white Bold">
+            Making personal finance simple and accessible for everyone.
+          </p>
+        </div>
+      </footer>
     </div>
+      
   );
 };
 
