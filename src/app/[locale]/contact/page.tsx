@@ -168,7 +168,7 @@ const ContactPage = () => {
             {contactMethod.map((method, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xs dark:bg-gray-900 p-6  border  dark:border-teal-800 shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xs dark:bg-slate-900 p-6  border  dark:border-teal-800 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className={`p-3 rounded-xs  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
@@ -194,7 +194,7 @@ const ContactPage = () => {
           </div>
           {/* Contact Form */}
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white dark:bg-gray-900 p-8  border dark:border-teal-800  rounded-xs shadow-lg">
+            <div className="bg-white dark:bg-slate-900 p-8  border dark:border-teal-800  rounded-xs shadow-lg">
               <form.Subscribe
                 selector={(state) => state.isSubmitted}
                 children={(isSubmitted) => {
@@ -321,7 +321,7 @@ const ContactPage = () => {
                               state.isSubmitting,
                             ]}
                             children={([canSubmit, isSubmitting]) => (
-                              <Button type="submit" disabled={!canSubmit} className="bg-teal-500 w-full mt-3">
+                              <Button type="submit" disabled={!canSubmit} className="bg-teal-500 hover:bg-teal-600 w-full mt-3">
                                 {isSubmitting ? "..." : "Submit"}
                               </Button>
                             )}
@@ -344,13 +344,13 @@ const ContactPage = () => {
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-white dark:bg-gray-900 roun border dark:border-teal-800  ded-xs shadow-sm"
+                    className="bg-white dark:bg-slate-900 roun border dark:hover:bg-teal-700 dark:border-teal-800  ded-xs shadow-sm"
                   >
                     <button
                       onClick={() =>
                         setSelectedFaq(selectedFaq === index ? null : index)
                       }
-                      className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-xs"
+                      className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50  dark:hover:bg-teal-700 transition-colors rounded-xs"
                     >
                       <div className="flex items-center space-x-3">
                         <span className="bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 px-2 py-1 rounded text-xs font-medium">
@@ -398,7 +398,7 @@ const ContactPage = () => {
       </section>
 
       {/* Office Info */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">

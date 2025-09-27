@@ -483,11 +483,11 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
                                 onChange={(e) =>
                                   field.handleChange(e.target.value)
                                 }
-                                className={`w-full p-2 text-sm rounded-xs border  dark:bg-white/5 ${
+                                className={`w-full p-2 text-sm rounded-xs border placeholder:text-gray-400 dark:bg-white/5 ${
                                   field.state.meta.errors.length > 0
                                     ? "border-red-300 dark:border-red-600"
                                     : "border-teal-200 dark:border-teal-700"
-                                } bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500`}
+                                } bg-white dark:bg-gray-800 focus:outline-none focus:ring-2  focus:ring-teal-500`}
                               />
                               {field.state.meta.errors.length > 0 && (
                                 <p className="text-xs text-red-600 dark:text-red-400 mt-1">
@@ -507,7 +507,7 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
                               value={field.state.value}
                               onValueChange={field.handleChange}
                               >
-                                <SelectTrigger className="w-full rounded-xs border border-teal-600 bg-white dark:bg-white/5">
+                                <SelectTrigger className="w-full rounded-xs border  border-teal-200 dark:border-teal-700 bg-white dark:bg-white/5">
                                   <SelectValue placeholder="Select Category"/>
                                 </SelectTrigger>
                                 <SelectContent>
@@ -538,7 +538,7 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
                                 onChange={(e) =>
                                   field.handleChange(e.target.value)
                                 }
-                                className={`w-full p-2 text-sm rounded-xs border ${
+                                className={`w-full p-2 text-sm rounded-xs border placeholder:text-gray-400 ${
                                   field.state.meta.errors.length > 0
                                     ? "border-red-300 dark:border-red-600"
                                     : "border-teal-200 dark:border-teal-700"
