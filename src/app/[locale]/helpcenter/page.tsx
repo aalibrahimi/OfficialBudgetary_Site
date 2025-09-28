@@ -285,7 +285,7 @@ const HelpCenterPage = () => {
                       <div className="w-6 h-6 rounded-full bg-teal-500 text-white flex items-center justify-center text-sm font-medium flex-shrink-0 mt-0.5">1</div>
                       <div>
                         <p className="font-medium text-gray-900 dark:text-white">Open Settings</p>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm">Go to Settings > Connected Accounts in Simplicity</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">Go to Settings - Connected Accounts in Simplicity</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
