@@ -155,7 +155,7 @@ const SupportedBanksPage = () => {
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full mb-8 text-sm font-medium bg-gradient-to-r from-green-500/10 to-blue-500/10 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">
+          <div className="inline-flex items-center px-4 py-2 rounded-full mb-8 text-sm font-medium bg-gradient-to-r from-green-500/10 via-green-500/10 to-blue-500/10 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">
             <Globe className="h-4 w-4 mr-2" />
             <span>11,000+ Institutions Supported</span>
             <Badge className="ml-3 bg-green-500 text-white">Via Plaid</Badge>
