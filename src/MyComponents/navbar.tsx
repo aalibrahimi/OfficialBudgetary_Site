@@ -139,10 +139,22 @@ export function Navbar(): React.ReactElement {
             Home
           </Link>
           <Link
+            href="/about"
+            className="hover:text-teal-500 transition-colors"
+          >
+            About
+          </Link>
+          <Link
             href="/dashboard"
             className="hover:text-teal-500 transition-colors"
           >
            Dashboard Demo
+          </Link>
+          <Link
+            href="/BankInstitution"
+            className="hover:text-teal-500 transition-colors"
+          >
+            Institutional Banks
           </Link>
           <Link
             href="/contact"
