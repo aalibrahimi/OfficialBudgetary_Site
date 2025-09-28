@@ -586,7 +586,7 @@ const HelpCenterPage = () => {
                   <div className="space-y-3">
                     <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">1. Refresh Your Connection</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Go to Settings > Connected Accounts and click "Refresh" next to your bank</p>
+                      <p className="text-orange-700 dark:text-orange-300 text-sm">Go to Settings - Connected Accounts and click "Refresh" next to your bank</p>
                     </div>
                     <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">2. Check Bank Status</p>
@@ -640,7 +640,7 @@ const HelpCenterPage = () => {
                     <p className="font-medium text-blue-800 dark:text-blue-200 mb-2">Manual Update Process</p>
                     <ol className="text-blue-700 dark:text-blue-300 text-sm space-y-1">
                       <li>1. Open Simplicity</li>
-                      <li>2. Go to Settings > About</li>
+                      <li>2. Go to Settings - About</li>
                       <li>3. Click "Check for Updates"</li>
                       <li>4. Follow the update prompts</li>
                     </ol>
