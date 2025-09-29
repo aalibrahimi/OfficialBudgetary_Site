@@ -123,7 +123,7 @@ export function Navbar(): React.ReactElement {
 
   return (
     <nav
-      className={`fixed top-0 w-full dark:bg-gray-900/90 bg-white/90 backdrop-blur-sm z-50 border-b dark:border-gray-800 border-gray-200`}
+      className={`sticky top-0 w-full dark:bg-gray-900/90 bg-white/90 backdrop-blur-sm z-50 border-b dark:border-gray-800 border-gray-200`}
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">

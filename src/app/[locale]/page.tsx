@@ -215,7 +215,7 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+      <section className="relative pt-4 pb-16 md:pb-24 overflow-hidden">
         {/* Enhanced Background */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Animated gradient orbs */}

@@ -133,7 +133,7 @@ const AnalyticsDashboard = () => {
     <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* Navigation */}
 
-      <div className="max-7xl mx-auto  px-4 sm:px-6 lg:px-8 py-8 mt-15">
+      <div className="max-7xl mx-auto  px-4 sm:px-6 lg:px-8 py-4">
         {/* Header */}
         <div className="mb-8">
           <div className="flex not-sm:flex-col not-sm:gap-6 items-center justify-between">
