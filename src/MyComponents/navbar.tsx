@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 "use client";
 import React, { useEffect, useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Menu, X, DollarSign } from "lucide-react"; // Import icons for menu toggle and language
@@ -9,6 +9,7 @@ import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ModeToggle from "./modeToggle";
+import { Separator } from "@/components/ui/separator";
 
 // interface RouteItem {
 //   title: string;
@@ -21,6 +22,8 @@ import ModeToggle from "./modeToggle";
 // }
 
 export function Navbar(): React.ReactElement {
+  const pathname = usePathname();
+
   // const defaultRoute = { href: "/" };
   // const t = useTranslations("NavBar");
 
@@ -119,52 +122,59 @@ export function Navbar(): React.ReactElement {
   }, [locale]);
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("/");
 
   return (
     <nav
-      className={`fixed top-0 w-full dark:bg-gray-900/90 bg-white/90 backdrop-blur-sm z-50 border-b dark:border-gray-800 border-gray-200`}
+      className={`sticky top-0 w-full dark:bg-gray-900/90 bg-white/90 backdrop-blur-sm z-50 border-b dark:border-gray-800 border-gray-200`}
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           {/* <DollarSign className={`h-6 w-6 dark:text-teal-400 text-teal-500`} /> */}
-          <Image src="/simplicity_logo.jpg" height={300} width={300} alt="Simplicity Logo" className=" h-10 w-10" />
+          <Image
+            src="/simplicity_logo.jpg"
+            height={300}
+            width={300}
+            alt="Simplicity Logo"
+            className=" h-10 w-10"
+          />
           <span className="text-xl font-bold">SimplicityFunds</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
           <Link
-            href="/#features"
-            className="hover:text-teal-500 transition-colors"
+            href="/"
+            className={`${"/" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Home
           </Link>
           <Link
             href="/about"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/about" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             About
           </Link>
           <Link
             href="/dashboard"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/dashboard" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
-           Dashboard Demo
+            Dashboard Demo
           </Link>
           <Link
             href="/BankInstitution"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/BankInstitution" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Institutional Banks
           </Link>
           <Link
             href="/contact"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/contact" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Contact
           </Link>
           <Link
             href="/pricing"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/pricing" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Pricing
           </Link>
@@ -174,10 +184,10 @@ export function Navbar(): React.ReactElement {
           <ModeToggle />
 
           <div className="hidden md:block">
-            <Button
-              className={`dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black bg-teal-600 hover:bg-teal-500 text-white hover:cursor-pointer`}
-            >
-              <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>Download App</a>
+            <Button className="group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>
+                Download App
+              </a>
             </Button>
           </div>
 
@@ -193,32 +203,56 @@ export function Navbar(): React.ReactElement {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div
-          className={`md:hidden dark:bg-gray-900 dark:text-white bg-white text-gray-900 p-4 space-y-4 border-t dark:border-gray-800 border-gray-200`}
+          className={`md:hidden [&_a]:block [&_a]:py-2 dark:bg-gray-900 dark:text-white bg-white text-gray-900 p-4 space-y-4 border-t dark:border-gray-800 border-gray-200`}
         >
-          <Link href="/#features" className="block py-2 hover:text-teal-500">
-            Features
-          </Link>
           <Link
-            href="/#how-it-works"
-            className="block py-2 hover:text-teal-500"
+            href="/"
+            className={`${"/" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
           >
-            How It Works
+            Home
           </Link>
+          <Separator />
           <Link
-            href="/#testimonials"
-            className="block py-2 hover:text-teal-500"
+            href="/about"
+            className={`${"/about" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
           >
-            Testimonials
+            About
           </Link>
-          <Link href="/#pricing" className="block py-2 hover:text-teal-500">
+          <Separator />
+          <Link
+            href="/dashboard"
+            className={`${"/dashboard" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Dashboard Demo
+          </Link>
+          <Separator />
+          <Link
+            href="/BankInstitution"
+            className={`${"/BankInstitution" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Institutional Banks
+          </Link>
+          <Separator />
+          <Link
+            href="/contact"
+            className={`${"/contact" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+          <Separator />
+          <Link
+            href="/pricing"
+            className={`${"/pricing" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
             Pricing
           </Link>
-          <Button
-            className={`w-full mt-4
-                dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
-                bg-teal-600 hover:bg-teal-500 text-white hover:cursor-pointer
-            `}
-          >
+          <Button className="w-full mt-4 group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
             Download App
           </Button>
         </div>

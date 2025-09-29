@@ -6,7 +6,6 @@ import {
   Phone,
   Clock,
   MapPin,
-
   CheckCircle,
   AlertCircle,
   HelpCircle,
@@ -30,6 +29,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 const ContactPage = () => {
   const form = useForm({
@@ -146,11 +146,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* Hero Section  */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Get in Touch
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">
+            <span className="pb-2 block text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">
               We're Here to Help
             </span>
           </h1>
@@ -168,7 +168,7 @@ const ContactPage = () => {
             {contactMethod.map((method, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xs dark:bg-slate-900 p-6  border  dark:border-teal-800 shadow-lg hover:shadow-xl transition-shadow"
+                className="rounded-xs p-6 bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className={`p-3 rounded-xs  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
@@ -194,11 +194,11 @@ const ContactPage = () => {
           </div>
           {/* Contact Form */}
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white dark:bg-slate-900 p-8  border dark:border-teal-800  rounded-xs shadow-lg">
+            <div className="bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-teal-800 p-8 rounded-xs shadow-lg">
               <form.Subscribe
-                selector={(state) => state.isSubmitted}
-                children={(isSubmitted) => {
-                  if (isSubmitted) {
+                selector={(state) => state.isSubmitSuccessful}
+                children={(isSubmitSuccessful) => {
+                  if (isSubmitSuccessful) {
                     return (
                       <div className="text-center py-8">
                         <div className="bg-green-100 dark:bg-green-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
@@ -208,7 +208,8 @@ const ContactPage = () => {
                           Message Sent Successfully!
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 mb-8">
-                          Thank you for contacting us. We'll get back to you within 24 hours.
+                          Thank you for contacting us. We'll get back to you
+                          within 24 hours.
                         </p>
                         <button
                           onClick={() => form.reset()}
@@ -233,9 +234,11 @@ const ContactPage = () => {
                           form.handleSubmit();
                         }}
                       >
-                        <div className=" 
+                        <div
+                          className=" 
                         [&_Label]:block [&_Label]:text-sm [&_Label]:font-medium [&_Label]:text-teal-700 [&_Label]:dark:text-gray-300 [&_Label]:mb-2
-                        [&_Input]:rounded-xs [&_Input]:border [&_Input]:hover:border-teal-500 [&_Input]:focus:ring-2 [&_Input]:focus:ring-teal-500 [&_Input]:mb-2 [&_Input]:focus:border-teal-600 [&_Input]:dark:hover:teal-600">
+                        [&_Input]:bg-white [&_Input]:dark:bg-gray-800 [&_Input]:rounded-xs [&_Input]:border [&_Input]:hover:border-teal-500 [&_Input]:focus:ring-2 [&_Input]:focus:ring-teal-500 [&_Input]:mb-2 [&_Input]:focus:border-teal-600 [&_Input]:dark:hover:teal-600"
+                        >
                           <form.Field
                             name="name"
                             children={(field) => {
@@ -245,7 +248,9 @@ const ContactPage = () => {
                                   <Input
                                     type="text"
                                     value={field.state.value}
-                                    onChange={(e) => field.handleChange(e.target.value)}
+                                    onChange={(e) =>
+                                      field.handleChange(e.target.value)
+                                    }
                                     placeholder="Your Full Name"
                                   />
                                 </>
@@ -261,7 +266,9 @@ const ContactPage = () => {
                                   <Label> Email </Label>
                                   <Input
                                     value={field.state.value}
-                                    onChange={(e) => field.handleChange(e.target.value)}
+                                    onChange={(e) =>
+                                      field.handleChange(e.target.value)
+                                    }
                                     placeholder="johndoe@gmail.com"
                                   />
                                 </>
@@ -279,12 +286,15 @@ const ContactPage = () => {
                                     value={field.state.value}
                                     onValueChange={field.handleChange}
                                   >
-                                    <SelectTrigger className="w-full rounded-xs focus:ring-2 focus:ring-teal-500 mb-2 dark:ring dark:ring-white/35">
+                                    <SelectTrigger className="w-full rounded-xs bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 mb-2 dark:ring dark:ring-white/35">
                                       <SelectValue placeholder="Select" />
                                     </SelectTrigger>
                                     <SelectContent>
                                       {categories.map((category) => (
-                                        <SelectItem key={category.value} value={category.value}>
+                                        <SelectItem
+                                          key={category.value}
+                                          value={category.value}
+                                        >
                                           {category.label}
                                         </SelectItem>
                                       ))}
@@ -303,17 +313,19 @@ const ContactPage = () => {
                                   <Label> Subject *</Label>
                                   <Textarea
                                     value={field.state.value}
-                                    onChange={(e) => field.handleChange(e.target.value)}
+                                    onChange={(e) =>
+                                      field.handleChange(e.target.value)
+                                    }
                                     required
                                     placeholder="Type your message here."
                                     rows={6}
-                                    className="resize-y h-50 max-h-70 rounded-xs focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-500 dark:ring dark:ring-white/35"
+                                    className="resize-y h-50 max-h-70 rounded-xs bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-500 dark:ring dark:ring-white/35"
                                   />
                                 </>
                               );
                             }}
                           />
-                          
+
                           {/* Submit button */}
                           <form.Subscribe
                             selector={(state) => [
@@ -321,7 +333,11 @@ const ContactPage = () => {
                               state.isSubmitting,
                             ]}
                             children={([canSubmit, isSubmitting]) => (
-                              <Button type="submit" disabled={!canSubmit} className="bg-teal-500 hover:bg-teal-600 w-full mt-3">
+                              <Button
+                                type="submit"
+                                disabled={!canSubmit}
+                                className="bg-gradient-to-br from-teal-500 to-teal-700 dark:from-teal-600 dark:to-teal-800 text-white hover:brightness-125 w-full mt-3 rounded-xs"
+                              >
                                 {isSubmitting ? "..." : "Submit"}
                               </Button>
                             )}
@@ -333,7 +349,7 @@ const ContactPage = () => {
                 }}
               />
             </div>
-            
+
             {/* FAQ Section */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -344,16 +360,16 @@ const ContactPage = () => {
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-white dark:bg-slate-900 roun border dark:hover:bg-teal-700 dark:border-teal-800  ded-xs shadow-sm"
+                    className="bg-gradient-to-br from-teal-400/30 to-sky-400/60 dark:from-blue-950/20 dark:to-blue-800/40 border border-teal-500 dark:border-sky-900 rounded-xs shadow-sm"
                   >
                     <button
                       onClick={() =>
                         setSelectedFaq(selectedFaq === index ? null : index)
                       }
-                      className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50  dark:hover:bg-teal-700 transition-colors rounded-xs"
+                      className="w-full flex items-center justify-between p-4 text-left hover:bg-cyan-100  dark:hover:bg-cyan-700 transition-colors rounded-xs"
                     >
                       <div className="flex items-center space-x-3">
-                        <span className="bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 px-2 py-1 rounded text-xs font-medium">
+                        <span className="bg-gradient-to-r from-white to-blue-100 dark:from-teal-100/10 dark:to-blue-500/10 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 px-2 py-1 rounded text-xs font-medium">
                           {faq.category}
                         </span>
                         <span className="font-medium text-gray-900 dark:text-white">
@@ -362,9 +378,9 @@ const ContactPage = () => {
                       </div>
                       <div className="ml-4">
                         {selectedFaq === index ? (
-                          <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-teal-600 dark:bg-teal-500 rounded-full"></div>
                         ) : (
-                          <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                          <div className="w-2 h-2 bg-zinc-400/80 dark:bg-zinc-700 rounded-full"></div>
                         )}
                       </div>
                     </button>
@@ -380,7 +396,7 @@ const ContactPage = () => {
                 ))}
               </div>
 
-              <div className="mt-8 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-600 dark:to-teal-600 p-6 rounded-xs">
+              <div className="mt-8 bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 p-6 rounded-xs">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   Can't find what you're looking for?
                 </h3>
@@ -388,7 +404,7 @@ const ContactPage = () => {
                   Our comprehensive help center has detailed guides and
                   tutorials.
                 </p>
-                <button className="bg-teal-800/90 text-white px-4 py-2 rounded-xs hover:bg-teal-700 transition-colors">
+                <button className="bg-gradient-to-br from-teal-500 to-teal-700 dark:from-teal-600 dark:to-teal-800 text-white px-4 py-2 rounded-xs hover:bg-teal-700 transition-colors">
                   Visit Help Center
                 </button>
               </div>
@@ -397,9 +413,11 @@ const ContactPage = () => {
         </div>
       </section>
 
+      <Separator />
+
       {/* Office Info */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Our Team
@@ -411,7 +429,7 @@ const ContactPage = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-teal-100 dark:bg-teal-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-teal-300/40 to-teal-400/40 dark:from-teal-500/40 dark:to-teal-600/40 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <MapPin className="w-8 h-8 text-teal-600 dark:text-teal-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -424,7 +442,7 @@ const ContactPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-blue-300/40 to-blue-400/40 dark:from-blue-500/40 dark:to-blue-600/40 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Users className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -437,7 +455,7 @@ const ContactPage = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-purple-300/40 to-purple-400/40 dark:from-purple-500/40 dark:to-purple-600/40 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Star className="w-8 h-8 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">

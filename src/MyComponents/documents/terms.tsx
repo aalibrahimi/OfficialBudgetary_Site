@@ -109,7 +109,7 @@ export default function LegalPageTemplate({
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#000000] dark:text-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4">
         {/* Header */}
         <div>
           <div className="container mx-auto px-4 py-8">
@@ -222,10 +222,10 @@ export default function LegalPageTemplate({
                     Contact our support team:
                   </p>
                   <Link
-                    href="mailto:budgetary@codewithali.com"
+                    href="mailto:simplicity@codewithali.com"
                     className="text-sm text-teal-600 dark:text-teal-400 hover:underline"
                   >
-                    budgetary@codewithali.com
+                    simplicity@codewithali.com
                   </Link>
                 </CardContent>
               </Card>

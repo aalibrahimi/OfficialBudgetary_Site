@@ -9,9 +9,6 @@ import {
   Download,
   Eye,
   EyeOff,
-  // AlertTriangle,
-  // Minus,
-  // CheckCircleIcon,
 } from "lucide-react";
 import {
   Card,
@@ -106,7 +103,7 @@ const AnalyticsDashboard = () => {
     [chartData]
   );
 
-  const formatCurrency = (amount : number) => {
+  const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -136,14 +133,12 @@ const AnalyticsDashboard = () => {
     <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* Navigation */}
 
-
-      <div className="max-7xl mx-auto  px-4 sm:px-6 lg:px-8 py-8 mt-15">
+      <div className="max-7xl mx-auto  px-4 sm:px-6 lg:px-8 py-4">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center justify-between">
+          <div className="flex not-sm:flex-col not-sm:gap-6 items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                
                 Financial Analytics
               </h1>
               <p className="text-gray-600 dark:text-gray-300 mt-2">
@@ -151,12 +146,12 @@ const AnalyticsDashboard = () => {
                 patterns
               </p>
             </div>
-         <div className="flex items-center space-x-4">
+            <div className="flex items-center not-sm:self-start space-x-4">
               <Button
                 variant={"outline"}
                 size={"sm"}
                 onClick={() => setHideSensitiveData(!hideSensitiveData)}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 min-h-9 bg-zinc-100 dark:bg-teal-800/40"
               >
                 {hideSensitiveData ? (
                   <EyeOff className="w-4 h-4" />
@@ -167,7 +162,7 @@ const AnalyticsDashboard = () => {
               </Button>
 
               <Select value={timeRange} onValueChange={setTimeRange}>
-                <SelectTrigger className="W-[140px]">
+                <SelectTrigger className="W-[140px] min-h-9">
                   <SelectValue placeholder="Time Frame" />
                 </SelectTrigger>
                 <SelectContent>
@@ -177,8 +172,12 @@ const AnalyticsDashboard = () => {
                 </SelectContent>
               </Select>
 
-              <Button variant={"outline"} size={"sm"}>
-                <Download className="w-4 h-4 mr-2" />
+              <Button
+                variant={"outline"}
+                size={"sm"}
+                className="bg-transparent min-h-9"
+              >
+                <Download className="w-4 h-4" />
               </Button>
             </div>
 
@@ -192,14 +191,13 @@ const AnalyticsDashboard = () => {
                 <Filter className="w-4 h-4 mr-2" /> Filters{" "}
               </Button>
             </div> */}
-        
           </div>
         </div>
 
         {/* Key Metrics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {/* Total Expense */}
-          
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
@@ -262,7 +260,7 @@ const AnalyticsDashboard = () => {
             </CardContent>
           </Card>
 
-          {/*  */}
+          {/* Savings Rate */}
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
@@ -293,7 +291,7 @@ const AnalyticsDashboard = () => {
           onValueChange={setActiveTab}
           className="space-y-4 rounded-xs  "
         >
-          <TabsList className="grid-full grid-cols-4 gap-6 rounded-xs">
+          <TabsList className="grid-full grid-cols-4 gap-6 rounded-xs [&_button]:rounded-xs">
             <TabsTrigger value="overview">OverView</TabsTrigger>
             <TabsTrigger value="trends">Trends</TabsTrigger>
             <TabsTrigger value="budget">Budget</TabsTrigger>
@@ -382,14 +380,14 @@ const AnalyticsDashboard = () => {
                         });
                       }}
                     />
-                       <Area
+                    <Area
                       dataKey="expenses"
                       type="natural"
                       fill="url(#fillExpenses)"
                       stroke="var(--color-expenses)"
                       stackId="a"
                     />
-                    
+
                     <Area
                       dataKey="income"
                       type="natural"
@@ -397,7 +395,6 @@ const AnalyticsDashboard = () => {
                       stroke="var(--color-income)"
                       stackId="a"
                     />
-                 
 
                     <ChartLegend content={<ChartLegendContent />} />
                   </AreaChart>
@@ -514,24 +511,38 @@ const AnalyticsDashboard = () => {
           </TabsContent>
 
           {/* Trends Tab */}
-          
+
           <TabsContent value="trends" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Spending Trend</CardTitle>
-                  <CardDescription>Month-over-month spending analysis</CardDescription>
+                  <CardDescription>
+                    Month-over-month spending analysis
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ChartContainer config={chartConfig} className="h-[300px]">
+                  <ChartContainer
+                    config={chartConfig}
+                    className="h-[300px] w-full"
+                  >
                     <BarChart data={chartData}>
                       <CartesianGrid vertical={false} />
-                      <XAxis 
-                        dataKey="date" 
-                        tickFormatter={(value) => new Date(value).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                      <XAxis
+                        dataKey="date"
+                        tickFormatter={(value) =>
+                          new Date(value).toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                          })
+                        }
                       />
                       <ChartTooltip content={<ChartTooltipContent />} />
-                      <Bar dataKey="expenses" fill="var(--color-expenses)" radius={[2, 2, 0, 0]} />
+                      <Bar
+                        dataKey="expenses"
+                        fill="var(--color-expenses)"
+                        radius={[2, 2, 0, 0]}
+                      />
                     </BarChart>
                   </ChartContainer>
                 </CardContent>
@@ -540,31 +551,50 @@ const AnalyticsDashboard = () => {
               <Card>
                 <CardHeader>
                   <CardTitle>Income Trend</CardTitle>
-                  <CardDescription>Month-over-month income analysis</CardDescription>
+                  <CardDescription>
+                    Month-over-month income analysis
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ChartContainer config={chartConfig} className="h-[300px]">
+                  <ChartContainer
+                    config={chartConfig}
+                    className="h-[300px] w-full"
+                  >
                     <BarChart data={chartData}>
                       <CartesianGrid vertical={false} />
-                      <XAxis 
-                        dataKey="date" 
-                        tickFormatter={(value) => new Date(value).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                      <XAxis
+                        dataKey="date"
+                        tickFormatter={(value) =>
+                          new Date(value).toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                          })
+                        }
                       />
                       <ChartTooltip content={<ChartTooltipContent />} />
-                      <Bar dataKey="income" fill="var(--color-income)" radius={[2, 2, 0, 0]} />
+                      <Bar
+                        dataKey="income"
+                        fill="var(--color-income)"
+                        radius={[2, 2, 0, 0]}
+                      />
                     </BarChart>
                   </ChartContainer>
                 </CardContent>
               </Card>
             </div>
-             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Expense Distribution</CardTitle>
-                  <CardDescription>Breakdown of spending by category</CardDescription>
+                  <CardDescription>
+                    Breakdown of spending by category
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ChartContainer config={chartConfig} className="h-[300px]">
+                  <ChartContainer
+                    config={chartConfig}
+                    className="h-[300px] w-full"
+                  >
                     <ResponsiveContainer width="100%" height="100%">
                       <RechartsPieChart>
                         <Pie
@@ -587,30 +617,45 @@ const AnalyticsDashboard = () => {
                 </CardContent>
               </Card>
 
-   {/* Categories Tab */}
-              
+              {/* Categories Tab */}
+
               <Card>
                 <CardHeader>
                   <CardTitle>Category Details</CardTitle>
-                  <CardDescription>Detailed breakdown with percentages</CardDescription>
+                  <CardDescription>
+                    Detailed breakdown with percentages
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {categoryData.map((category) => (
-                      <div key={category.name} className="flex items-center justify-between">
+                      <div
+                        key={category.name}
+                        className="flex items-center justify-between"
+                      >
                         <div className="flex items-center space-x-3">
-                          <div 
-                            className="w-4 h-4 rounded-full" 
+                          <div
+                            className="w-4 h-4 rounded-full"
                             style={{ backgroundColor: category.color }}
                           />
                           <span className="font-medium">{category.name}</span>
                         </div>
                         <div className="text-right">
                           <div className="font-medium">
-                            {hideSensitiveData ? "••••" : formatCurrency(category.value)}
+                            {hideSensitiveData
+                              ? "••••"
+                              : formatCurrency(category.value)}
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            {((category.value / categoryData.reduce((sum, cat) => sum + cat.value, 0)) * 100).toFixed(1)}%
+                            {(
+                              (category.value /
+                                categoryData.reduce(
+                                  (sum, cat) => sum + cat.value,
+                                  0
+                                )) *
+                              100
+                            ).toFixed(1)}
+                            %
                           </div>
                         </div>
                       </div>
@@ -621,46 +666,68 @@ const AnalyticsDashboard = () => {
             </div>
           </TabsContent>
 
-         
-
           {/* Budget Tab */}
           <TabsContent value="budget" className="space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle>Budget vs Actual Spending</CardTitle>
-                <CardDescription>Track your spending against your budget goals</CardDescription>
+                <CardDescription>
+                  Track your spending against your budget goals
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6">
                   {budgetData.map((item) => {
                     // const status = getBudgetStatus(item.percentage);
                     // const StatusIcon = status.icon;
-                    
+
                     return (
                       <div key={item.category} className="space-y-2">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                          
                             <span className="font-medium">{item.category}</span>
-                              {/* <StatusIcon className="w-4 h-4" /> */}
-                           <Badge variant={item.percentage > 50 ? "destructive" : "outline"}>
-                            {item.percentage.toFixed(0)}%
-                          </Badge>
-                                                    </div>
+                            {/* <StatusIcon className="w-4 h-4" /> */}
+                            <Badge
+                              variant={
+                                item.percentage > 50 ? "destructive" : "outline"
+                              }
+                            >
+                              {item.percentage.toFixed(0)}%
+                            </Badge>
+                          </div>
                           <div className="text-right">
                             <div className="font-medium">
-                              {hideSensitiveData ? "••••" : formatCurrency(item.spent)} / {hideSensitiveData ? "••••" : formatCurrency(item.budgeted)}
+                              {hideSensitiveData
+                                ? "••••"
+                                : formatCurrency(item.spent)}{" "}
+                              /{" "}
+                              {hideSensitiveData
+                                ? "••••"
+                                : formatCurrency(item.budgeted)}
                             </div>
                           </div>
                         </div>
-                        <Progress 
-                          value={Math.min(item.percentage, 100)} 
-                         className={`h-2 ${item.percentage > 100 ? '[&>div]:bg-red-500' : '[&>div]:bg-green-500'}`}
-                          
+                        <Progress
+                          value={Math.min(item.percentage, 100)}
+                          className={`h-2 ${item.percentage > 100 ? "[&>div]:bg-red-500" : "[&>div]:bg-green-500"}`}
                         />
                         <div className="flex justify-between text-sm text-muted-foreground">
-                          <span>Remaining: {hideSensitiveData ? "••••" : formatCurrency(Math.max(0, item.budgeted - item.spent))}</span>
-                          <span>{item.percentage > 100 ? 'Over by ' : ''}{hideSensitiveData ? "••••" : formatCurrency(Math.abs(item.budgeted - item.spent))}</span>
+                          <span>
+                            Remaining:{" "}
+                            {hideSensitiveData
+                              ? "••••"
+                              : formatCurrency(
+                                  Math.max(0, item.budgeted - item.spent)
+                                )}
+                          </span>
+                          <span>
+                            {item.percentage > 100 ? "Over by " : ""}
+                            {hideSensitiveData
+                              ? "••••"
+                              : formatCurrency(
+                                  Math.abs(item.budgeted - item.spent)
+                                )}
+                          </span>
                         </div>
                       </div>
                     );

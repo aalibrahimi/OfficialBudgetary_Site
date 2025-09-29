@@ -5,23 +5,14 @@ import {
   X,
   Star,
   Crown,
-  Zap,
-  Shield,
-  Users,
-  BarChart3,
   TrendingUp,
-  CreditCard,
-  Smartphone,
   ArrowRight,
   ChevronDown,
   ChevronUp,
-  HelpCircle,
 } from "lucide-react";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { features } from "process";
+import PricingTiers from "@/MyComponents/pricingTiers";
 
-const PricingPage = () => {
-  const [billingCycle, setBillingCycle] = useState("monthly");
+export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const plans: {
@@ -180,220 +171,62 @@ const PricingPage = () => {
     },
   ];
 
-  const getPlanColor = (color: 'gray' | 'teal' | 'yellow', type: 'bg' | 'bgLight' | 'text' | 'button' | 'border' = "bg") => {
-    const colorMap = {
-      gray: {
-        bg: "bg-gray-500",
-        bgLight: "bg-gray-100 dark:bg-slate-950 dark:border dark:border-teal-900",
-        text: "text-gray-600",
-        button: "bg-gray-600 hover:bg-gray-700",
-        border: "border-gray-200",
-      },
-      teal: {
-        bg: "bg-teal-500",
-        bgLight: "bg-teal-50 dark:bg-teal-900/20",
-        text: "text-teal-600",
-        button: "bg-teal-600 hover:bg-teal-700",
-        border: "border-teal-200",
-      },
-      yellow: {
-        bg: "bg-yellow-500",
-        bgLight: "bg-yellow-50 dark:bg-yellow-900/20",
-        text: "text-yellow-600",
-        button:
-          "bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700",
-        border: "border-yellow-200",
-      },
-    };
-    return colorMap[color][type] || colorMap[color].bg;
-  };
-
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
-      {/* hero section */}
-      <section className="py-20  px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-4xl  font-bold text-gray-900 dark:text-white mb-6">
-            Simple, Transparent
-            <span className="block text-xl text-transparent bg-clip-text bg-gradient-to-r from-teeal-500 to-blue-600 dark:from-teal-500 dark:to-teal-500">
-              Pricing for Everyone
-            </span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Start free and upgrade as your financial management needs grow. No
-            hidden fees, cancel anytime
-          </p>
-
-          {/* Billing Toggle */}
-          <div className="inline-flex  items-center bg-white dark:bg-slate-950 dark:border dark:border-teal-900 p-1  rounded-xs  shadow-sm border border-gray-200 mb-12">
-            <button
-              onClick={() => setBillingCycle("monthly")}
-              className={`px-6 py-2  rounded-xs font-medium  transition-colors  ${billingCycle === "monthly" ? "bg-teal-600 text-white shadow-sm" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover-text-white"}`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle("yearly")}
-              className={`px-6 py-2 rounded-xs font-medium transition-colors relative ${
-                billingCycle === "yearly"
-                  ? "bg-teal-600 text-white shadow-sm"
-                  : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-              }`}
-            >
-              Yearly
-              <span className="absolute -top-3 -right-8 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                Save 17%
-              </span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20 px-4  sm:px-4  lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 ">
-            {plans.map((plan, index) => (
-              <Card
-                key={index}
-                className={`relative bg-white dark:bg-slate-950 dark:border dark:border-teal-900 rounded-lg shadow-xl overflow-hidden ${
-                  plan.popular ? "ring-2 ring-teal-500 transform scale-105" : ""
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-teal-600 text-white text-center py-2 text-sm font-medium">
-                    Most Popular
-                  </div>
-                )}
-                <CardTitle className={`p-8 `}>
-                  {/* Plan Header */}
-                  <div className="text-center mb-8">
-                    <div
-                      className={`inline-flex p-3 rounded-full ${getPlanColor(plan.color, "bgLight")} mb-4 border `}
-                    >
-                      <div className={getPlanColor(plan.color, "text")}>
-                        {plan.icon}
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                      {" "}
-                      {plan.name}{" "}
-                    </h3>
-                   
-
-                    {/* Price */}
-                    <CardContent className="mb-5">
-                      <div>
-                        <span className="text-3xl font-bold text-teal-600 dark:text-white">
-                          $
-                          {billingCycle === "monthly"
-                            ? plan.price.monthly
-                            : plan.price.yearly}
-                        </span>
-                        {plan.price.monthly > 0 && (
-                          <span className="text-gray-600 dark:text-graay-300 ml-2">
-                            / {billingCycle === "monthly" ? "month" : "year"}
-                          </span>
-                        )}
-                      </div>
-                      {billingCycle === "yearly" && plan.price.yearly > 0 && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                          ${(plan.price.yearly / 12).toFixed(2)}/month billed
-                          anually
-                        </p>
-                      )}
-                    </CardContent>
-
-                    {/* Cta button */}
-                  </div>
-
-                  {/* Features */}
-                  <div className="space-y-4 ">
-                    <h4 className="font-semibold text-gray-900  dark:text-white  mb-4">
-                        Whats Included:
-                    </h4>
-                    {plan.features.slice(0,8).map((feature,  featureIndex)  => (
-                        <div key={featureIndex} className="flex  items-center">
-                            {feature.included ? (
-                                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                            ) : (
-                                <X className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
-                            )}
-                            <span className={`text-sm ${feature.included ? 'text-gray-700 dark:text-gray-300' : "text-gray-400 dark:text-gray-500"}`}>
-                                {feature.name}
-                            </span>
-                        </div>
-                    ))}
-
-                    {plan.features.length  >  0  && (
-                        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                            <p className="text-sm  text-gray-500 dark:text-gray-400">
-                                + {plan.features.length - 8} more features
-                            </p>
-                        </div>
-                    )}
-                     <p className="text-blue-600 dark:text-gray-300 mb-6">
-                      {plan.description}
-                    </p>
-                    <button className={`w-full py-4 my-2 px-6 rounded-lg font-medium transition-colors ${getPlanColor(plan.color, 'button')} text-white`}> {plan.cta} </button>
-
-                  </div>
-                </CardTitle>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PricingTiers isTitle />
 
       {/* Feature Comparison Table */}
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                    Detailed Feature Comparison
-                </h2>
-                <p className="text-xl text-gray-600 dark:text-gray-300">
-                    See exactly  what's  included in each plan
-                </p>
-            </div>
-            <div className="overflow-x-auto">
-                <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg border dark:border-teal-700">
-                    <thead>
-                        <tr className="border-b border-gray-200   dark:border-gray-700">
-                            <th className="text-left p-6 text-gray-900  dark:text-white font-semibold">
-                                Features
-                            </th>
-                            {plans.map((plan, index) => (
-                                <th  key={index} className="text-center p-6 text-gray-900 dark:text-white font-semibold">
-                                    {plan.name}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {plans[0].features.map((feature, featureIndex) => (
-                            <tr key={featureIndex} className="border-b border-gray-400">
-                                <td className="p-6 text-gray-700 dark:text-white dark:bg-gray-900">
-                                    {feature.name}
-                                </td>
-                                {plans.map((plan, planIndex) =>  (
-                                    <td key={planIndex} className="text-center  p-6">
-                                        {plan.features[featureIndex]?.included ? (
-                                            <Check className="w-5 h-5 text-green-500 mx-auto" />
-                                        ) : (
-                                            <X className="w-5 h-5 text-gray-400  mx-auto" />
-                                        )}
-                                    </td>
-                                ))}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+              Detailed Feature Comparison
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              See exactly what's included in each plan
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg border dark:border-teal-700">
+              <thead>
+                <tr className="border-b border-gray-200   dark:border-gray-700">
+                  <th className="text-left p-6 text-gray-900  dark:text-white font-semibold">
+                    Features
+                  </th>
+                  {plans.map((plan, index) => (
+                    <th
+                      key={index}
+                      className="text-center p-6 text-gray-900 dark:text-white font-semibold"
+                    >
+                      {plan.name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {plans[0].features.map((feature, featureIndex) => (
+                  <tr key={featureIndex} className="border-b border-gray-400">
+                    <td className="p-6 text-gray-700 dark:text-white dark:bg-gray-900">
+                      {feature.name}
+                    </td>
+                    {plans.map((plan, planIndex) => (
+                      <td key={planIndex} className="text-center  p-6">
+                        {plan.features[featureIndex]?.included ? (
+                          <Check className="w-5 h-5 text-green-500 mx-auto" />
+                        ) : (
+                          <X className="w-5 h-5 text-gray-400  mx-auto" />
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-
-       {/* Testimonials */}
+      {/* Testimonials */}
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -404,10 +237,16 @@ const PricingPage = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white dark:bg-slate-950 dark:border dark:border-teal-900 p-6 rounded-xs shadow-lg">
+              <div
+                key={index}
+                className="bg-white dark:bg-slate-950 dark:border dark:border-teal-900 p-6 rounded-xs shadow-lg"
+              >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -438,7 +277,10 @@ const PricingPage = () => {
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="border border-gray-200 dark:border-teal-800 rounded-lg">
+              <div
+                key={index}
+                className="border border-gray-200 dark:border-teal-800 rounded-lg"
+              >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -472,7 +314,8 @@ const PricingPage = () => {
             Ready to Take Control of Your Finances?
           </h2>
           <p className="text-xl text-teal-100 mb-8">
-            Join thousands of users who have transformed their financial lives with Simplicity.
+            Join thousands of users who have transformed their financial lives
+            with Simplicity.
           </p>
           <button className="bg-white text-teal-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center">
             Start Your Free Trial
@@ -484,14 +327,11 @@ const PricingPage = () => {
       {/* Footer */}
       <footer className=" text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          
-          <p className="text-white">
+          <p className="text-black dark:text-white">
             Smart Budgeting <strong>For Every Lifestyle </strong> .
           </p>
         </div>
       </footer>
     </div>
   );
-};
-
-export default PricingPage;
+}

@@ -62,18 +62,8 @@ export function Footer(): React.ReactElement {
 
       <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:justify-center">
         <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-          © {new Date().getFullYear()} CodeWithAli. All rights reserved.
+          &copy; {new Date().getFullYear()} SimplicityFunds LLC. All rights reserved.
         </p>
-        <div className="flex items-center space-x-4">
-          <Link
-            href="https://github.com/CodeWithAli-Co"
-            draggable={false}
-            target="_blank"
-            className={`w-8 h-8 rounded-full flex items-center justify-center dark:bg-teal-950/30 dark:hover:bg-teal-400/50 bg-teal-500/30 hover:bg-teal-800/50 hover:border border-teal-950/30`}
-          >
-            <Github />
-          </Link>
-        </div>
       </div>
       <div className="mt-4 flex flex-row items-center justify-center gap-2">
         {/* CodeWithAli Branding - Same Line */}

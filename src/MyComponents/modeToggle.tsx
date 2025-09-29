@@ -47,7 +47,7 @@ const ModeToggle = () => {
       <Switch
         checked={isDarkMode}
         onCheckedChange={toggleMode}
-        className="not-checked:!bg-gray-600 checked:!bg-teal-700 hover:cursor-pointer"
+        className="!bg-teal-500 dark:!bg-blue-900 hover:cursor-pointer [&_span]:dark:bg-slate-200"
       />
       <Moon
         className="h-4 w-4 dark:text-teal-400 text-gray-400"

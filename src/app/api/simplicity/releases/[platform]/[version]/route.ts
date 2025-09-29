@@ -46,7 +46,7 @@ app.get("/releases/:platform/:version", async (c) => {
   if (platform == 'windows') {
     return c.json({
     version: latestVersion,
-    url: `https://budgetary.codewithali.com/downloads/Simplicity_${latestVersion}_x64-setup.exe`,
+    url: `https://simplicity.codewithali.com/downloads/Simplicity_${latestVersion}_x64-setup.exe`,
     signature: UPDATE_SIG,
     notes: UPDATE_NOTES,
   }, 200)

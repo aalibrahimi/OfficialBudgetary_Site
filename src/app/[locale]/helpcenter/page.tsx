@@ -111,7 +111,7 @@ const HelpCenterPage = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200 dark:border-gray-800">
+      <section className="py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full mb-8 text-sm font-medium bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
             <Book className="h-4 w-4 mr-2" />

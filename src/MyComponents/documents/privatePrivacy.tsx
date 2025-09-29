@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#000000] dark:text-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4">
         {/* Header */}
         <div>
           <div className="container mx-auto px-4 py-8 ">
@@ -757,10 +757,10 @@ export default function PrivacyPolicyPage() {
                         <p className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
                           <Link
-                            href="mailto:budgetary@codewithali.com"
+                            href="mailto:simplicity@codewithali.com"
                             className="text-blue-600 dark:text-blue-400 hover:underline"
                           >
-                            budgetary@codewithali.com
+                            simplicity@codewithali.com
                           </Link>
                         </p>
                         <p className="text-gray-600 dark:text-gray-400">
