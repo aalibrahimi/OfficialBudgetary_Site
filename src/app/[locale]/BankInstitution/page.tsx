@@ -16,118 +16,199 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 
 const SupportedBanksPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   // const [selectedCountry, setSelectedCountry] = useState('US');
 
   const majorBanks = [
-    { name: "Chase Bank", logo: "🏦", users: "65M+", type: "Major Bank" },
-    { name: "Bank of America", logo: "🏛️", users: "45M+", type: "Major Bank" },
-    { name: "Wells Fargo", logo: "🌊", users: "35M+", type: "Major Bank" },
-    { name: "Citibank", logo: "🏙️", users: "25M+", type: "Major Bank" },
-    { name: "U.S. Bank", logo: "🇺🇸", users: "20M+", type: "Major Bank" },
-    { name: "PNC Bank", logo: "💼", users: "15M+", type: "Regional Bank" },
-    { name: "Capital One", logo: "💳", users: "18M+", type: "Major Bank" },
-    { name: "TD Bank", logo: "🍁", users: "12M+", type: "International" },
-    { name: "BB&T (Truist)", logo: "🏢", users: "10M+", type: "Regional Bank" },
-    { name: "Regions Bank", logo: "🌎", users: "8M+", type: "Regional Bank" },
+    {
+      name: "Chase Bank",
+      logo: "/banks/chase.png",
+      users: "65M+",
+      type: "Major Bank",
+    },
+    {
+      name: "Bank of America",
+      logo: "/banks/bank_of_america.png",
+      users: "45M+",
+      type: "Major Bank",
+    },
+    {
+      name: "Wells Fargo",
+      logo: "/banks/wells_fargo.png",
+      users: "35M+",
+      type: "Major Bank",
+    },
+    {
+      name: "Citibank",
+      logo: "/banks/citibank.png",
+      users: "25M+",
+      type: "Major Bank",
+    },
+    {
+      name: "U.S. Bank",
+      logo: "/banks/us.png",
+      users: "20M+",
+      type: "Major Bank",
+    },
+    {
+      name: "PNC Bank",
+      logo: "/banks/pnc.png",
+      users: "15M+",
+      type: "Regional Bank",
+    },
+    {
+      name: "Capital One",
+      logo: "/banks/capital_one.png",
+      users: "18M+",
+      type: "Major Bank",
+    },
+    {
+      name: "TD Bank",
+      logo: "/banks/td.png",
+      users: "12M+",
+      type: "International",
+    },
+    {
+      name: "BB&T (Truist)",
+      logo: "/banks/truist.png",
+      users: "10M+",
+      type: "Regional Bank",
+    },
+    {
+      name: "Regions Bank",
+      logo: "/banks/regions.webp",
+      users: "8M+",
+      type: "Regional Bank",
+    },
     {
       name: "Fifth Third Bank",
-      logo: "5️⃣",
+      logo: "/banks/fifth_third.png",
       users: "7M+",
       type: "Regional Bank",
     },
-    { name: "KeyBank", logo: "🔑", users: "6M+", type: "Regional Bank" },
+    {
+      name: "KeyBank",
+      logo: "/banks/key.png",
+      users: "6M+",
+      type: "Regional Bank",
+    },
   ];
 
   const creditUnions = [
     {
       name: "Navy Federal Credit Union",
-      logo: "⚓",
+      logo: "/banks/navy_cu.jpg",
       users: "12M+",
       type: "Credit Union",
     },
     {
       name: "State Employees Credit Union",
-      logo: "🏛️",
+      logo: "/banks/se_cu.png",
       users: "2.5M+",
       type: "Credit Union",
     },
     {
       name: "Pentagon Federal Credit Union",
-      logo: "🛡️",
+      logo: "/banks/pf_cu.jpg",
       users: "2.3M+",
       type: "Credit Union",
     },
     {
       name: "SchoolsFirst Federal Credit Union",
-      logo: "🎓",
+      logo: "/banks/school_cu.jpeg",
       users: "1.2M+",
       type: "Credit Union",
     },
     {
       name: "Golden 1 Credit Union",
-      logo: "🥇",
+      logo: "/banks/g1_cu.png",
       users: "1.1M+",
       type: "Credit Union",
     },
     {
       name: "Alliant Credit Union",
-      logo: "🤝",
+      logo: "/banks/alliant_cu.png",
       users: "800K+",
       type: "Credit Union",
     },
   ];
 
   const onlineBanks = [
-    { name: "Ally Bank", logo: "💻", users: "3M+", type: "Online Bank" },
+    {
+      name: "Ally Bank",
+      logo: "/banks/ally.png",
+      users: "3M+",
+      type: "Online Bank",
+    },
     {
       name: "Marcus by Goldman Sachs",
-      logo: "💰",
+      logo: "/banks/marcus.png",
       users: "2M+",
       type: "Online Bank",
     },
-    { name: "Discover Bank", logo: "🔍", users: "2.5M+", type: "Online Bank" },
-    { name: "Capital One 360", logo: "🌐", users: "4M+", type: "Online Bank" },
+    {
+      name: "Discover Bank",
+      logo: "/banks/discover.jpg",
+      users: "2.5M+",
+      type: "Online Bank",
+    },
+    {
+      name: "Capital One 360",
+      logo: "/banks/capital_one_360.webp",
+      users: "4M+",
+      type: "Online Bank",
+    },
     {
       name: "Charles Schwab Bank",
-      logo: "📈",
+      logo: "/banks/charles.png",
       users: "1.5M+",
       type: "Investment Bank",
     },
-    { name: "USAA Bank", logo: "🎖️", users: "1.8M+", type: "Military Bank" },
+    {
+      name: "USAA Bank",
+      logo: "/banks/usaa.png",
+      users: "1.8M+",
+      type: "Military Bank",
+    },
   ];
 
   const internationalBanks = [
     {
       name: "Royal Bank of Canada",
-      logo: "🍁",
+      logo: "/banks/royal_canada.png",
       country: "Canada",
       type: "International",
     },
     {
       name: "TD Canada Trust",
-      logo: "🏦",
+      logo: "/banks/td_canada.png",
       country: "Canada",
       type: "International",
     },
     {
       name: "Scotiabank",
-      logo: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      logo: "/banks/scotia.png",
       country: "Canada",
       type: "International",
     },
     {
       name: "BMO Bank of Montreal",
-      logo: "🏔️",
+      logo: "/banks/bmo.png",
       country: "Canada",
       type: "International",
     },
-    { name: "CIBC", logo: "💼", country: "Canada", type: "International" },
+    {
+      name: "CIBC",
+      logo: "/banks/cibc.png",
+      country: "Canada",
+      type: "International",
+    },
     {
       name: "National Bank of Canada",
-      logo: "🇨🇦",
+      logo: "/banks/national_canada.png",
       country: "Canada",
       type: "International",
     },
@@ -324,8 +405,15 @@ const SupportedBanksPage = () => {
                     key={index}
                     className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
                   >
-                    <CardHeader className="text-center">
-                      <div className="text-4xl mb-3">{bank.logo}</div>
+                    <CardHeader className="flex flex-col items-center justify-center">
+                      <Image
+                        src={bank.logo}
+                        alt={bank.name}
+                        width={1000}
+                        height={1000}
+                        draggable={false}
+                        className="w-auto h-15"
+                      />
                       <CardTitle className="text-lg text-gray-900 dark:text-white">
                         {bank.name}
                       </CardTitle>
@@ -336,7 +424,12 @@ const SupportedBanksPage = () => {
                         >
                           {bank.type}
                         </Badge>
-                        <Badge variant="secondary">{bank.users}</Badge>
+                        <Badge
+                          variant="secondary"
+                          className="border border-black/5 dark:border-white/10"
+                        >
+                          {bank.users}
+                        </Badge>
                       </div>
                     </CardHeader>
                   </Card>
@@ -361,8 +454,15 @@ const SupportedBanksPage = () => {
                     key={index}
                     className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
                   >
-                    <CardHeader className="text-center">
-                      <div className="text-4xl mb-3">{bank.logo}</div>
+                    <CardHeader className="flex flex-col items-center justify-center">
+                      <Image
+                        src={bank.logo}
+                        alt={bank.name}
+                        width={1000}
+                        height={1000}
+                        draggable={false}
+                        className="w-auto h-15"
+                      />
                       <CardTitle className="text-lg text-gray-900 dark:text-white">
                         {bank.name}
                       </CardTitle>
@@ -373,7 +473,12 @@ const SupportedBanksPage = () => {
                         >
                           {bank.type}
                         </Badge>
-                        <Badge variant="secondary">{bank.users}</Badge>
+                        <Badge
+                          variant="secondary"
+                          className="border border-black/5 dark:border-white/10"
+                        >
+                          {bank.users}
+                        </Badge>
                       </div>
                     </CardHeader>
                   </Card>
@@ -398,8 +503,15 @@ const SupportedBanksPage = () => {
                     key={index}
                     className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
                   >
-                    <CardHeader className="text-center">
-                      <div className="text-4xl mb-3">{bank.logo}</div>
+                    <CardHeader className="flex flex-col items-center justify-center">
+                      <Image
+                        src={bank.logo}
+                        alt={bank.name}
+                        width={1000}
+                        height={1000}
+                        draggable={false}
+                        className="w-auto h-15"
+                      />
                       <CardTitle className="text-lg text-gray-900 dark:text-white">
                         {bank.name}
                       </CardTitle>
@@ -410,7 +522,12 @@ const SupportedBanksPage = () => {
                         >
                           {bank.type}
                         </Badge>
-                        <Badge variant="secondary">{bank.users}</Badge>
+                        <Badge
+                          variant="secondary"
+                          className="border border-black/5 dark:border-white/10"
+                        >
+                          {bank.users}
+                        </Badge>
                       </div>
                     </CardHeader>
                   </Card>
@@ -434,8 +551,15 @@ const SupportedBanksPage = () => {
                     key={index}
                     className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
                   >
-                    <CardHeader className="text-center">
-                      <div className="text-4xl mb-3">{bank.logo}</div>
+                    <CardHeader className="flex flex-col items-center justify-center">
+                      <Image
+                        src={bank.logo}
+                        alt={bank.name}
+                        width={1000}
+                        height={1000}
+                        draggable={false}
+                        className="w-auto h-15"
+                      />
                       <CardTitle className="text-lg text-gray-900 dark:text-white">
                         {bank.name}
                       </CardTitle>
