@@ -71,7 +71,7 @@ export default function TermsOfUsePage() {
             &quot;us,&quot; or &quot;our&quot;) regarding your use of the Simplicity personal finance
             application (&quot;App,&quot; &quot;Service,&quot; or &quot;Simplicity&quot;).
           </p>
-          <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-lg border-l-4 border-teal-500 dark:border-teal-400">
+          <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-none border-l-3 border-teal-500 dark:border-teal-400">
             <p className="font-medium text-teal-800 dark:text-teal-200">
               <strong>Important:</strong> By creating an account, downloading,
               accessing, or using Simplicity, you acknowledge that you have read,
@@ -192,7 +192,7 @@ export default function TermsOfUsePage() {
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               You may use Simplicity solely for:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-green-700 dark:text-green-300">
+            <ul className="list-disc list-inside space-y-2 text-black dark:text-white">
               <li>Personal financial management and budgeting</li>
               <li>Tracking your own legitimate financial accounts</li>
               <li>Analyzing your personal spending habits and patterns</li>
@@ -204,7 +204,7 @@ export default function TermsOfUsePage() {
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               You agree NOT to:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-red-700 dark:text-red-300">
+            <ul className="list-disc list-inside space-y-2 text-black dark:text-white">
               <li>
                 Use the Service for any illegal, fraudulent, or unauthorized
                 purposes
@@ -235,12 +235,12 @@ export default function TermsOfUsePage() {
       >
         <div className="grid gap-6">
           <LegalCard title="Service Disclaimers" variant="warning">
-            <div className="bg-teal-100 dark:bg-teal-950/30 p-4 rounded-lg">
+            <div className=" p-4 rounded-lg">
               <p className="font-semibold text-teal-800 dark:text-teal-200 mb-2">
                 Simplicity IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT
                 WARRANTIES OF ANY KIND.
               </p>
-              <p className="text-teal-700 dark:text-teal-300 text-sm">
+              <p className="text-black dark:text-white text-sm">
                 We disclaim all warranties, express or implied, including but
                 not limited to accuracy, completeness, reliability of financial
                 data, uninterrupted service operation, fitness for a particular
@@ -250,7 +250,7 @@ export default function TermsOfUsePage() {
           </LegalCard>
 
           <LegalCard title="Financial Advice Disclaimer" variant="info">
-            <ul className="list-disc list-inside space-y-2 text-blue-700 dark:text-blue-300">
+            <ul className="list-disc list-inside space-y-2 text-black dark:text-white dark:text-blue-300">
               <li>
                 Simplicity provides informational tools only, not financial
                 advice
@@ -271,11 +271,11 @@ export default function TermsOfUsePage() {
           </LegalCard>
 
           <LegalCard title="Limitation of Liability" variant="danger">
-            <div className="bg-red-100 dark:bg-red-950/30 p-4 rounded-lg">
-              <p className="font-semibold text-red-800 dark:text-red-200 mb-2">
+            <div className=" p-4 rounded-lg">
+              <p className="font-semibold text-red-800 dark:text-red-600 mb-2">
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW:
               </p>
-              <ul className="list-disc list-inside space-y-1 text-red-700 dark:text-red-300 text-sm">
+              <ul className="list-disc list-inside space-y-1 text-black dark:text-white text-sm">
                 <li>
                   Our total liability to you shall not exceed $100 or amounts
                   paid in the past 12 months
@@ -383,7 +383,7 @@ export default function TermsOfUsePage() {
                 <Mail className="h-4 w-4" />
                 <Link
                   href="mailto:unfold@codewithali.com"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-black dark:text-white hover:underline"
                 >
                   unfold@codewithali.com
                 </Link>

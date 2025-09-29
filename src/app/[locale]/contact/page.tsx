@@ -168,7 +168,7 @@ const ContactPage = () => {
             {contactMethod.map((method, index) => (
               <div
                 key={index}
-                className="rounded-xs p-6 bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 shadow-lg hover:shadow-xl transition-shadow"
+                className="rounded-xs p-6 bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-200 dark:border-sky-950 shadow-md hover:shadow-xl transition-shadow"
               >
                 <div className={`p-3 rounded-xs  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
@@ -194,7 +194,7 @@ const ContactPage = () => {
           </div>
           {/* Contact Form */}
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-teal-800 p-8 rounded-xs shadow-lg">
+            <div className="bg-gradient-to-br from-sky-100/20 to-teal-100/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-teal-800 p-8 rounded-xs shadow-lg">
               <form.Subscribe
                 selector={(state) => state.isSubmitSuccessful}
                 children={(isSubmitSuccessful) => {
@@ -360,13 +360,13 @@ const ContactPage = () => {
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-br from-teal-400/30 to-sky-400/60 dark:from-blue-950/20 dark:to-blue-800/40 border border-teal-500 dark:border-sky-900 rounded-xs shadow-sm"
+                    className="bg-gradient-to-r from-white via-white  to-teal-300/30 dark:from-slate-950 dark:via-slate-950/20 dark:to-slate-800/20 border border-teal-500 dark:border-teal-900 rounded-xs shadow-sm"
                   >
                     <button
                       onClick={() =>
                         setSelectedFaq(selectedFaq === index ? null : index)
                       }
-                      className="w-full flex items-center justify-between p-4 text-left hover:bg-cyan-100  dark:hover:bg-cyan-700 transition-colors rounded-xs"
+                      className="w-full flex items-center justify-between p-4 text-left hover:bg-teal-300/30  dark:hover:bg-teal-500 transition-colors rounded-xs"
                     >
                       <div className="flex items-center space-x-3">
                         <span className="bg-gradient-to-r from-white to-blue-100 dark:from-teal-100/10 dark:to-blue-500/10 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 px-2 py-1 rounded text-xs font-medium">

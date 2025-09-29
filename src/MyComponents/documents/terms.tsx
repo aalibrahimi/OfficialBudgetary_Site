@@ -129,7 +129,7 @@ export default function LegalPageTemplate({
               <Button
                 variant="outline"
                 size="sm"
-                className="md:hidden"
+                className="md:hidden "
                 onClick={() => setSidebarOpen(!sidebarOpen)}
               >
                 {sidebarOpen ? (
@@ -165,7 +165,7 @@ export default function LegalPageTemplate({
                         <Link
                           key={item.id}
                           href={item.route}
-                          className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors ${
+                          className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-xs transition-colors ${
                             currentPage === item.id
                               ? "bg-teal-600 text-white dark:bg-teal-500 dark:text-black"
                               : "hover:bg-teal-200 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
@@ -191,7 +191,7 @@ export default function LegalPageTemplate({
                         <button
                           key={item.id}
                           onClick={() => scrollToSection(item.id)}
-                          className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors ${
+                          className={`flex items-center justify-between w-full px-3 py-2 text-sm rounded-xs transition-colors ${
                             activeSection === item.id
                               ? "bg-teal-200 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200"
                               : "hover:bg-teal-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400"
@@ -300,13 +300,13 @@ export function LegalCard({
   variant?: "default" | "success" | "warning" | "danger" | "info";
 }) {
   const variantStyles = {
-    default: "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800",
+    default: "bg-white dark:bg-gray-900 ",
     success:
-      "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800",
+      " ",
     warning:
-      "bg-teal-50 dark:bg-teal-950/20 border-teal-200 dark:border-teal-800",
-    danger: "bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800",
-    info: "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800",
+      "",
+    danger: " ",
+    info: " ",
   };
 
   return (
