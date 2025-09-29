@@ -163,7 +163,7 @@ const SupportedBanksPage = () => {
           
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Connect Any Bank
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">
               Securely & Instantly
             </span>
           </h1>

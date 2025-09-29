@@ -222,10 +222,10 @@ export default function LegalPageTemplate({
                     Contact our support team:
                   </p>
                   <Link
-                    href="mailto:budgetary@codewithali.com"
+                    href="mailto:simplicity@codewithali.com"
                     className="text-sm text-teal-600 dark:text-teal-400 hover:underline"
                   >
-                    budgetary@codewithali.com
+                    simplicity@codewithali.com
                   </Link>
                 </CardContent>
               </Card>

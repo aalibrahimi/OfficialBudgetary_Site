@@ -5,7 +5,7 @@ const CalenderCustsomDesign = ()  => {
     return(
         <div>
                {/* Financial Calendar */}
-                    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 p-6 rounded-xs border border-gray-200 dark:border-gray-600">
+                    <div className="bg-gradient-to-br from-white to-zinc-200/50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xs border border-gray-200 dark:border-gray-600">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-gray-900 dark:text-white">Financial Calendar</h3>
                         <Badge variant="outline">December 2025</Badge>
@@ -29,7 +29,7 @@ const CalenderCustsomDesign = ()  => {
                                 isCurrentMonth
                                   ? 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600'
                                   : 'text-gray-400 dark:text-gray-600'
-                              } ${day === 27 ? 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300' : ''}`}
+                              } ${day === 27 ? 'bg-teal-200/60 dark:bg-teal-700/50 text-teal-800 dark:text-teal-300 border border-teal-300 dark:border-teal-600' : ''}`}
                             >
                               {isCurrentMonth ? day : ''}
                               {hasEvent && isCurrentMonth && (

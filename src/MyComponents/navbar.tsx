@@ -9,6 +9,7 @@ import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ModeToggle from "./modeToggle";
+import { Separator } from "@/components/ui/separator";
 
 // interface RouteItem {
 //   title: string;
@@ -127,28 +128,28 @@ export function Navbar(): React.ReactElement {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           {/* <DollarSign className={`h-6 w-6 dark:text-teal-400 text-teal-500`} /> */}
-          <Image src="/simplicity_logo.jpg" height={300} width={300} alt="Simplicity Logo" className=" h-10 w-10" />
+          <Image
+            src="/simplicity_logo.jpg"
+            height={300}
+            width={300}
+            alt="Simplicity Logo"
+            className=" h-10 w-10"
+          />
           <span className="text-xl font-bold">SimplicityFunds</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link
-            href="/#features"
-            className="hover:text-teal-500 transition-colors"
-          >
+          <Link href="/" className="hover:text-teal-500 transition-colors">
             Home
           </Link>
-          <Link
-            href="/about"
-            className="hover:text-teal-500 transition-colors"
-          >
+          <Link href="/about" className="hover:text-teal-500 transition-colors">
             About
           </Link>
           <Link
             href="/dashboard"
             className="hover:text-teal-500 transition-colors"
           >
-           Dashboard Demo
+            Dashboard Demo
           </Link>
           <Link
             href="/BankInstitution"
@@ -174,10 +175,10 @@ export function Navbar(): React.ReactElement {
           <ModeToggle />
 
           <div className="hidden md:block">
-            <Button
-              className={`dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black bg-teal-600 hover:bg-teal-500 text-white hover:cursor-pointer`}
-            >
-              <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>Download App</a>
+            <Button className="group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <a href="/downloads/Simplicity_0.1.0_x64-setup.exe" download>
+                Download App
+              </a>
             </Button>
           </div>
 
@@ -193,32 +194,44 @@ export function Navbar(): React.ReactElement {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div
-          className={`md:hidden dark:bg-gray-900 dark:text-white bg-white text-gray-900 p-4 space-y-4 border-t dark:border-gray-800 border-gray-200`}
+          className={`md:hidden [&_a]:block [&_a]:py-2 dark:bg-gray-900 dark:text-white bg-white text-gray-900 p-4 space-y-4 border-t dark:border-gray-800 border-gray-200`}
         >
-          <Link href="/#features" className="block py-2 hover:text-teal-500">
-            Features
+          <Link href="/" className="hover:text-teal-500 transition-colors">
+            Home
           </Link>
+          <Separator />
+          <Link href="/about" className="hover:text-teal-500 transition-colors">
+            About
+          </Link>
+          <Separator />
           <Link
-            href="/#how-it-works"
-            className="block py-2 hover:text-teal-500"
+            href="/dashboard"
+            className="hover:text-teal-500 transition-colors"
           >
-            How It Works
+            Dashboard Demo
           </Link>
+          <Separator />
           <Link
-            href="/#testimonials"
-            className="block py-2 hover:text-teal-500"
+            href="/BankInstitution"
+            className="hover:text-teal-500 transition-colors"
           >
-            Testimonials
+            Institutional Banks
           </Link>
-          <Link href="/#pricing" className="block py-2 hover:text-teal-500">
+          <Separator />
+          <Link
+            href="/contact"
+            className="hover:text-teal-500 transition-colors"
+          >
+            Contact
+          </Link>
+          <Separator />
+          <Link
+            href="/pricing"
+            className="hover:text-teal-500 transition-colors"
+          >
             Pricing
           </Link>
-          <Button
-            className={`w-full mt-4
-                dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-black
-                bg-teal-600 hover:bg-teal-500 text-white hover:cursor-pointer
-            `}
-          >
+          <Button className="w-full mt-4 group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
             Download App
           </Button>
         </div>

@@ -757,10 +757,10 @@ export default function PrivacyPolicyPage() {
                         <p className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
                           <Link
-                            href="mailto:budgetary@codewithali.com"
+                            href="mailto:simplicity@codewithali.com"
                             className="text-blue-600 dark:text-blue-400 hover:underline"
                           >
-                            budgetary@codewithali.com
+                            simplicity@codewithali.com
                           </Link>
                         </p>
                         <p className="text-gray-600 dark:text-gray-400">

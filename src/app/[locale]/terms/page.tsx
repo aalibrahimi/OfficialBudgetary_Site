@@ -315,7 +315,7 @@ export default function TermsOfUsePage() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
               <li>
-                Contact us at budgetary@codewithali.com to discuss the issue
+                Contact us at simplicity@codewithali.com to discuss the issue
               </li>
               <li>Allow us 30 days to attempt to resolve the matter</li>
               <li>
@@ -348,10 +348,10 @@ export default function TermsOfUsePage() {
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 <Link
-                  href="mailto:budgetary@codewithali.com"
+                  href="mailto:simplicity@codewithali.com"
                   className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
-                  budgetary@codewithali.com
+                  simplicity@codewithali.com
                 </Link>
               </p>
               <p className="text-gray-600 dark:text-gray-400">
@@ -389,7 +389,7 @@ export default function TermsOfUsePage() {
                 </Link>
               </p>
               <p className="text-gray-600 dark:text-gray-400">
-                <strong>Website:</strong> budgetary.com/terms
+                <strong>Website:</strong> simplicity.com/terms
               </p>
             </div>
           </LegalCard>
