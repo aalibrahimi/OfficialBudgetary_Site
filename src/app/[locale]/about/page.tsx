@@ -171,6 +171,8 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      <br />
+
       {/* Our Mission & Vision */}
       <section className="pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
