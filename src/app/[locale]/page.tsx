@@ -591,7 +591,7 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
                             <Button
                               type="submit"
                               size="sm"
-                              className="w-full bg-teal-600 rounded-xs hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                              className="w-full bg-gradient-to-br from-teal-500 to-teal-700 dark:from-teal-600 dark:to-teal-800 text-white rounded-xs hover:brightness-125 disabled:opacity-50 disabled:cursor-not-allowed"
                               disabled={!canSubmit}
                             >
                               {isSubmitting ? (

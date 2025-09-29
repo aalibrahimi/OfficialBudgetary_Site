@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 "use client";
 import React, { useEffect, useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Menu, X, DollarSign } from "lucide-react"; // Import icons for menu toggle and language
@@ -22,6 +22,8 @@ import { Separator } from "@/components/ui/separator";
 // }
 
 export function Navbar(): React.ReactElement {
+  const pathname = usePathname();
+
   // const defaultRoute = { href: "/" };
   // const t = useTranslations("NavBar");
 
@@ -120,6 +122,7 @@ export function Navbar(): React.ReactElement {
   }, [locale]);
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("/");
 
   return (
     <nav
@@ -139,33 +142,39 @@ export function Navbar(): React.ReactElement {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/" className="hover:text-teal-500 transition-colors">
+          <Link
+            href="/"
+            className={`${"/" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+          >
             Home
           </Link>
-          <Link href="/about" className="hover:text-teal-500 transition-colors">
+          <Link
+            href="/about"
+            className={`${"/about" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+          >
             About
           </Link>
           <Link
             href="/dashboard"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/dashboard" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Dashboard Demo
           </Link>
           <Link
             href="/BankInstitution"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/BankInstitution" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Institutional Banks
           </Link>
           <Link
             href="/contact"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/contact" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Contact
           </Link>
           <Link
             href="/pricing"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/pricing" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
           >
             Pricing
           </Link>
@@ -196,38 +205,50 @@ export function Navbar(): React.ReactElement {
         <div
           className={`md:hidden [&_a]:block [&_a]:py-2 dark:bg-gray-900 dark:text-white bg-white text-gray-900 p-4 space-y-4 border-t dark:border-gray-800 border-gray-200`}
         >
-          <Link href="/" className="hover:text-teal-500 transition-colors">
+          <Link
+            href="/"
+            className={`${"/" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
             Home
           </Link>
           <Separator />
-          <Link href="/about" className="hover:text-teal-500 transition-colors">
+          <Link
+            href="/about"
+            className={`${"/about" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
             About
           </Link>
           <Separator />
           <Link
             href="/dashboard"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/dashboard" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
           >
             Dashboard Demo
           </Link>
           <Separator />
           <Link
             href="/BankInstitution"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/BankInstitution" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
           >
             Institutional Banks
           </Link>
           <Separator />
           <Link
             href="/contact"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/contact" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
           >
             Contact
           </Link>
           <Separator />
           <Link
             href="/pricing"
-            className="hover:text-teal-500 transition-colors"
+            className={`${"/pricing" === pathname && "text-teal-500"} hover:text-teal-500 transition-colors`}
+            onClick={() => setMobileMenuOpen(false)}
           >
             Pricing
           </Link>
