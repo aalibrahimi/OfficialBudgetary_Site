@@ -168,7 +168,7 @@ const ContactPage = () => {
             {contactMethod.map((method, index) => (
               <div
                 key={index}
-                className="rounded-xs p-6 bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-200 dark:border-sky-950 shadow-md hover:shadow-xl transition-shadow"
+                className="rounded-xs p-6 bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/40 border  dark:border-sky-950 shadow-md hover:shadow-xl transition-shadow"
               >
                 <div className={`p-3 rounded-xs  w-fit mb-4 flex`}>
                   <div className={method.color}>{method.icon}</div>
@@ -194,7 +194,7 @@ const ContactPage = () => {
           </div>
           {/* Contact Form */}
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-gradient-to-br from-sky-100/20 to-teal-100/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-teal-800 p-8 rounded-xs shadow-lg">
+            <div className="bg-gradient-to-br from-sky-100/20 to-teal-100/20 dark:from-slate-900/20 dark:to-blue-950/40 border  dark:border-teal-800 p-8 rounded-xs shadow-lg">
               <form.Subscribe
                 selector={(state) => state.isSubmitSuccessful}
                 children={(isSubmitSuccessful) => {
@@ -356,11 +356,11 @@ const ContactPage = () => {
                 Frequently Asked Questions
               </h2>
 
-              <div className="space-y-4">
+              <div className="space-y-4 ">
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-r from-white via-white  to-teal-300/30 dark:from-slate-950 dark:via-slate-950/20 dark:to-slate-800/20 border border-teal-500 dark:border-teal-900 rounded-xs shadow-sm"
+                    className="bg-gradient-to-r from-white via-white  to-teal-300/30 hover:bg-teal-300/30  dark:from-slate-950 dark:via-slate-950/20 dark:to-slate-800/20 border border-teal-500 dark:border-teal-900 rounded-xs shadow-sm"
                   >
                     <button
                       onClick={() =>
@@ -368,15 +368,15 @@ const ContactPage = () => {
                       }
                       className="w-full flex items-center justify-between p-4 text-left hover:bg-teal-300/30  dark:hover:bg-teal-500 transition-colors rounded-xs"
                     >
-                      <div className="flex items-center space-x-3">
-                        <span className="bg-gradient-to-r from-white to-blue-100 dark:from-teal-100/10 dark:to-blue-500/10 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 px-2 py-1 rounded text-xs font-medium">
+                      <div className="flex items-center space-x-3 ">
+                        <span className="bg-gradient-to-r   from-white to-blue-100 dark:from-teal-100/10 dark:to-blue-500/10 text-teal-700 dark:text-teal-300 border  dark:border-teal-800 px-2 py-1 rounded text-xs font-medium">
                           {faq.category}
                         </span>
-                        <span className="font-medium text-gray-900 dark:text-white">
+                        <span className="font-medium text-gray-900  dark:text-white">
                           {faq.question}
                         </span>
                       </div>
-                      <div className="ml-4">
+                      <div className="ml-4 ">
                         {selectedFaq === index ? (
                           <div className="w-2 h-2 bg-teal-600 dark:bg-teal-500 rounded-full"></div>
                         ) : (
@@ -387,7 +387,7 @@ const ContactPage = () => {
 
                     {selectedFaq === index && (
                       <div className="px-4 pb-4">
-                        <p className="text-gray-600 dark:text-gray-300 pl-16 ">
+                        <p className="text-gray-600   dark:text-gray-300 pl-16 ">
                           {faq.answer}
                         </p>
                       </div>
@@ -396,7 +396,7 @@ const ContactPage = () => {
                 ))}
               </div>
 
-              <div className="mt-8 bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 p-6 rounded-xs">
+              <div className="mt-8 bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border  dark:border-sky-950 p-6 rounded-xs">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   Can't find what you're looking for?
                 </h3>

@@ -311,7 +311,7 @@ const SupportedBanksPage = () => {
       {/* Hero Section */}
       <section className="py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full mb-8 text-sm font-medium bg-gradient-to-r from-green-500/10 via-green-500/10 to-blue-500/10 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">
+          <div className="inline-flex items-center px-4 py-2 rounded-full mb-8 text-sm font-medium bg-gradient-to-r from-green-400/10 via-green-500/10 to-blue-500/10 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">
             <Globe className="h-4 w-4 mr-2" />
             <span>11,000+ Institutions Supported</span>
             <Badge className="ml-3 bg-gradient-to-br from-green-400 to-emerald-600 border border-green-400 text-white">
@@ -341,7 +341,7 @@ const SupportedBanksPage = () => {
             {stats.map((stat, index) => (
               <Card
                 key={index}
-                className="text-center bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 hover:shadow-lg transition-shadow"
+                className="text-center bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/40 border dark:border-sky-950 hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 rounded-full bg-gradient-to-br from-green-100 to-green-200 dark:from-green-200/40 dark:to-green-400/40 border border-green-200 dark:border-green-700 flex items-center justify-center text-green-600 dark:text-green-400 mb-4">
@@ -403,7 +403,7 @@ const SupportedBanksPage = () => {
                 {filteredBanks(majorBanks).map((bank, index) => (
                   <Card
                     key={index}
-                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
+                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/20 border dark:border-sky-950"
                   >
                     <CardHeader className="flex flex-col items-center justify-center">
                       <Image
@@ -452,7 +452,7 @@ const SupportedBanksPage = () => {
                 {filteredBanks(creditUnions).map((bank, index) => (
                   <Card
                     key={index}
-                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
+                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/20 border  dark:border-sky-950"
                   >
                     <CardHeader className="flex flex-col items-center justify-center">
                       <Image
@@ -501,7 +501,7 @@ const SupportedBanksPage = () => {
                 {filteredBanks(onlineBanks).map((bank, index) => (
                   <Card
                     key={index}
-                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
+                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/20 border  dark:border-sky-950"
                   >
                     <CardHeader className="flex flex-col items-center justify-center">
                       <Image
@@ -549,7 +549,7 @@ const SupportedBanksPage = () => {
                 {internationalBanks.map((bank, index) => (
                   <Card
                     key={index}
-                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-teal-100/20 to-sky-300/20 dark:from-slate-900/20 dark:to-blue-950/20 border border-teal-300 dark:border-sky-950"
+                    className="hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-white dark:from-slate-900/20 dark:to-blue-950/20 border dark:border-sky-950"
                   >
                     <CardHeader className="flex flex-col items-center justify-center">
                       <Image
@@ -617,7 +617,7 @@ const SupportedBanksPage = () => {
           </div>
 
           {/* Plaid Security Features */}
-          <div className="bg-gradient-to-br from-teal-400/30 to-sky-400/60 dark:from-blue-600/20 dark:to-blue-900/40 p-8 rounded-2xl border border-teal-500 dark:border-blue-900">
+          <div className="bg-gradient-to-br from-white to-white dark:from-blue-600/20 dark:to-blue-900/40 p-8 rounded-2xl dark:border  dark:border-blue-900">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Powered by Plaid Security
@@ -632,7 +632,7 @@ const SupportedBanksPage = () => {
               {plaidFeatures.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-4 p-6 bg-gradient-to-br from-white to-zinc-100 dark:from-black/75 dark:to-slate-900/20 border border-black/20 dark:border-white/10 rounded-lg"
+                  className="flex items-start gap-4 p-6 bg-gradient-to-br from-white to-white dark:from-black/75 dark:to-slate-900/20 border border-black/20 dark:border-white/10 rounded-lg"
                 >
                   <div className="p-2 rounded-lg bg-gradient-to-br from-teal-200/50 to-sky-500/50 dark:from-slate-600/20 dark:to-blue-700/40 border border-teal-200 dark:border-sky-950 text-teal-700 dark:text-blue-400 flex-shrink-0">
                     {feature.icon}
@@ -651,7 +651,7 @@ const SupportedBanksPage = () => {
           </div>
 
           {/* Don't See Your Bank? */}
-          <div className="text-center mt-16 p-8 bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 rounded-2xl">
+          <div className="text-center mt-16 p-8 bg-gradient-to-br from-teal-200/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-300 dark:border-sky-950 rounded-2xl">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Don't see your bank or credit union?
             </h2>

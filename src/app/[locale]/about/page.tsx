@@ -374,7 +374,7 @@ const AboutUsPage = () => {
           </div>
 
           {/* The Real Difference */}
-          <div className="bg-gradient-to-br from-teal-100/50 to-sky-400/20 dark:from-slate-900/20 dark:to-blue-950/40 border border-teal-200 dark:border-sky-950 p-8 rounded-2xl mb-20">
+          <div className=" p-8 rounded-2xl mb-20">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Why We Started Simplicity
@@ -461,7 +461,7 @@ const AboutUsPage = () => {
           </div>
 
           {/* Future Vision */}
-          <div className="bg-gradient-to-br from-teal-400/30 to-sky-400/60 dark:from-blue-600/20 dark:to-blue-900/40 p-8 rounded-2xl border border-teal-500 dark:border-blue-900">
+          <div className=" p-8 rounded-2xl dark:border  dark:border-blue-900">
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 mb-4">
                 <Sparkles className="w-6 h-6 text-blue-600" />
@@ -480,7 +480,7 @@ const AboutUsPage = () => {
               {futureVision.map((item, index) => (
                 <Card
                   key={index}
-                  className="bg-gradient-to-br from-white to-zinc-100 dark:from-black/75 dark:to-slate-900/20 border border-black/20 dark:border-white/10 hover:shadow-lg transition-shadow"
+                  className="bg-gradient-to-br from-white to-white dark:from-black/75 dark:to-slate-900/20 border border-black/20 dark:border-white/10 hover:shadow-lg transition-shadow"
                 >
                   <CardHeader>
                     <div className="flex items-center justify-between">
@@ -511,7 +511,7 @@ const AboutUsPage = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16 p-8 bg-gradient-to-r from-teal-500 to-blue-600 dark:from-teal-600 dark:to-blue-700 rounded-2xl">
+          <div className="text-center mt-16 p-8  bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500 dark:via-cyan-600 dark:to-blue-600 rounded-2xl">
             <h2 className="text-3xl font-bold text-white mb-6">
               Join the Financial Revolution
             </h2>
