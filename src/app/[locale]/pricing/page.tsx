@@ -178,7 +178,7 @@ export default function PricingPage() {
       {/* Feature Comparison Table */}
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 ">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Detailed Feature Comparison
             </h2>
@@ -187,9 +187,9 @@ export default function PricingPage() {
             </p>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg border dark:border-teal-700">
+            <table className="w-full bg-white dark:bg-slate-900 rounded-lg shadow-lg border dark:border-slate-700">
               <thead>
-                <tr className="border-b border-gray-200   dark:border-gray-700">
+                <tr className="border-b border-gray-400   dark:border-gray-700">
                   <th className="text-left p-6 text-gray-900  dark:text-white font-semibold">
                     Features
                   </th>
@@ -206,7 +206,7 @@ export default function PricingPage() {
               <tbody>
                 {plans[0].features.map((feature, featureIndex) => (
                   <tr key={featureIndex} className="border-b border-gray-400">
-                    <td className="p-6 text-gray-700 dark:text-white dark:bg-gray-900">
+                    <td className="p-6 text-gray-700 dark:text-white dark:bg-slate-900">
                       {feature.name}
                     </td>
                     {plans.map((plan, planIndex) => (
@@ -279,13 +279,13 @@ export default function PricingPage() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border border-gray-200 dark:border-teal-800 rounded-lg"
+                className="border border-gray-200 dark:border-teal-800 rounded-xs group hover:bg-gray-50 dark:hover:bg-teal-700 "
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left   transition-colors"
                 >
-                  <span className="font-semibold text-gray-900 dark:text-white">
+                  <span className="font-semibold text-gray-900 dark:text-white  ">
                     {faq.question}
                   </span>
                   {openFaq === index ? (
@@ -295,7 +295,7 @@ export default function PricingPage() {
                   )}
                 </button>
                 {openFaq === index && (
-                  <div className="px-6 pb-6">
+                  <div className="px-6 pb-6 group-hover:dark:bg-teal-700">
                     <p className="text-gray-600 dark:text-gray-300">
                       {faq.answer}
                     </p>

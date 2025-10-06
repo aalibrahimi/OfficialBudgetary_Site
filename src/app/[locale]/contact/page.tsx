@@ -194,7 +194,7 @@ const ContactPage = () => {
           </div>
           {/* Contact Form */}
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-gradient-to-br from-sky-100/20 to-teal-100/20 dark:from-slate-900/20 dark:to-blue-950/40 border  dark:border-teal-800 p-8 rounded-xs shadow-lg">
+            <div className="bg-gradient-to-br from-white to-wwhite dark:from-slate-900/20 dark:to-blue-950/40 border  dark:border-teal-800 p-8 rounded-xs shadow-lg">
               <form.Subscribe
                 selector={(state) => state.isSubmitSuccessful}
                 children={(isSubmitSuccessful) => {
@@ -360,13 +360,13 @@ const ContactPage = () => {
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-r from-white via-white  to-teal-300/30 hover:bg-teal-300/30  dark:from-slate-950 dark:via-slate-950/20 dark:to-slate-800/20 border border-teal-500 dark:border-teal-900 rounded-xs shadow-sm"
+                    className="group hover:bg-teal-300/30  dark:hover:bg-teal-500  bg-gradient-to-r from-white via-white  to-teal-300/30  dark:from-slate-950 dark:via-slate-950/20 dark:to-slate-800/20 border border-teal-500 dark:border-teal-900 rounded-xs shadow-sm"
                   >
                     <button
                       onClick={() =>
                         setSelectedFaq(selectedFaq === index ? null : index)
                       }
-                      className="w-full flex items-center justify-between p-4 text-left hover:bg-teal-300/30  dark:hover:bg-teal-500 transition-colors rounded-xs"
+                      className="w-full flex items-center justify-between p-4 text-left  transition-colors rounded-xs"
                     >
                       <div className="flex items-center space-x-3 ">
                         <span className="bg-gradient-to-r   from-white to-blue-100 dark:from-teal-100/10 dark:to-blue-500/10 text-teal-700 dark:text-teal-300 border  dark:border-teal-800 px-2 py-1 rounded text-xs font-medium">

@@ -112,9 +112,9 @@ const AboutUsPage = () => {
       icon: <Award className="w-5 h-5" />,
     },
     {
-      feature: "Investment Platform",
+      feature: "Hidden Money Recovery Engine",
       description:
-        "Seamless stock investment tracking and portfolio management integrated with your budget",
+        "AI-powered system that finds unclaimed money, missed refunds, billing errors, and benefits you qualify for - most users discover $1,000+ in the first scan",
       timeline: "2025",
       icon: <TrendingUp className="w-5 h-5" />,
     },
@@ -373,7 +373,7 @@ const AboutUsPage = () => {
             </div>
           </div>
 
-          {/* The Real Difference */}
+          {/* Why we started Simplicity */}
           <div className=" p-8 rounded-2xl mb-20">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">

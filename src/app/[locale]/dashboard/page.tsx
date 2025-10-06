@@ -61,7 +61,7 @@ const AnalyticsDashboard = () => {
 
     for (let i = daysToShow - 1; i >= 0; i--) {
       const date = new Date(currentDate);
-      date.setDate(date.getDate() - 1);
+      date.setDate(date.getDate() - i);
 
       // genereate realistic sample data
       const baseIncome = Math.random() * 200 + 50; // $50  - $250 per day
