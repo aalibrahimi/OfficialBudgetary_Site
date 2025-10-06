@@ -50,12 +50,14 @@ export function Footer(): React.ReactElement {
     <div
       className={`flex flex-col items-center border-t dark:bg-slate-950/90 bg-white border-gray-200 pt-6`}
     >
-      <div className="flex gap-2 text-center text-sm [&_*]:dark:font-semibold ">
+      <div className="flex gap-2 text-center text-sm [&_*]:font-semibold ">
         <Link href="/privacy" className="opacity-75 hover:opacity-100 ">Privacy</Link>
         |
         <Link href="/terms" className="opacity-75 hover:opacity-100">Terms of Use</Link>
         |
         <Link href="/security" className="opacity-75 hover:opacity-100">Security Policy</Link>
+        |
+        <Link href="/helpcenter" className="opacity-75 hover:opacity-100 ">Help Center</Link>
       </div>
 
       <hr className={`dark:border-gray-800 border-gray-300 my-4`} />

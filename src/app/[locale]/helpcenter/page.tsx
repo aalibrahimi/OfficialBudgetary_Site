@@ -88,7 +88,7 @@ const HelpCenterPage = () => {
 
   const HelpCard = ({ title, children, variant = "default" }: { title?: string; children: React.ReactNode; variant?: "default" | "info" | "warning" | "success" }) => {
     const variants = {
-      default: "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700",
+      default: "bg-white dark:bg-slate-900/50 border-gray-200 dark:border-gray-700",
       info: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800",
       warning: "bg-orange-50 dark:bg-orange-950/30 border-orange-200 dark:border-orange-800",
       success: "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800"
@@ -109,7 +109,7 @@ const HelpCenterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen bg-white dark:bg-slate-950 ">
       {/* Hero Section */}
       <section className="py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto text-center">
@@ -131,7 +131,7 @@ const HelpCenterPage = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="relative max-w-2xl mx-auto">
+          {/* <div className="relative max-w-2xl mx-auto">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <Input
               type="text"
@@ -140,7 +140,7 @@ const HelpCenterPage = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-12 py-4 text-lg border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:border-blue-500 dark:focus:border-blue-400"
             />
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -218,7 +218,7 @@ const HelpCenterPage = () => {
                       </li>
                       <li className="flex items-center gap-2">
                         <Zap className="w-4 h-4" />
-                        <span>4GB RAM</span>
+                        <span>0.5GB RAM</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <Download className="w-4 h-4" />
@@ -239,7 +239,7 @@ const HelpCenterPage = () => {
                       </li>
                       <li className="flex items-center gap-2">
                         <Zap className="w-4 h-4" />
-                        <span>8GB+ RAM</span>
+                        <span>2GB+ RAM</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <Download className="w-4 h-4" />
@@ -358,18 +358,18 @@ const HelpCenterPage = () => {
                   <p className="text-gray-700 dark:text-gray-300">
                     If your bank isn't connecting, try these solutions:
                   </p>
-                  <div className="space-y-3">
-                    <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
+                  <div className="space-y-0">
+                    <div className="px-3  py-2 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">Check your credentials</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Ensure your username and password are correct</p>
+                      <p className="text-black dark:text-orange-300 text-sm">Ensure your username and password are correct</p>
                     </div>
-                    <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
+                    <div className="px-3  py-2 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">Bank maintenance</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Wait a few hours and try again if your bank is performing maintenance</p>
+                      <p className="text-black dark:text-orange-300 text-sm">Wait a few hours and try again if your bank is performing maintenance</p>
                     </div>
-                    <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
+                    <div className="px-3  py-2 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">Two-factor authentication</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Complete any 2FA requirements during the connection process</p>
+                      <p className="text-black dark:text-orange-300 text-sm">Complete any 2FA requirements during the connection process</p>
                     </div>
                   </div>
                 </div>
@@ -384,7 +384,7 @@ const HelpCenterPage = () => {
             >
               <HelpCard title="3D Credit Card Visualization">
                 <div className="flex items-start gap-4">
-                  <Eye className="w-8 h-8 text-purple-600 flex-shrink-0 mt-1" />
+                  <CreditCard className="w-8 h-8 text-purple-600 flex-shrink-0 mt-1" />
                   <div className="space-y-3">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong>See exactly which card made each purchase.</strong> Simplicity automatically generates beautiful 3D visualizations of your actual bank cards based on your connected accounts.
@@ -525,24 +525,24 @@ const HelpCenterPage = () => {
 
               <HelpCard title="What We Can and Cannot Access">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                    <h5 className="font-semibold text-green-800 dark:text-green-200 mb-3 flex items-center gap-2">
+                  <div className="p-4  rounded-lg">
+                    <h5 className="font-semibold text-green-800 dark:text-green-500 mb-3 flex items-center gap-2">
                       <CheckCircle className="w-5 h-5" />
                       What We CAN Access
                     </h5>
-                    <ul className="space-y-2 text-green-700 dark:text-green-300 text-sm">
+                    <ul className="space-y-2 text-black dark:text-white text-sm">
                       <li>• Transaction history and descriptions</li>
                       <li>• Account balances and types</li>
                       <li>• Basic account information</li>
                       <li>• Income and recurring payments</li>
                     </ul>
                   </div>
-                  <div className="p-4 bg-red-50 dark:bg-red-950/30 rounded-lg">
-                    <h5 className="font-semibold text-red-800 dark:text-red-200 mb-3 flex items-center gap-2">
+                  <div className="p-4 rounded-lg">
+                    <h5 className="font-semibold text-red-800 dark:text-red-500 mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-5 h-5" />
                       What We CANNOT Access
                     </h5>
-                    <ul className="space-y-2 text-red-700 dark:text-red-300 text-sm">
+                    <ul className="space-y-2 text-black dark:text-white text-sm">
                       <li>• Your bank login credentials</li>
                       <li>• Ability to move or transfer money</li>
                       <li>• Social Security numbers</li>
@@ -583,18 +583,18 @@ const HelpCenterPage = () => {
                   <p className="text-gray-700 dark:text-gray-300">
                     <strong>Most sync issues resolve automatically within 24 hours.</strong> Here's what to try first:
                   </p>
-                  <div className="space-y-3">
-                    <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
+                  <div className="space-y-0">
+                    <div className="p-2 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">1. Refresh Your Connection</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Go to Settings - Connected Accounts and click "Refresh" next to your bank</p>
+                      <p className="text-black dark:text-white text-sm">Go to Settings - Connected Accounts and click "Refresh" next to your bank</p>
                     </div>
-                    <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
+                    <div className="p-2 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">2. Check Bank Status</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Your bank might be performing maintenance - wait a few hours and try again</p>
+                      <p className="text-black dark:text-white text-sm">Your bank might be performing maintenance - wait a few hours and try again</p>
                     </div>
-                    <div className="p-3 bg-orange-100 dark:bg-orange-950/30 rounded-lg">
+                    <div className="p-2 rounded-lg">
                       <p className="font-medium text-orange-800 dark:text-orange-200 mb-1">3. Verify Credentials</p>
-                      <p className="text-orange-700 dark:text-orange-300 text-sm">Ensure your bank password hasn't changed recently</p>
+                      <p className="text-black dark:text-white text-sm">Ensure your bank password hasn't changed recently</p>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm">
@@ -621,7 +621,7 @@ const HelpCenterPage = () => {
                     <div>
                       <h5 className="font-semibold text-gray-900 dark:text-white mb-2">System Check</h5>
                       <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
-                        <li>• Ensure 8GB+ RAM available</li>
+                        <li>• Ensure 2GB+ RAM available</li>
                         <li>• Check available storage space</li>
                         <li>• Verify stable internet connection</li>
                         <li>• Update Windows if needed</li>
@@ -698,7 +698,7 @@ const HelpCenterPage = () => {
                 </HelpCard>
               </div>
 
-              <HelpCard title="Priority Support" variant="info">
+              <HelpCard title="Priority Support" >
                 <div className="text-center">
                   <Award className="w-12 h-12 text-purple-600 mx-auto mb-4" />
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Premium & Business Users</h3>
@@ -721,7 +721,7 @@ const HelpCenterPage = () => {
               </HelpCard>
 
               <HelpCard>
-                <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg">
+                <div className="text-center p-6 bg-gradient-to-r from-white to-white dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg">
                   <Heart className="w-8 h-8 text-red-500 mx-auto mb-3" />
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     We're Here to Help You Succeed
