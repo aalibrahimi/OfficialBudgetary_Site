@@ -47,6 +47,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import PricingTiers from "@/MyComponents/pricingTiers";
+import ContentSection from "@/MyComponents/graphContent";
 
 const expenseFormSchema = z.object({
   amount: z
@@ -796,9 +797,12 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
           </div>
         </div>
       </section>
+    {/* graphContent Section */}
+          <ContentSection />
 
+          
       {/* Enhanced How It Works */}
-      <section className="py-24 bg-white dark:bg-slate-950">
+      <section className="py-24 bg-gray-50 dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -1002,8 +1006,9 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
         </div>
       </section>
 
+    
       {/* Enhanced Testimonials */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-900/50">
+      <section className="py-24 bg-white dark:bg-gray-900/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -1214,8 +1219,11 @@ export default function BudgetaryLandingPage({}: BudgetaryLandingPageProps) {
         </div> */}
 
         {/* Using component instead ?ali */}
-        <div className="container mx-auto px-4">
+        <div className="bg-gray-50  dark:bg-slate-950">
+
+        <div className="container   mx-auto px-4">
           <PricingTiers />
+        </div>
         </div>
       </section>
 

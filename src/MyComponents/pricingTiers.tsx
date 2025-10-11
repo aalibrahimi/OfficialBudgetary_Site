@@ -144,7 +144,7 @@ const PricingTiers = ({ isTitle = false }: PricingTiersProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen  dark:bg-slate-950">
       {/* hero section */}
       <section className="py-2 sm:py-20  px-1 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
